@@ -72,7 +72,6 @@ class SurveyTables extends Migration
         Schema::create('questions', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('parent_id')->nullable();
             $table->integer('survey_section_id')->unsigned();
             $table->integer('input_type_id')->unsigned();
             $table->string('question_name', 255);
@@ -80,9 +79,7 @@ class SurveyTables extends Migration
             $table->boolean('question_required_yn')->nullable();
             $table->boolean('answer_required_yn')->nullable()->default(1);
             $table->boolean('allow_mutiple_option_answers_yn')->nullable()->default(0);
-            $table->integer('dependent_question_id')->nullable();
-            $table->integer('dependent_question_option_id')->nullable();
-            $table->integer('dependent_answer_id')->nullable();
+
 
             $table->unique('allow_mutiple_option_answers_yn','allow_mutiple_option_answers_yn_unique');
 
