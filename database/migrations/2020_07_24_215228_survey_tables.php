@@ -80,7 +80,7 @@ class SurveyTables extends Migration
             $table->boolean('answer_required_yn')->nullable()->default(1);
             $table->boolean('allow_mutiple_option_answers_yn')->nullable()->default(0);
 
-            
+
             $table->index('input_type_id','fk_questions_question_types1');
             $table->index('survey_section_id','fk_questions_survey_sections1');
 
@@ -97,16 +97,6 @@ class SurveyTables extends Migration
 
 
 
-        Schema::create('unit_of_measures', function(Blueprint $table) {
-
-            $table->increments('id');
-            $table->string('unit_of_measures_name', 160);
-
-            $table->unique('unit_of_measures_name','survey_name_unique');
-
-            $table->timestamps();
-
-        });
 
         Schema::create('option_choices', function(Blueprint $table) {
 
@@ -149,13 +139,10 @@ class SurveyTables extends Migration
             $table->boolean('answer_yn')->nullable();
             $table->integer('unit_of_measure_id')->unsigned()->nullable();
 
-            $table->index('unit_of_measure_id','fk_answers_unit_of_measure1');
             $table->index('question_option_id','fk_answers_question_options1');
 
 
 
-            $table->foreign('unit_of_measure_id')
-                ->references('id')->on('unit_of_measures');
 
             $table->foreign('question_option_id')
                 ->references('id')->on('question_options');
