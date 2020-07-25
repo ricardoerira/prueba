@@ -15,10 +15,19 @@ class UsercCreateTest extends TestCase
      * @return void
      * @test
      */
-    public function user_authenticated_can_view_users()
+    public function an_unauthenticated_user_cannot_see_the_users_view(): void
     {
-        $this->withoutExceptionHandling();
+        $response = $this->get(route('users.index'));
 
+        $response->assertRedirect(route('home'));
+    }
+
+    /**
+     * @return void
+     * @test
+     */
+    public function user_authenticated_can_view_users(): void
+    {
         $user = factory(User::class)->create();
 
         $this->actingAs($user);
