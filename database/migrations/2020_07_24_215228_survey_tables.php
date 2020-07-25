@@ -80,9 +80,7 @@ class SurveyTables extends Migration
             $table->boolean('answer_required_yn')->nullable()->default(1);
             $table->boolean('allow_mutiple_option_answers_yn')->nullable()->default(0);
 
-
-            $table->unique('allow_mutiple_option_answers_yn','allow_mutiple_option_answers_yn_unique');
-
+            
             $table->index('input_type_id','fk_questions_question_types1');
             $table->index('survey_section_id','fk_questions_survey_sections1');
 
