@@ -137,7 +137,6 @@ class SurveyTables extends Migration
             $table->integer('answer_numeric')->nullable();
             $table->string('answer_text', 255)->nullable();
             $table->boolean('answer_yn')->nullable();
-            $table->integer('unit_of_measure_id')->unsigned()->nullable();
 
             $table->index('question_option_id','fk_answers_question_options1');
 
