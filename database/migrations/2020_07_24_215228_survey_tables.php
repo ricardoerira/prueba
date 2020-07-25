@@ -74,7 +74,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('survey_section_id')->unsigned();
             $table->integer('input_type_id')->unsigned();
-            $table->string('question_name', 255);
+            $table->string('question_name', 700);
             $table->string('question_subtext', 500)->nullable();
             $table->boolean('question_required_yn')->nullable();
             $table->boolean('answer_required_yn')->nullable()->default(1);
