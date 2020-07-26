@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use RolesTableSeeder;
 use Tests\TestCase;
 
-class UsercCreateTest extends TestCase
+class UserCreateTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -34,6 +34,21 @@ class UsercCreateTest extends TestCase
         $this->actingAs($user);
 
         $response = $this->get(route('users.index'));
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * @return void
+     * @test
+     */
+    public function user_authenticated_can_view_create_users(): void
+    {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user);
+
+        $response = $this->get(route('users.create'));
 
         $response->assertStatus(200);
     }
