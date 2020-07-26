@@ -47,19 +47,19 @@
                             aria-sort="ascending"
                             aria-label="Motor de renderizado: actívelo para ordenar la columna descendente">
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Motor de renderizado</font>
+                              <font style="vertical-align: inherit;">#</font>
                             </font>
                           </th>
                           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                             aria-label="Navegador: active para ordenar la columna ascendente">
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Navegador</font>
+                              <font style="vertical-align: inherit;">Nombre</font>
                             </font>
                           </th>
                           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                             aria-label="Plataforma (s): activar para ordenar la columna ascendente">
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Plataforma (s)</font>
+                              <font style="vertical-align: inherit;">Correo</font>
                             </font>
                           </th>
                           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
