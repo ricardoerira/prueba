@@ -29,12 +29,26 @@ class UserController extends Controller
         return view('pages.admin.users.create', compact('roles'));
     }
 
+    public function FunctionName(User $user)
+    {
+        return view('pages.admin.users.edit', compact('user'));
+    }
+
     public function save(Request $request)
     {
         $request->password = bcrypt($request->password);
         $request->remember_token = Str::random(10);
 
         if (User::create($request->all())) {
+            return redirect()->route('users.index');
+        }
+
+        return back()->withInput()->with(['error' => 'Algo va mal']);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        if ($user->update($request->all())) {
             return redirect()->route('users.index');
         }
 
