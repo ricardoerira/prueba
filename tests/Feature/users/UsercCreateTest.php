@@ -42,6 +42,17 @@ class UserCreateTest extends TestCase
      * @return void
      * @test
      */
+    public function an_unauthenticated_user_cannot_see_the_users_create_view(): void
+    {
+        $response = $this->get(route('users.create'));
+
+        $response->assertRedirect(route('login'));
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function user_authenticated_can_view_create_users(): void
     {
         $user = factory(User::class)->create();
