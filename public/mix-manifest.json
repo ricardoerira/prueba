@@ -1,4 +1,8 @@
 {
+    "/css/plugins.css": "/css/plugins.css",
     "/css/stylus.css": "/css/stylus.css",
-    "/js/app.js": "/js/app.js"
+    "/js/plugins.js": "/js/plugins.js",
+    "/js/app.js": "/js/app.js",
+    "/css/admin/plugins-datatables.css": "/css/admin/plugins-datatables.css",
+    "/js/admin/plugins-datatables.js": "/js/admin/plugins-datatables.js"
 }
