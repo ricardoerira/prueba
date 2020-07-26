@@ -85,8 +85,9 @@ class SurveyTables extends Migration
             $table->boolean('question_required_yn')->nullable();
             $table->boolean('answer_required_yn')->nullable()->default(1);
             $table->boolean('allow_mutiple_option_answers_yn')->nullable()->default(0);
-
-
+            $table->integer('dependent_question_id')->nullable();
+            $table->integer('dependent_question_option_id')->nullable();
+            $table->integer('dependent_answer_id')->nullable();
             $table->index('input_type_id','fk_questions_question_types1');
             $table->index('survey_section_id','fk_questions_survey_sections1');
 
@@ -140,7 +141,8 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('identification')->unsigned();
             $table->string('answer_text', 255)->nullable();
-            $table->date('date_fill')->nullable();
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('completion_time')->nullable();
 
 
             $table->timestamps();
