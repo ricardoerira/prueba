@@ -19,3 +19,6 @@ Route::get('users/edit/{user:id}', 'Admin\UserController@edit')->name('users.edi
 Route::post('users/create', 'Admin\UserController@save')->name('users.save');
 Route::put('users/update/{user:id}', 'Admin\UserController@update')->name('users.update');
 Route::delete('users/delete/{user:id}', 'Admin\UserController@delete')->name('users.delete');
+
+// Route Headers
+Route::get('headers/index', 'Admin\SurveyHeaderController@index')->name('headers.index');
