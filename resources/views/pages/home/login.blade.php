@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env('APP_NAME', 'Escuentas | Covid') }}</title>
+    <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
 </head>
 
@@ -60,6 +61,7 @@
         </div>
     </div>
     <!-- /.login-box -->
+    <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

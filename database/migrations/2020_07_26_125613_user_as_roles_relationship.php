@@ -15,7 +15,7 @@ class UserAsRolesRelationship extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            $table->unsignedBigInteger('role_id')->after('password');
+            $table->unsignedBigInteger('role_id')->after('password')->default('1');
 
             $table->foreign('role_id')
                 ->references('id')

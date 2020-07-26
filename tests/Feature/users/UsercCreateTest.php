@@ -5,6 +5,7 @@ namespace Tests\Feature\users;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use RolesTableSeeder;
 use Tests\TestCase;
 
 class UsercCreateTest extends TestCase
@@ -19,7 +20,7 @@ class UsercCreateTest extends TestCase
     {
         $response = $this->get(route('users.index'));
 
-        $response->assertRedirect(route('home'));
+        $response->assertRedirect(route('login'));
     }
 
     /**

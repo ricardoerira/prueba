@@ -16,7 +16,7 @@ class UserLoginTest extends TestCase
      */
     public function user_can_view_login()
     {
-        $response = $this->get(route('home'));
+        $response = $this->get(route('login'));
 
         $response->assertStatus(200);
     }
