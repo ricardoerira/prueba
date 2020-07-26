@@ -14,3 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Home\HomeController@index')->name('home');
+
+Route::post('/authenticate', 'Auth\LoginController@authenticate')->name('authenticate');
+
+
+
+
+
