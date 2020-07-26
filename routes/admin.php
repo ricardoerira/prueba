@@ -14,3 +14,5 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 // Route Users
 Route::get('users/index', 'Admin\UserController@index')->name('users.index');
 Route::get('users/create', 'Admin\UserController@create')->name('users.create');
+
+Route::post('users/create', 'Admin\UserController@save')->name('users.save');

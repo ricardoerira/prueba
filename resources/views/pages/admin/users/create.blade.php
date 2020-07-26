@@ -30,7 +30,8 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form">
+            <form action="{{ route('users.save') }}" method="POST" role="form">
+              @csrf
               <div class="card-body">
                 <div class="row">
                   <div class="form-group col-6">
@@ -48,7 +49,7 @@
                         <font style="vertical-align: inherit;">Correo</font>
                       </font>
                     </label>
-                    <input type="email" name="name" class="form-control" id="email" placeholder="Ingrese Correo">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Ingrese Correo">
                   </div>
 
                 </div>
@@ -70,7 +71,7 @@
                         <font style="vertical-align: inherit;">Mínimo</font>
                       </font>
                     </label>
-                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <select name="role_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                       <option value="0">Seleccione...</option>
                       @foreach ($roles as $role)
                           <option value="{{ $role->id }}">{{ $role->name }}</option>

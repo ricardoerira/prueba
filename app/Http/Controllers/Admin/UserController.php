@@ -7,6 +7,8 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
+
 class UserController extends Controller
 {
     public function __construct() {
@@ -25,6 +27,18 @@ class UserController extends Controller
         $roles = Role::all();
 
         return view('pages.admin.users.create', compact('roles'));
+    }
+
+    public function save(Request $request)
+    {
+        $request->password = bcrypt($request->password);
+        $request->remember_token = Str::random(10);
+
+        if (User::create($request->all())) {
+            return redirect()->route('users.index');
+        }
+
+        return back()->withInput()->with(['error' => 'Algo va mal']);
     }
 
 }
