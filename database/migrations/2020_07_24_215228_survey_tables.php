@@ -60,10 +60,10 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->integer('survey_header_id')->unsigned()->nullable();
-            $table->integer('survey_section_id')->unsigned()->nullable();;
+            $table->integer('survey_section_id')->unsigned()->nullable();
 
-            $table->index('survey_header_id','fk_survey_sections_surveys1');
-            $table->index('survey_section_id','fk_questions_survey_sections1');
+            $table->index('survey_header_id','fk_survey_sections_surveys');
+            $table->index('survey_section_id','fk_questions_survey_sections');
 
             $table->foreign('survey_header_id')
                 ->references('id')->on('survey_headers');
