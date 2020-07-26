@@ -15,9 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Home\HomeController@index')->name('home');
 
-Route::post('/authenticate', 'Auth\LoginController@authenticate')->name('authenticate');
-
-
-
-
-
+Route::get('/login', 'Auth\LoginController@index')->name('login');
+Route::post('/login', 'Auth\LoginController@authenticate')->name('authenticate');

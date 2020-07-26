@@ -12,7 +12,12 @@ class LoginController extends Controller
         //
     }
 
-        /**
+    public function index()
+    {
+        return view('pages.home.login');
+    }
+
+    /**
      * Handle an authentication attempt.
      *
      * @param  \Illuminate\Http\Request $request
