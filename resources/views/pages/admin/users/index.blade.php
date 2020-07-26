@@ -23,7 +23,7 @@
           <div class="card">
             <div class="card-header d-flex justify-content-between">
               <h3>Datos de usuariós</h3>
-              <a href="#" class="btn btn-primary">Crear Usuario</a>
+              <a href="{{ route('users.create') }}" class="btn btn-primary">Crear Usuario</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

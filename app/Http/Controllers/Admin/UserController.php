@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,13 @@ class UserController extends Controller
         $users = User::all();
 
         return view('pages.admin.users.index', compact('users'));
+    }
+
+    public function create()
+    {
+        $roles = Role::all();
+
+        return view('pages.admin.users.create', compact('roles'));
     }
 
 }
