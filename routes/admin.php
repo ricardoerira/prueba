@@ -16,3 +16,4 @@ Route::get('users/index', 'Admin\UserController@index')->name('users.index');
 Route::get('users/create', 'Admin\UserController@create')->name('users.create');
 
 Route::post('users/create', 'Admin\UserController@save')->name('users.save');
+Route::delete('users/delete/{user:id}', 'Admin\UserController@delete')->name('users.delete');

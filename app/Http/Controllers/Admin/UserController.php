@@ -41,4 +41,13 @@ class UserController extends Controller
         return back()->withInput()->with(['error' => 'Algo va mal']);
     }
 
+    public function delete(User $user)
+    {
+        if ($user->delete()) {
+            return redirect()->route('users.index');
+        }
+
+        return back()->withInput()->with(['error' => 'Algo va mal']);
+    }
+
 }
