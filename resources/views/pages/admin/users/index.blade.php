@@ -96,7 +96,7 @@
                           </td>
                           <td>
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">{{$user->role_id}}</font>
+                              <font style="vertical-align: inherit;">{{$user->role->name}}</font>
                             </font>
                           </td>
                           <td>
