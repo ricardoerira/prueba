@@ -1,7 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('plugins-css')
-    <link rel="stylesheet" href="{{ asset('css/admin/plugins-datatables.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/plugins-datatables.css') }}">
 @endsection
 
 @section('content')
@@ -25,7 +25,7 @@
               <h3>Datos de usuariós</h3>
               <a href="#" class="btn btn-primary">Crear Usuario</a>
             </div>
-            <!-- /.card-header -->  
+            <!-- /.card-header -->
             <div class="card-body">
               <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
@@ -44,8 +44,7 @@
                       <thead>
                         <tr role="row">
                           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                            aria-sort="ascending"
-                            aria-label="Motor de renderizado: actívelo para ordenar la columna descendente">
+                            aria-sort="ascending">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">#</font>
                             </font>
@@ -56,55 +55,55 @@
                               <font style="vertical-align: inherit;">Nombre</font>
                             </font>
                           </th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                            aria-label="Plataforma (s): activar para ordenar la columna ascendente">
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Correo</font>
                             </font>
                           </th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                            aria-label="Versión del motor: activar para ordenar la columna ascendente">
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Versión del motor</font>
+                              <font style="vertical-align: inherit;">Rol</font>
                             </font>
                           </th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                            aria-label="Grado CSS: activar para ordenar la columna ascendente">
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Grado CSS</font>
+                              <font style="vertical-align: inherit;">Acciones</font>
                             </font>
                           </th>
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach ($users as $user)
                         <tr role="row" class="odd">
                           <td tabindex="0" class="sorting_1">
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Geco</font>
+                              <font style="vertical-align: inherit;">
+                                {{ $user->id }}
+                              </font>
                             </font>
                           </td>
                           <td>
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Firefox 1.0</font>
+                              <font style="vertical-align: inherit;">
+                                {{$user->name}}
+                              </font>
                             </font>
                           </td>
                           <td>
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Gana 98+ / OSX.2 +</font>
+                              <font style="vertical-align: inherit;">{{$user->email}}</font>
                             </font>
                           </td>
                           <td>
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">1.7</font>
+                              <font style="vertical-align: inherit;">{{$user->role_id}}</font>
                             </font>
                           </td>
                           <td>
-                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">UNA</font>
-                            </font>
                           </td>
                         </tr>
-                      </tfoot>
+                        @endforeach
+                        </tfoot>
                     </table>
                   </div>
                 </div>
@@ -133,7 +132,7 @@
 @endsection
 
 @section('plugins-js')
-  <script src="{{ asset('js/admin/plugins-datatables.js') }}"></script>
+<script src="{{ asset('js/admin/plugins-datatables.js') }}"></script>
 @endsection
 
 @section('own-js')
