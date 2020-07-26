@@ -31,4 +31,10 @@ class LoginController extends Controller
         return back()->withInput()->with(['error_login' => 'Correo y/o Contraseña incorrecta']);
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
 }
