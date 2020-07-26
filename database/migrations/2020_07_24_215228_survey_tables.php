@@ -11,7 +11,9 @@ class SurveyTables extends Migration
         Schema::create('organizations', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('organization_name', 160)->unique();
+            $table->string('organization_name', 160);
+
+            $table->unique('organization_name','survey_name_unique');
 
             $table->timestamps();
 
@@ -21,9 +23,11 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->integer('organization_id')->unsigned();
-            $table->string('survey_name', 160)->nullable()->unique();
+            $table->string('survey_name', 160)->nullable();
             $table->string('instructions', 4096)->nullable();
             $table->string('other_header_info', 255)->nullable();
+
+            $table->unique('survey_name','survey_name_unique');
 
             $table->index('organization_id','fk_surveys_organizations1');
 
@@ -37,7 +41,9 @@ class SurveyTables extends Migration
         Schema::create('input_types', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('input_type_name', 160)->unique();
+            $table->string('input_type_name', 160);
+
+            $table->unique('input_type_name','survey_name_unique');
 
             $table->timestamps();
 
@@ -47,10 +53,12 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->integer('survey_header_id')->unsigned()->nullable();
-            $table->string('section_name', 160)->nullable()->unique();
+            $table->string('section_name', 160)->nullable();
             $table->string('section_title', 45)->nullable();
             $table->string('section_subheading', 45)->nullable();
             $table->boolean('section_required_yn')->default(1);
+
+            $table->unique('section_name','survey_name_unique');
 
             $table->index('survey_header_id','fk_survey_sections_surveys1');
 
@@ -125,18 +133,9 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->integer('identification')->unsigned();
-            $table->integer('question_option_id')->unsigned();
-            $table->integer('answer_numeric')->nullable();
             $table->string('answer_text', 255)->nullable();
-            $table->boolean('answer_yn')->nullable();
+            $table->date('date_fill')->nullable();
 
-            $table->index('question_option_id','fk_answers_question_options1');
-
-
-
-
-            $table->foreign('question_option_id')
-                ->references('id')->on('question_options');
 
             $table->timestamps();
 
