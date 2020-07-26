@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Browser\Users;
+namespace Tests\Browser\Test\Users;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
@@ -17,7 +17,7 @@ class LoginTest extends DuskTestCase
     public function user_can_view_login()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit(route('home'))
+            $browser->visit(route('login'))
                 ->assertSee('EncuestasCovid')
                 ->assertSee('Inicia sesión para comenzar tu sesión')
                 ;
