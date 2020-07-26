@@ -4,5 +4,7 @@
     "/js/plugins.js": "/js/plugins.js",
     "/js/app.js": "/js/app.js",
     "/css/admin/plugins-datatables.css": "/css/admin/plugins-datatables.css",
-    "/js/admin/plugins-datatables.js": "/js/admin/plugins-datatables.js"
+    "/js/admin/plugins-datatables.js": "/js/admin/plugins-datatables.js",
+    "/css/plugins-forms.css": "/css/plugins-forms.css",
+    "/js/plugins-forms.js": "/js/plugins-forms.js"
 }
