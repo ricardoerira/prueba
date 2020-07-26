@@ -46,20 +46,34 @@ class SurveyTables extends Migration
         Schema::create('survey_sections', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('survey_header_id')->unsigned()->nullable();
             $table->string('section_name', 160)->nullable()->unique();
             $table->string('section_title', 45)->nullable();
             $table->string('section_subheading', 45)->nullable();
             $table->boolean('section_required_yn')->default(1);
 
-            $table->index('survey_header_id','fk_survey_sections_surveys1');
-
-            $table->foreign('survey_header_id')
-                ->references('id')->on('survey_headers');
 
             $table->timestamps();
 
         });
+
+        Schema::create('survey_sections_headers', function(Blueprint $table) {
+
+            $table->increments('id');
+            $table->integer('survey_header_id')->unsigned()->nullable();
+            $table->integer('survey_section_id')->unsigned()->nullable();;
+
+            $table->index('survey_header_id','fk_survey_sections_surveys1');
+            $table->index('survey_section_id','fk_questions_survey_sections1');
+
+            $table->foreign('survey_header_id')
+                ->references('id')->on('survey_headers');
+
+            $table->foreign('survey_section_id')
+                ->references('id')->on('survey_sections');
+            $table->timestamps();
+
+        });
+
 
         Schema::create('questions', function(Blueprint $table) {
 
@@ -182,12 +196,9 @@ class SurveyTables extends Migration
      */
     public function down()
     {
-        Schema::drop('user_survey_sections');
-        Schema::drop('survey_comments');
         Schema::drop('answers');
         Schema::drop('question_options');
         Schema::drop('option_choices');
-        Schema::drop('unit_of_measures');
         Schema::drop('questions');
         Schema::drop('survey_sections');
         Schema::drop('input_types');
