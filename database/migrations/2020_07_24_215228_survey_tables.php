@@ -17,11 +17,12 @@ class SurveyTables extends Migration
 
         });
 
-        Schema::create('survey_headers', function(Blueprint $table) {
+        Schema::create('headers', function(Blueprint $table) {
 
             $table->increments('id');
             $table->integer('organization_id')->unsigned();
             $table->string('survey_name', 160)->nullable()->unique();
+            $table->string('slug')->unique();
             $table->string('instructions', 4096)->nullable();
             $table->string('other_header_info', 255)->nullable();
 
@@ -43,7 +44,7 @@ class SurveyTables extends Migration
 
         });
 
-        Schema::create('survey_sections', function(Blueprint $table) {
+        Schema::create('sections', function(Blueprint $table) {
 
             $table->increments('id');
             $table->string('section_name', 160)->nullable()->unique();
@@ -56,20 +57,20 @@ class SurveyTables extends Migration
 
         });
 
-        Schema::create('survey_sections_headers', function(Blueprint $table) {
+        Schema::create('sections_headers', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('survey_header_id')->unsigned()->nullable();
-            $table->integer('survey_section_id')->unsigned()->nullable();
+            $table->integer('header_id')->unsigned()->nullable();
+            $table->integer('section_id')->unsigned()->nullable();
 
-            $table->index('survey_header_id','fk_survey_sections_surveys');
-            $table->index('survey_section_id','fk_questions_survey_sections');
+            $table->index('header_id','fk_survey_sections_surveys');
+            $table->index('section_id','fk_questions_survey_sections');
 
-            $table->foreign('survey_header_id')
-                ->references('id')->on('survey_headers');
+            $table->foreign('header_id')
+                ->references('id')->on('headers');
 
-            $table->foreign('survey_section_id')
-                ->references('id')->on('survey_sections');
+            $table->foreign('section_id')
+                ->references('id')->on('sections');
             $table->timestamps();
 
         });
@@ -78,7 +79,7 @@ class SurveyTables extends Migration
         Schema::create('questions', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('survey_section_id')->unsigned();
+            $table->integer('section_id')->unsigned();
             $table->integer('input_type_id')->unsigned();
             $table->string('question_name', 700);
             $table->string('question_subtext', 500)->nullable();
@@ -88,14 +89,15 @@ class SurveyTables extends Migration
             $table->integer('dependent_question_id')->nullable();
             $table->integer('dependent_question_option_id')->nullable();
             $table->integer('dependent_answer_id')->nullable();
+
             $table->index('input_type_id','fk_questions_question_types1');
-            $table->index('survey_section_id','fk_questions_survey_sections1');
+            $table->index('section_id','fk_questions_survey_sections1');
 
             $table->foreign('input_type_id')
                 ->references('id')->on('input_types');
 
-            $table->foreign('survey_section_id')
-                ->references('id')->on('survey_sections');
+            $table->foreign('section_id')
+                ->references('id')->on('sections');
 
 
             $table->timestamps();
@@ -149,7 +151,7 @@ class SurveyTables extends Migration
 
         });
 
-        Schema::create('survey_comments', function(Blueprint $table) {
+        Schema::create('header_comments', function(Blueprint $table) {
 
             $table->integer('id');
             $table->integer('survey_header_id')->unsigned();
@@ -162,30 +164,27 @@ class SurveyTables extends Migration
 
 
             $table->foreign('survey_header_id')
-                ->references('id')->on('survey_headers');
+                ->references('id')->on('headers');
 
             $table->timestamps();
 
         });
 
-        Schema::create('user_survey_sections', function(Blueprint $table) {
+        Schema::create('users_sections', function(Blueprint $table) {
 
             $table->integer('id');
             $table->integer('identification_number')->unsigned();
-            $table->integer('survey_section_id')->unsigned();
+            $table->integer('section_id')->unsigned();
             $table->dateTime('completed_on')->nullable();
 
             $table->primary('id');
 
-            $table->index('survey_section_id','fk_user_survey_sections_survey_sections1');
+            $table->index('section_id','fk_user_survey_sections_survey_sections1');
 
-            $table->foreign('survey_section_id')
-                ->references('id')->on('survey_sections');
-
-
+            $table->foreign('section_id')
+                ->references('id')->on('sections');
 
             $table->timestamps();
-
         });
 
 
@@ -202,9 +201,9 @@ class SurveyTables extends Migration
         Schema::drop('question_options');
         Schema::drop('option_choices');
         Schema::drop('questions');
-        Schema::drop('survey_sections');
+        Schema::drop('sections');
         Schema::drop('input_types');
-        Schema::drop('survey_headers');
+        Schema::drop('headers');
         Schema::drop('organizations');
 
     }
