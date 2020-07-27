@@ -33,7 +33,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ asset('admin.home') }}" class="nav-link">
+                    <a href="{{ route('admin.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             <font style="vertical-align: inherit;">
