@@ -12,7 +12,7 @@
   @yield('own-styles')
 </head>
 
-<body class="login-page" style="min-height: 512.391px;">
+<body style="min-height: 512.391px;" id="body">
 
     @yield('content')
 

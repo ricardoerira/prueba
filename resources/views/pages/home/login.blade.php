@@ -50,3 +50,12 @@
     </div>
 </div>
 @endsection
+
+@section('own-js')
+<script>
+    $(function(){
+        const $body = $('#body');
+        $body.addClass('login-page');
+    });
+</script>
+@endsection

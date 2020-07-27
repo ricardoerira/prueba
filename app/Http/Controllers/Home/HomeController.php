@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\SurveyHeader;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,6 +18,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home.home');
+        $headers = SurveyHeader::all();
+
+        return view('pages.home.home', compact('headers'));
     }
 }
