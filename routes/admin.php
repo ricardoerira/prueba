@@ -21,4 +21,4 @@ Route::put('users/update/{user:id}', 'Admin\UserController@update')->name('users
 Route::delete('users/delete/{user:id}', 'Admin\UserController@delete')->name('users.delete');
 
 // Route Headers
-Route::get('headers/index', 'Admin\SurveyHeaderController@index')->name('headers.index');
+Route::get('headers/index', 'Admin\HeaderController@index')->name('headers.index');
