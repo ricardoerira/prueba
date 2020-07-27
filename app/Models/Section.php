@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SurveySections extends Model
+class Section extends Model
 {
     protected $fillable = [
-        'survey_header_id',
+        'header_id',
         'section_name',
         'section_title',
         'section_subheading',

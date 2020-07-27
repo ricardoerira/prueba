@@ -2,11 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\SurveyHeader;
-use App\Models\SurveySections;
+use App\Models\Section;
 use Faker\Generator as Faker;
 
-$factory->define(SurveySections::class, function (Faker $faker) {
+$factory->define(Section::class, function (Faker $faker) {
     return [
         'section_name'          => $faker->unique()->sentence(),
         'section_title'         => $faker->sentence(2),

@@ -4,12 +4,12 @@
 
 use App\Models\Questions;
 use App\Models\InputTypes;
-use App\Models\SurveySections;
+use App\Models\Section;
 use Faker\Generator as Faker;
 
 $factory->define(Questions::class, function (Faker $faker) {
     return [
-        'survey_section_id'                 => factory(SurveySections::class),
+        'section_id'                        => factory(Section::class),
         'input_type_id'                     => factory(InputTypes::class),
         'question_name'                     => $faker->sentence(),
         'question_subtext'                  => $faker->sentence(),

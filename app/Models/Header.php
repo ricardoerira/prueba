@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SurveyHeader extends Model
+class Header extends Model
 {
     protected $fillable = [
         "organization_id",

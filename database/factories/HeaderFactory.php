@@ -2,12 +2,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Models\Header;
 use App\Models\Organization;
-use App\Models\SurveyHeader;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
-$factory->define(SurveyHeader::class, function (Faker $faker) {
+$factory->define(Header::class, function (Faker $faker) {
 
     $name = $faker->unique()->sentence();
 

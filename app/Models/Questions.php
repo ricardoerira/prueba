@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Questions extends Model
 {
     protected $fillable = [
-        'survey_section_id',
+        'section_id',
         'input_type_id',
         'question_name',
         'question_subtext',
