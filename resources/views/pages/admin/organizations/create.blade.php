@@ -40,7 +40,7 @@
                                                 <font style="vertical-align: inherit;">Nombre</font>
                                             </font>
                                         </label>
-                                        <input type="name" name="organization_name" class="form-control" id="name"
+                                        <input type="name" name="name" class="form-control" id="name"
                                             placeholder="Ingrese Nombre">
                                     </div>
                                 </div>

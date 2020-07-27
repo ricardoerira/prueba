@@ -74,7 +74,7 @@
                           <td>
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">
-                                {{$organization->organization_name}} - {{$organization->slug}}
+                                {{$organization->name}} - {{$organization->slug}}
                               </font>
                             </font>
                           </td>

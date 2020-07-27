@@ -27,7 +27,7 @@ class OrganizationController extends Controller
 
     public function save(Request $request)
     {
-        $request['slug'] = Str::slug($request->organization_name);
+        $request['slug'] = Str::slug($request->name);
 
         if (Organization::create($request->all())) {
             return redirect()->route('organizations.index');
@@ -41,7 +41,7 @@ class OrganizationController extends Controller
 
     public function update(Request $request, Organization $organization)
     {
-        $request['slug'] = Str::slug($request->organization_name);
+        $request['slug'] = Str::slug($request->name);
 
         if ($organization->update($request->all())) {
             return redirect()->route('organizations.index');

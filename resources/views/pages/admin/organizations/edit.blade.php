@@ -41,7 +41,7 @@
                                                 <font style="vertical-align: inherit;">Nombre</font>
                                             </font>
                                         </label>
-                                        <input type="name" name="organization_name" class="form-control" id="name" placeholder="Ingrese Nombre" value="{{ $organization->organization_name }}">
+                                        <input type="name" name="name" class="form-control" id="name" placeholder="Ingrese Nombre" value="{{ $organization->name }}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
