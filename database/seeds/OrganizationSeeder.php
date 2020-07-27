@@ -2,6 +2,7 @@
 
 use App\Models\Organization;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class OrganizationSeeder extends Seeder
 {
@@ -12,8 +13,11 @@ class OrganizationSeeder extends Seeder
      */
     public function run()
     {
+        $name = "IDPAC";
+
         Organization::create([
-            "organization_name" => "IDPAC"
+            "organization_name" => "IDPAC",
+            "slug"              => Str::slug($name)
         ]);
     }
 }

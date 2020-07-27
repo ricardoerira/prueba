@@ -12,6 +12,7 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->string('organization_name', 160)->unique();
+            $table->string('slug', 160)->unique();
 
             $table->timestamps();
 

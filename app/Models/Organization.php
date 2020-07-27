@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Organization extends Model
 {
     protected $fillable = [
-        'organization_name'
+        'organization_name', 'slug'
     ];
 
     public function headers()
