@@ -2,6 +2,7 @@
 
 use App\Models\InputTypes;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class InputTypesSeeder extends Seeder
 {
@@ -13,91 +14,114 @@ class InputTypesSeeder extends Seeder
     public function run()
     {
         InputTypes::create([
-            'name' => 'email'
+            'name' => 'email',
+            'slug' => Str::slug('email')
         ]);
 
         InputTypes::create([
-            'name' => 'search'
+            'name' => 'search',
+            'slug' => Str::slug('search')
         ]);
 
         InputTypes::create([
-            'name' => 'tel'
+            'name' => 'tel',
+            'slug' => Str::slug('tel')
+
         ]);
 
         InputTypes::create([
-            'name' => 'url'
+            'name' => 'url',
+            'slug' => Str::slug('url')
         ]);
 
         InputTypes::create([
-            'name' => 'number'
+            'name' => 'number',
+            'slug' => Str::slug('number')
         ]);
 
         InputTypes::create([
-            'name' => 'datetime-local'
+            'name' => 'datetime-local',
+            'slug' => Str::slug('datetime-local')
         ]);
 
         InputTypes::create([
-            'name' => 'month'
+            'name' => 'month',
+            'slug' => Str::slug('month')
         ]);
 
         InputTypes::create([
-            'name' => 'time'
+            'name' => 'time',
+            'slug' => Str::slug('time')
         ]);
 
         InputTypes::create([
-            'name' => 'week'
+            'name' => 'week',
+            'slug' => Str::slug('week')
         ]);
 
         InputTypes::create([
-            'name' => 'date'
+            'name' => 'date',
+            'slug' => Str::slug('date')
         ]);
 
         InputTypes::create([
-            'name' => 'color'
+            'name' => 'color',
+            'slug' => Str::slug('color')
         ]);
 
         InputTypes::create([
-            'name' => 'text'
+            'name' => 'text',
+            'slug' => Str::slug('text')
         ]);
 
         InputTypes::create([
-            'name' => 'button'
+            'name' => 'button',
+            'slug' => Str::slug('button')
         ]);
 
         InputTypes::create([
-            'name' => 'hidden'
+            'name' => 'hidden',
+            'slug' => Str::slug('hidden')
         ]);
 
         InputTypes::create([
-            'name' => 'password'
+            'name' => 'password',
+            'slug' => Str::slug('password')
         ]);
 
         InputTypes::create([
-            'name' => 'checkbox'
+            'name' => 'checkbox',
+            'slug' => Str::slug('checkbox')
         ]);
 
         InputTypes::create([
-            'name' => 'checkbox'
+            'name' => 'checkbox',
+            'slug' => Str::slug('checkbox')
         ]);
 
         InputTypes::create([
-            'name' => 'radio'
+            'name' => 'radio',
+            'slug' => Str::slug('radio')
         ]);
 
         InputTypes::create([
-            'name' => 'range'
+            'name' => 'range',
+            'slug' => Str::slug('range')
         ]);
 
         InputTypes::create([
-            'name' => 'file'
+            'name' => 'file',
+            'slug' => Str::slug('file')
         ]);
 
         InputTypes::create([
-            'name' => 'submit'
+            'name' => 'submit',
+            'slug' => Str::slug('submit')
         ]);
 
         InputTypes::create([
-            'name' => 'reset'
+            'name' => 'reset',
+            'slug' => Str::slug('reset')
         ]);
 
     }

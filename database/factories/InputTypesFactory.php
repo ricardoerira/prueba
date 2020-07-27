@@ -4,9 +4,14 @@
 
 use App\Models\InputTypes;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 $factory->define(InputTypes::class, function (Faker $faker) {
+
+    $name = $faker->unique()->word();
+
     return [
-        "input_type_name" => $faker->unique()->word(),
+        "name" => $name,
+        "slug" => Str::slug($name),
     ];
 });

@@ -11,7 +11,7 @@ $factory->define(Organization::class, function (Faker $faker) {
     $name = $faker->unique()->word();
 
     return [
-        'organization_name' => $name,
+        'name' => $name,
         'slug' => Str::slug($name),
     ];
 });

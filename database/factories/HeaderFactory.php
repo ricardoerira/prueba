@@ -13,7 +13,7 @@ $factory->define(Header::class, function (Faker $faker) {
 
     return [
         "organization_id"       => factory(Organization::class),
-        "survey_name"           => $name,
+        "name"           => $name,
         "slug"                  =>  Str::slug($name),
         "instructions"          => $faker->sentence(),
         "other_header_info"     => $faker->sentence()

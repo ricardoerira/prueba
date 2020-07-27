@@ -11,9 +11,9 @@ $factory->define(Questions::class, function (Faker $faker) {
     return [
         'section_id'                        => factory(Section::class),
         'input_type_id'                     => factory(InputTypes::class),
-        'question_name'                     => $faker->sentence(),
-        'question_subtext'                  => $faker->sentence(),
-        'question_required_yn'              => $faker->numberBetween(0,1),
+        'name'                              => $faker->sentence(),
+        'subtext'                           => $faker->sentence(),
+        'required_yn'              => $faker->numberBetween(0,1),
         'answer_required_yn'                => $faker->numberBetween(0,1),
         'allow_mutiple_option_answers_yn'   => $faker->numberBetween(0,1),
     ];

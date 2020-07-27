@@ -16,7 +16,7 @@ class OrganizationSeeder extends Seeder
         $name = "IDPAC";
 
         Organization::create([
-            "organization_name" => "IDPAC",
+            "name" => "IDPAC",
             "slug"              => Str::slug($name)
         ]);
     }
