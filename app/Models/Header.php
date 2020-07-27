@@ -13,4 +13,10 @@ class Header extends Model
         "instructions",
         "other_header_info"
     ];
+
+    public function organization()
+    {
+        return $this->belongsTo('App\Models\organization');
+    }
+
 }

@@ -10,4 +10,8 @@ class Organization extends Model
         'organization_name'
     ];
 
+    public function headers()
+    {
+        return $this->hasMany('App\Models\header');
+    }
 }
