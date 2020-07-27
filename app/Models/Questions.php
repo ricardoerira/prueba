@@ -15,4 +15,9 @@ class Questions extends Model
         'answer_required_yn',
         'allow_mutiple_option_answers_yn'
     ];
+
+    public function inputType()
+    {
+        return $this->belongsTo(InputTypes::class);
+    }
 }

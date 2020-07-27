@@ -9,4 +9,10 @@ class InputTypes extends Model
     protected $fillable = [
         'input_type_name',
     ];
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
 }
