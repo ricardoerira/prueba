@@ -9,6 +9,7 @@ class SurveyHeader extends Model
     protected $fillable = [
         "organization_id",
         "survey_name",
+        "slug",
         "instructions",
         "other_header_info"
     ];

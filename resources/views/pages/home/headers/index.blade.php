@@ -31,12 +31,18 @@
             <h2>Encuestas</h2>
         </div>
         <div class="card-body">
-            @foreach ($headers as $key => $header)
                 <span>
-                    <a href="{{ route('headers.info', $header->slug) }}">{{ ++$key }} - {{ $header->survey_name }}</a>
+                    <a href="{{ route('headers.info', 1) }}">
+                        {{ $header->survey_name }}</a>
                     <br>
+                    <p>
+                        {{ $header->instructions }}
+                    </p>
+                    <br>
+                    <p>
+                        {{ $header->other_header_info }}
+                    </p>
                 </span>
-            @endforeach
         </div>
     </div>
 </div>

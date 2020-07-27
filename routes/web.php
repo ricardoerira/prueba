@@ -15,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Home\HomeController@index')->name('home');
 
+//Route Login
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::post('/login', 'Auth\LoginController@authenticate')->name('authenticate');
+
+
+// Route Headers
+Route::get('headers/{surveyheader:slug}/info', 'Home\HeaderController@index')->name('headers.info');
