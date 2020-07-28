@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('organizations.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
@@ -70,7 +70,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('inputs.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-keyboard"></i>
                         <p>
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
