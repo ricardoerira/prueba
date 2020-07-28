@@ -33,7 +33,7 @@
         <div class="card-body">
             @foreach ($headers as $key => $header)
                 <span>
-                    <a href="{{ route('headers.info', $header->slug) }}">{{ ++$key }} - {{ $header->survey_name }}</a>
+                    <a href="{{ route('headers.info', $header->slug) }}">{{ ++$key }} - {{ $header->name }}</a>
                     <br>
                 </span>
             @endforeach

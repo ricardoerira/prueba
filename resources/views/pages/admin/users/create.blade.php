@@ -68,7 +68,7 @@
                   <div class="form-group col-6">
                     <label>
                       <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Mínimo</font>
+                        <font style="vertical-align: inherit;">Rol</font>
                       </font>
                     </label>
                     <select name="role_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">

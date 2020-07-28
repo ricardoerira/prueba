@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Header extends Model
 {
     protected $fillable = [
-        "organization_id",
-        "survey_name",
+        "name",
         "slug",
         "instructions",
-        "other_header_info"
+        "other_header_info",
+        "organization_id"
     ];
 
     public function organization()

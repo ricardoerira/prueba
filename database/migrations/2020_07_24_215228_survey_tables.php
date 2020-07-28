@@ -50,6 +50,7 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->string('name', 160)->nullable()->unique();
+            $table->string('slug', 160)->nullable()->unique();
             $table->string('title', 45)->nullable();
             $table->string('subheading', 45)->nullable();
             $table->boolean('required_yn')->default(1);
@@ -73,6 +74,7 @@ class SurveyTables extends Migration
 
             $table->foreign('section_id')
                 ->references('id')->on('sections');
+
             $table->timestamps();
 
         });
@@ -81,6 +83,7 @@ class SurveyTables extends Migration
         Schema::create('questions', function(Blueprint $table) {
 
             $table->increments('id');
+
             $table->integer('section_id')->unsigned();
             $table->integer('input_type_id')->unsigned();
             $table->string('name', 700);

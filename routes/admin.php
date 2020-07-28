@@ -40,4 +40,13 @@ Route::put('inputs/{inputTypes:slug}/edit', 'Admin\InputTypesController@update')
 Route::delete('inputs/{inputTypes:id}/delete', 'Admin\InputTypesController@delete')->name('inputs.delete');
 
 // Route Headers
+Route::get('survey/index', 'Admin\SurveyController@index')->name('survey.index');
+Route::get('survey/create', 'Admin\SurveyController@create')->name('survey.create');
+Route::get('survey/{header:slug}/edit', 'Admin\SurveyController@edit')->name('survey.edit');
+
+Route::post('survey/create', 'Admin\SurveyController@save')->name('survey.create');
+Route::put('survey/{header:slug}/edit', 'Admin\SurveyController@update')->name('survey.edit');
+Route::delete('survey/{header:slug}/delete', 'Admin\SurveyController@delete')->name('survey.delete');
+
+// Route Headers
 Route::get('headers/index', 'Admin\HeaderController@index')->name('headers.index');
