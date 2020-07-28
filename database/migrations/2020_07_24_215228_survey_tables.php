@@ -103,11 +103,11 @@ class SurveyTables extends Migration
         });
 
 
-        Schema::create('sections_questions', function(Blueprint $table) {
+        Schema::create('question_section', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('section_id')->unsigned()->nullable();
-            $table->integer('question_id')->unsigned()->nullable();
+            $table->integer('section_id')->unsigned();
+            $table->integer('question_id')->unsigned();
 
             $table->index('section_id','fk_sections_questions_sections');
             $table->index('question_id','fk_sections_questions_questions1');
@@ -130,7 +130,7 @@ class SurveyTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('questions_choices', function(Blueprint $table) {
+        Schema::create('choice_question', function(Blueprint $table) {
 
             $table->increments('id');
             $table->integer('question_id')->unsigned();
@@ -176,7 +176,7 @@ class SurveyTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('users_sections', function(Blueprint $table) {
+        Schema::create('section_user', function(Blueprint $table) {
             $table->integer('id');
             $table->integer('identification_number')->unsigned();
             $table->integer('section_id')->unsigned();
@@ -200,15 +200,18 @@ class SurveyTables extends Migration
      */
     public function down()
     {
-        Schema::drop('answers');
-        Schema::drop('question_options');
-        Schema::drop('choices');
-        Schema::drop('questions');
-        Schema::drop('sections');
-        Schema::drop('input_types');
-        Schema::drop('headers');
         Schema::drop('organizations');
-
+        Schema::drop('headers');
+        Schema::drop('input_types');
+        Schema::drop('surveys');
+        Schema::drop('sections');
+        Schema::drop('questions');
+        Schema::drop('question_section');
+        Schema::drop('choices');
+        Schema::drop('choice_question');
+        Schema::drop('answers');
+        Schema::drop('header_comments');
+        Schema::drop('section_user');
     }
 }
 
