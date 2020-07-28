@@ -113,7 +113,7 @@ class SurveyTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('question_options', function(Blueprint $table) {
+        Schema::create('questions_choices', function(Blueprint $table) {
 
             $table->increments('id');
             $table->integer('question_id')->unsigned();
