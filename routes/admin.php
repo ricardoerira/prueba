@@ -30,5 +30,14 @@ Route::post('organizations/create', 'Admin\OrganizationController@save')->name('
 Route::put('organizations/{organization:slug}/edit', 'Admin\OrganizationController@update')->name('organizations.edit');
 Route::delete('organizations/{organization:id}/delete', 'Admin\OrganizationController@delete')->name('organizations.delete');
 
+// Route Input Types
+Route::get('inputs/index', 'Admin\InputTypesController@index')->name('inputs.index');
+Route::get('inputs/create', 'Admin\InputTypesController@create')->name('inputs.create');
+Route::get('inputs/{inputTypes:slug}/edit', 'Admin\InputTypesController@edit')->name('inputs.edit');
+
+Route::post('inputs/create', 'Admin\InputTypesController@save')->name('inputs.create');
+Route::put('inputs/{inputTypes:slug}/edit', 'Admin\InputTypesController@update')->name('inputs.edit');
+Route::delete('inputs/{inputTypes:id}/delete', 'Admin\InputTypesController@delete')->name('inputs.delete');
+
 // Route Headers
 Route::get('headers/index', 'Admin\HeaderController@index')->name('headers.index');
