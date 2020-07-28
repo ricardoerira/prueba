@@ -99,7 +99,17 @@
                               <font style="vertical-align: inherit;">{{$user->role->name}}</font>
                             </font>
                           </td>
-                          <td>
+                          <td class="d-flex aling-item-center">
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary mx-1">
+                              <i class="nav-icon fas fa-edit"></i>
+                            </a>
+                            <form action="{{ route('users.delete', $user->id) }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button class="btn btn-danger mx-1">
+                                <i class="nav-icon fas fa-trash"></i>
+                              </button>
+                            </form>
                           </td>
                         </tr>
                         @endforeach

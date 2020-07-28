@@ -29,9 +29,11 @@ class UserController extends Controller
         return view('pages.admin.users.create', compact('roles'));
     }
 
-    public function FunctionName(User $user)
+    public function edit(User $user)
     {
-        return view('pages.admin.users.edit', compact('user'));
+        $roles = Role::all();
+
+        return view('pages.admin.users.edit', compact('user', 'roles'));
     }
 
     public function save(Request $request)
