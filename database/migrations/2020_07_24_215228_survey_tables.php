@@ -101,16 +101,14 @@ class SurveyTables extends Migration
             $table->foreign('section_id')
                 ->references('id')->on('sections');
 
-
             $table->timestamps();
-
         });
 
 
-        Schema::create('option_choices', function(Blueprint $table) {
+        Schema::create('choices', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('option_choice_name', 45);
+            $table->string('name', 45);
 
             $table->timestamps();
         });
@@ -119,16 +117,16 @@ class SurveyTables extends Migration
 
             $table->increments('id');
             $table->integer('question_id')->unsigned();
-            $table->integer('option_choice_id')->unsigned();
+            $table->integer('choice_id')->unsigned();
 
-            $table->index('question_id','fk_question_options_questions1');
-            $table->index('option_choice_id','fk_question_options_option_choices1');
+            $table->index('question_id','fk_question_options_questions');
+            $table->index('choice_id','fk_question_options_choices');
 
             $table->foreign('question_id')
                 ->references('id')->on('questions');
 
-            $table->foreign('option_choice_id')
-                ->references('id')->on('option_choices');
+            $table->foreign('choice_id')
+                ->references('id')->on('choices');
 
             $table->timestamps();
         });
@@ -136,7 +134,7 @@ class SurveyTables extends Migration
         Schema::create('answers', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('identification')->unsigned();
-            $table->string('answer_text', 255)->nullable();
+            $table->string('text', 255)->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('completion_time')->nullable();
 
@@ -145,22 +143,21 @@ class SurveyTables extends Migration
 
         Schema::create('header_comments', function(Blueprint $table) {
             $table->integer('id');
-            $table->integer('survey_header_id')->unsigned();
+            $table->integer('header_id')->unsigned();
             $table->integer('identification_number')->unsigned();
             $table->string('comments', 4096)->nullable();
 
             $table->primary('id');
 
-            $table->index('survey_header_id','fk_survey_comments_surveys1');
+            $table->index('header_id','fk_survey_comments_surveys1');
 
-            $table->foreign('survey_header_id')
+            $table->foreign('header_id')
                 ->references('id')->on('headers');
 
             $table->timestamps();
         });
 
         Schema::create('users_sections', function(Blueprint $table) {
-
             $table->integer('id');
             $table->integer('identification_number')->unsigned();
             $table->integer('section_id')->unsigned();
@@ -186,7 +183,7 @@ class SurveyTables extends Migration
     {
         Schema::drop('answers');
         Schema::drop('question_options');
-        Schema::drop('option_choices');
+        Schema::drop('choices');
         Schema::drop('questions');
         Schema::drop('sections');
         Schema::drop('input_types');
