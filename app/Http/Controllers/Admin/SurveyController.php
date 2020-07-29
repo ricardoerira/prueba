@@ -32,7 +32,7 @@ class SurveyController extends Controller
     {
         $request['slug'] = Str::slug($request->name);
 
-        $header = Header::with('sections')->get();
+        $header = Header::create($request->all());
 
         if ($header) {
             return redirect()->route('survey.edit', $header->slug);

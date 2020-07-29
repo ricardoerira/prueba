@@ -1,59 +1,73 @@
 @extends('layouts.home.layout')
 
 @section('own-styles')
-    <style>
-        .bg-survey{
-            width: 100%;
-            height: 45%;
-            /* background: url(./images/home/survey.jpg) no-repeat center center fixed; */
-            background-color: red;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
+<style>
+    .bg-survey {
+        width: 100%;
+        height: 60vh;
+        background: url('../../images/home/survey.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .bg-text-survey {
+        background-color: rgba(131, 131, 131, 0.842);
+        max-width: 60%;
+    }
+</style>
 @endsection
 
 @section('content')
 <div class="bg-survey">
+    <div class="w-100 h-100 d-flex align-items-center justify-content-center">
+        <div class="bg-text-survey">
+            <h4 class="p-5 text-center text-white">{{ $header->name }}</h4>
+        </div>
+    </div>
 </div>
 
-<div class="">
+<div class="container mt-5">
+    <div class="row">
 
-    <div class="card">
-        <div class="card-header">
-            <h2>Encuestas</h2>
-        </div>
-        <div class="card-body">
-                <span>
-                    <a href="{{ route('headers.info', 1) }}">
-                        {{ $header->survey_name }}</a>
-                    <br>
-                    <p>
-                        {{ $header->instructions }}
-                    </p>
-                    <br>
-                    <p>
-                        {{ $header->other_header_info }}
-                    </p>
+        <div class="col-12 col-md-12">
+            <div>
+                <h2>Instrucciones</h2>
+            </div>
+            <span>
+                <p>
+                    {{ $header->instructions }}
+                </p>
+                <p>
+                    {{ $header->other_header_info }}
+                </p>
+
+                <hr>
+                <div>
+                    <div>
+                        <span>Duracion : 10 - 20 min</span>
+                        <br>
+                        <span>Sesiones : {{ $sections_count }}</span>
+                        <br>
+                        {{-- <span>Preguntas : {{ $questions_count }}</span> --}}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div>
+
+                    <h6>Sesiones</h6>
 
                     <ul>
-                        @foreach ($header->sections as $section)
-                            <li>{{ $section->name }}</li>
-                            <ul>
-                                @foreach ($section->questions as $question)
-                                    <li> {{ $question->name }} </li>
-                                    <ul>
-                                        @foreach ($question->choices as $choice)
-                                            <li> {{ $choice->name }} </li>
-                                        @endforeach
-                                    </ul>
-                                @endforeach
-                            </ul>
+                        @foreach ($sections as $key =>  $section)
+                            <li>{{ ++$key }} - {{ $section->name }}</li>
                         @endforeach
                     </ul>
-                </span>
+                </div>
+            </span>
+
         </div>
     </div>
 </div>

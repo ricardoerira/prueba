@@ -10,6 +10,14 @@ class HeaderController extends Controller
 {
     public function index(Header $header)
     {
-        return view('pages.home.headers.index', compact('header'));
+        $sections = $header->sections()->get();
+
+        $sections_count = $sections->count();
+
+        return view('pages.home.headers.index', compact(
+            'header',
+            'sections',
+            'sections_count'
+        ));
     }
 }
