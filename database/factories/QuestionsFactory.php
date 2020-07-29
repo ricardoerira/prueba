@@ -2,14 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Questions;
+use App\Models\Question;
 use App\Models\InputTypes;
 use App\Models\Section;
 use Faker\Generator as Faker;
 
-$factory->define(Questions::class, function (Faker $faker) {
+$factory->define(Question::class, function (Faker $faker) {
     return [
-        'section_id'                        => factory(Section::class),
         'input_type_id'                     => factory(InputTypes::class),
         'name'                              => $faker->sentence(),
         'subtext'                           => $faker->sentence(),

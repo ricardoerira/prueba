@@ -27,16 +27,15 @@
 <div class="">
 
     <div class="card">
-        <div class="card-header">
-            <h2>Encuestas</h2>
-        </div>
         <div class="card-body">
-            @foreach ($headers as $key => $header)
-                <span>
+            <ul class="list-group">
+                <li class="list-group-item active">Encuestas Publicas</li>
+                @foreach ($headers as $key => $header)
+                <li class="list-group-item">
                     <a href="{{ route('headers.info', $header->slug) }}">{{ ++$key }} - {{ $header->name }}</a>
-                    <br>
-                </span>
+                </li>
             @endforeach
+              </ul>
         </div>
     </div>
 </div>

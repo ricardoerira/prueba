@@ -13,4 +13,15 @@ class Section extends Model
         'subheading',
         'required_yn'
     ];
+
+    public function headers()
+    {
+        return $this->belongsToMany(Header::class)->withTimestamps();
+    }
+
+    public function questions()
+    {
+        return $this->belongsToMany(Question::class)->withTimestamps();
+    }
+
 }

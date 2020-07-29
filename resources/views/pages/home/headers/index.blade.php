@@ -1,27 +1,22 @@
 @extends('layouts.home.layout')
 
-@section('content')
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">EC</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+@section('own-styles')
+    <style>
+        .bg-survey{
+            width: 100%;
+            height: 45%;
+            /* background: url(./images/home/survey.jpg) no-repeat center center fixed; */
+            background-color: red;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+@endsection
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('login') }}">
-                        Administración
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="w-100 mx-auto">
-    <h1>Bienvenidos</h1>
+@section('content')
+<div class="bg-survey">
 </div>
 
 <div class="">
@@ -42,6 +37,22 @@
                     <p>
                         {{ $header->other_header_info }}
                     </p>
+
+                    <ul>
+                        @foreach ($header->sections as $section)
+                            <li>{{ $section->name }}</li>
+                            <ul>
+                                @foreach ($section->questions as $question)
+                                    <li> {{ $question->name }} </li>
+                                    <ul>
+                                        @foreach ($question->choices as $choice)
+                                            <li> {{ $choice->name }} </li>
+                                        @endforeach
+                                    </ul>
+                                @endforeach
+                            </ul>
+                        @endforeach
+                    </ul>
                 </span>
         </div>
     </div>

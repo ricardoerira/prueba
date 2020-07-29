@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Questions extends Model
+class Question extends Model
 {
     protected $fillable = [
-        'section_id',
         'input_type_id',
         'question_name',
         'question_subtext',
@@ -20,4 +19,15 @@ class Questions extends Model
     {
         return $this->belongsTo(InputTypes::class);
     }
+
+    public function sections()
+    {
+        return $this->belongsToMany(Section::class);
+    }
+
+    public function choices()
+    {
+        return $this->belongsToMany(Choice::class);
+    }
+
 }

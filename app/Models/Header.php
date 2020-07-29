@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\Console\Question\Question;
 
 class Header extends Model
 {
@@ -16,7 +17,12 @@ class Header extends Model
 
     public function organization()
     {
-        return $this->belongsTo('App\Models\organization');
+        return $this->belongsTo(Organization::class);
+    }
+
+    public function sections()
+    {
+        return $this->belongsToMany(Section::class)->withTimestamps();
     }
 
 }
