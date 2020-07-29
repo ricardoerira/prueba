@@ -69,8 +69,8 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('header_id')->unsigned()->nullable();
             $table->string('name', 600)->nullable()->unique();
-            $table->string('title', 45)->nullable();
-            $table->string('subheading', 45)->nullable();
+            $table->string('title', 600)->nullable();
+            $table->string('subheading', 600)->nullable();
             $table->boolean('required_yn')->default(1);
             $table->index('header_id','fk_survey_sections_surveys1');
             $table->foreign('header_id')
