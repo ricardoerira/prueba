@@ -125,7 +125,7 @@ class SurveyTables extends Migration
         Schema::create('choices', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('name', 45);
+            $table->string('name', 245);
 
             $table->timestamps();
         });
@@ -200,17 +200,21 @@ class SurveyTables extends Migration
      */
     public function down()
     {
-        Schema::drop('organizations');
+       // Schema::drop('answers');
+
+        //Schema::drop('surveys');
+        //Schema::drop('header_comments');
+        //Schema::drop('section_header');
+
         Schema::drop('headers');
+
+        Schema::drop('organizations');
         Schema::drop('input_types');
-        Schema::drop('surveys');
         Schema::drop('sections');
         Schema::drop('questions');
         Schema::drop('question_section');
         Schema::drop('choices');
         Schema::drop('choice_question');
-        Schema::drop('answers');
-        Schema::drop('header_comments');
         Schema::drop('section_user');
     }
 }
