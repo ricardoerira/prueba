@@ -54,6 +54,7 @@ class SurveyTables extends Migration
             $table->timestamp('start_time')->nullable();
             $table->timestamp('completion_time')->nullable();
             $table->string('slug', 160)->unique();
+
             $table->index('header_id','fk_survey_sections_surveys1');
 
             $table->foreign('header_id')
@@ -66,29 +67,14 @@ class SurveyTables extends Migration
         Schema::create('sections', function(Blueprint $table) {
 
             $table->increments('id');
+            $table->integer('header_id')->unsigned()->nullable();
             $table->string('name', 600)->nullable()->unique();
             $table->string('title', 600)->nullable();
             $table->string('subheading', 600)->nullable();
             $table->boolean('required_yn')->default(1);
-
-            $table->timestamps();
-
-        });
-
-        Schema::create('header_section', function(Blueprint $table) {
-
-            $table->increments('id');
-            $table->integer('header_id')->unsigned()->nullable();
-            $table->integer('section_id')->unsigned()->nullable();
-
-            $table->index('header_id','fk_survey_sections_surveys');
-            $table->index('section_id','fk_questions_survey_sections');
-
+            $table->index('header_id','fk_survey_sections_surveys1');
             $table->foreign('header_id')
                 ->references('id')->on('headers');
-
-            $table->foreign('section_id')
-                ->references('id')->on('sections');
 
             $table->timestamps();
 
@@ -128,10 +114,11 @@ class SurveyTables extends Migration
 
             $table->foreign('section_id')
                 ->references('id')->on('sections');
-
             $table->foreign('question_id')
                 ->references('id')->on('questions');
             $table->timestamps();
+
+
 
         });
 
@@ -218,7 +205,6 @@ class SurveyTables extends Migration
         Schema::drop('input_types');
         Schema::drop('surveys');
         Schema::drop('sections');
-        Schema::drop('header_section');
         Schema::drop('questions');
         Schema::drop('question_section');
         Schema::drop('choices');
@@ -228,4 +214,3 @@ class SurveyTables extends Migration
         Schema::drop('section_user');
     }
 }
-
