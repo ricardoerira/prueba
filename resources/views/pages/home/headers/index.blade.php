@@ -57,7 +57,6 @@
                 <hr>
 
                 <div>
-
                     <h6>Sesiones</h6>
 
                     <ul>
@@ -67,6 +66,8 @@
                     </ul>
                 </div>
             </span>
+
+            <a href="{{ route('headers.do', $header->id) }}" class="btn btn-primary">Realizar Encuesta</a>
 
         </div>
     </div>
