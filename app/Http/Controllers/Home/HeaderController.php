@@ -20,4 +20,15 @@ class HeaderController extends Controller
             'sections_count'
         ));
     }
+
+    public function viewSurvey(Header $header)
+    {
+        $sections = $header->sections()->get();
+
+
+        return view('pages.home.headers.view', compact(
+            'sections',
+            'header'
+        ));
+    }
 }

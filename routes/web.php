@@ -21,4 +21,6 @@ Route::post('/login', 'Auth\LoginController@authenticate')->name('authenticate')
 
 // Route Headers
 Route::get('survey/{header:slug}/info', 'Home\HeaderController@index')->name('headers.info');
-Route::get('survey/{header:slug}', 'Home\HeaderController@index')->name('headers.do');
+//Route::get('survey/{header:slug}', 'Home\HeaderController@index')->name('headers.do');
+Route::get('/survey/view/{header:id}', 'Home\HeaderController@viewSurvey')->name('headers.do');
+
