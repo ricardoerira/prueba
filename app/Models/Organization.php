@@ -12,28 +12,37 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Organization
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $slug
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|Header[] $headers
  *
  * @package App\Models
  */
 class Organization extends Model
 {
-	protected $table = 'organizations';
-
+	/**
+	 * fillable
+	 *
+	 * @var array
+	 */
 	protected $fillable = [
 		'name',
 		'slug'
 	];
 
+	/**
+	 * headers
+	 *
+	 * @return void
+	 */
 	public function headers()
 	{
 		return $this->hasMany(Header::class);
 	}
+
 }

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Question
- * 
+ *
  * @property int $id
  * @property int $input_type_id
  * @property string $name
@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $dependent_answer_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property InputType $input_type
  * @property Collection|Choice[] $choices
  * @property Collection|Section[] $sections
@@ -34,8 +34,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Question extends Model
 {
-	protected $table = 'questions';
-
+	/**
+	 * casts
+	 *
+	 * @var array
+	 */
 	protected $casts = [
 		'input_type_id' => 'int',
 		'required_yn' => 'bool',
@@ -46,6 +49,11 @@ class Question extends Model
 		'dependent_answer_id' => 'int'
 	];
 
+	/**
+	 * fillable
+	 *
+	 * @var array
+	 */
 	protected $fillable = [
 		'input_type_id',
 		'name',
@@ -58,22 +66,38 @@ class Question extends Model
 		'dependent_answer_id'
 	];
 
-	public function input_type()
+	/**
+	 * inputType
+	 *
+	 * @return void
+	 */
+	public function inputType()
 	{
 		return $this->belongsTo(InputType::class);
 	}
 
+	/**
+	 * choices
+	 *
+	 * @return void
+	 */
 	public function choices()
 	{
 		return $this->belongsToMany(Choice::class)
-					->withPivot('id')
-					->withTimestamps();
+			->withPivot('id')
+			->withTimestamps();
 	}
 
+	/**
+	 * sections
+	 *
+	 * @return void
+	 */
 	public function sections()
 	{
 		return $this->belongsToMany(Section::class)
-					->withPivot('id')
-					->withTimestamps();
+			->withPivot('id')
+			->withTimestamps();
 	}
+
 }

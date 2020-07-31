@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Section
- * 
+ *
  * @property int $id
  * @property int|null $header_id
  * @property string|null $name
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $required_yn
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Header $header
  * @property Collection|Question[] $questions
  * @property Collection|SectionUser[] $section_users
@@ -30,6 +30,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Section extends Model
 {
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
         'name',
         'slug',
@@ -38,20 +43,26 @@ class Section extends Model
         'required_yn'
     ];
 
+    /**
+     * headers
+     *
+     * @return void
+     */
     public function headers()
     {
         return $this->belongsToMany(Header::class, 'header_section')
             ->withTimestamps()
-            ->withPivot('priority'); ;
+            ->withPivot('priority');;
     }
 
+    /**
+     * questions
+     *
+     * @return void
+     */
     public function questions()
     {
         return $this->belongsToMany(Question::class)->withTimestamps();
     }
 
-	public function section_users()
-	{
-		return $this->hasMany(SectionUser::class);
-	}
 }

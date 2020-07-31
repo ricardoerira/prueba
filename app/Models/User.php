@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * User
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,8 +40,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * role
+     *
+     * @return void
+     */
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
     }
+
 }

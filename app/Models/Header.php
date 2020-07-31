@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Header
- * 
+ *
  * @property int $id
  * @property int $organization_id
  * @property string|null $name
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $other_header_info
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Organization $organization
  * @property Collection|HeaderComment[] $header_comments
  * @property Collection|Section[] $sections
@@ -31,6 +31,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Header extends Model
 {
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
         "name",
         "slug",
@@ -39,20 +44,36 @@ class Header extends Model
         "organization_id"
     ];
 
+    /**
+     * organization
+     *
+     * @return void
+     */
     public function organization()
     {
         return $this->belongsTo(Organization::class);
     }
 
+    /**
+     * sections
+     *
+     * @return void
+     */
     public function sections()
     {
-        return $this->belongsToMany(Section::class,'header_section')
+        return $this->belongsToMany(Section::class, 'header_section')
             ->withTimestamps()
             ->withPivot('priority');
     }
 
-	public function surveys()
-	{
-		return $this->hasMany(Survey::class);
-	}
+    /**
+     * surveys
+     *
+     * @return void
+     */
+    public function surveys()
+    {
+        return $this->hasMany(Survey::class);
+    }
+
 }

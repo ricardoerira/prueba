@@ -4,24 +4,40 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Survey
+ */
 class Survey extends Model
 {
-    protected $fillable = [
-        'user_id',
-		'header_id',
-		'start_time',
-		'completion_time',
-		'slug'
-    ];
+  /**
+   * fillable
+   *
+   * @var array
+   */
+  protected $fillable = [
+    'user_id',
+    'header_id',
+    'start_time',
+    'completion_time',
+  ];
 
-	public function header()
-	{
-		return $this->belongsTo(Header::class);
-    }
+  /**
+   * header
+   *
+   * @return void
+   */
+  public function header()
+  {
+    return $this->belongsTo(Header::class);
+  }
 
-    public function answers()
-	{
-		return $this->hasMany(Answer::class);
-    }
-
+  /**
+   * answers
+   *
+   * @return void
+   */
+  public function answers()
+  {
+    return $this->hasMany(Answer::class);
+  }
 }

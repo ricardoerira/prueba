@@ -12,28 +12,37 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Choice
- * 
+ *
  * @property int $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|Question[] $questions
  *
  * @package App\Models
  */
 class Choice extends Model
 {
-	protected $table = 'choices';
-
+	/**
+	 * fillable
+	 *
+	 * @var array
+	 */
 	protected $fillable = [
 		'name'
 	];
 
+	/**
+	 * questions
+	 *
+	 * @return void
+	 */
 	public function questions()
 	{
 		return $this->belongsToMany(Question::class)
-					->withPivot('id')
-					->withTimestamps();
+			->withPivot('id')
+			->withTimestamps();
 	}
+
 }

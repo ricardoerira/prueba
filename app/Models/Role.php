@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Role
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $guard_name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|ModelHasRole[] $model_has_roles
  * @property Collection|Permission[] $permissions
  * @property Collection|User[] $users
@@ -27,25 +27,34 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
-	protected $table = 'roles';
-
+	/**
+	 * fillable
+	 *
+	 * @var array
+	 */
 	protected $fillable = [
 		'name',
 		'guard_name'
 	];
 
-	public function model_has_roles()
-	{
-		return $this->hasMany(ModelHasRole::class);
-	}
-
+	/**
+	 * permissions
+	 *
+	 * @return void
+	 */
 	public function permissions()
 	{
 		return $this->belongsToMany(Permission::class, 'role_has_permissions');
 	}
 
+	/**
+	 * users
+	 *
+	 * @return void
+	 */
 	public function users()
 	{
 		return $this->hasMany(User::class);
 	}
+
 }
