@@ -16,7 +16,9 @@ class Section extends Model
 
     public function headers()
     {
-        return $this->belongsToMany(Header::class)->withTimestamps();
+        return $this->belongsToMany(Header::class, 'header_section')
+            ->withTimestamps()
+            ->withPivot('priority'); ;
     }
 
     public function questions()

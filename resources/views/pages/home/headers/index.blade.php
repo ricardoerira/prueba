@@ -67,7 +67,7 @@
                 </div>
             </span>
 
-            <a href="{{ route('headers.do', $header->id) }}" class="btn btn-primary">Realizar Encuesta</a>
+            <a href="{{ route('headers.running', $header->slug) }}" class="btn btn-primary">Realizar Encuesta</a>
 
         </div>
     </div>

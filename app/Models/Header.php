@@ -22,7 +22,9 @@ class Header extends Model
 
     public function sections()
     {
-        return $this->belongsToMany(Section::class)->withTimestamps();
+        return $this->belongsToMany(Section::class,'header_section')
+            ->withTimestamps()
+            ->withPivot('priority');
     }
 
 }

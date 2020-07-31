@@ -26,7 +26,6 @@ class InputTypesSeeder extends Seeder
         InputTypes::create([
             'name' => 'tel',
             'slug' => Str::slug('tel')
-
         ]);
 
         InputTypes::create([
@@ -95,11 +94,6 @@ class InputTypesSeeder extends Seeder
         ]);
 
         InputTypes::create([
-            'name' => 'checkbox',
-            'slug' => Str::slug('checkbox')
-        ]);
-
-        InputTypes::create([
             'name' => 'radio',
             'slug' => Str::slug('radio')
         ]);
@@ -122,6 +116,21 @@ class InputTypesSeeder extends Seeder
         InputTypes::create([
             'name' => 'reset',
             'slug' => Str::slug('reset')
+        ]);
+
+        InputTypes::create([
+            'name' => 'select',
+            'slug' => Str::slug('select')
+        ]);
+
+        InputTypes::create([
+            'name' => 'textarea',
+            'slug' => Str::slug('textarea')
+        ]);
+
+        InputTypes::create([
+            'name' => 'combo',
+            'slug' => Str::slug('combo')
         ]);
 
     }
