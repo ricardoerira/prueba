@@ -61,7 +61,7 @@
 
                     <ul>
                         @foreach ($sections as $key =>  $section)
-                            <li>{{ ++$key }} - {{ $section->name }}</li>
+                            <li>{{ ++$key }} - {{ $section->title }}</li>
                         @endforeach
                     </ul>
                 </div>

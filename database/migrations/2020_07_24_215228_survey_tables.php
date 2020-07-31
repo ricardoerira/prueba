@@ -67,6 +67,7 @@ class SurveyTables extends Migration
         Schema::create('sections', function(Blueprint $table) {
 
             $table->increments('id');
+            $table->integer('header_id')->unsigned()->nullable();
             $table->string('name', 600)->nullable()->unique();
             $table->string('title', 600)->nullable();
             $table->string('subheading', 600)->nullable();
@@ -88,9 +89,6 @@ class SurveyTables extends Migration
 
             $table->foreign('header_id')
                 ->references('id')->on('headers');
-
-            $table->foreign('section_id')
-                ->references('id')->on('sections');
 
             $table->timestamps();
 
@@ -130,17 +128,18 @@ class SurveyTables extends Migration
 
             $table->foreign('section_id')
                 ->references('id')->on('sections');
-
             $table->foreign('question_id')
                 ->references('id')->on('questions');
             $table->timestamps();
+
+
 
         });
 
         Schema::create('choices', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('name', 45);
+            $table->string('name', 245);
 
             $table->timestamps();
         });
@@ -220,19 +219,18 @@ class SurveyTables extends Migration
      */
     public function down()
     {
-        Schema::drop('organizations');
-        Schema::drop('headers');
-        Schema::drop('input_types');
+        Schema::drop('answers');
         Schema::drop('surveys');
+        Schema::drop('header_comments');
+        Schema::drop('section_header');
+        Schema::drop('headers');
+        Schema::drop('organizations');
+        Schema::drop('input_types');
         Schema::drop('sections');
-        Schema::drop('header_section');
         Schema::drop('questions');
         Schema::drop('question_section');
         Schema::drop('choices');
         Schema::drop('choice_question');
-        Schema::drop('answers');
-        Schema::drop('header_comments');
         Schema::drop('section_user');
     }
 }
-

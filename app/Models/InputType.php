@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Organization
+ * Class InputType
  * 
  * @property int $id
  * @property string $name
@@ -19,21 +19,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
- * @property Collection|Header[] $headers
+ * @property Collection|Question[] $questions
  *
  * @package App\Models
  */
-class Organization extends Model
+class InputType extends Model
 {
-	protected $table = 'organizations';
+	protected $table = 'input_types';
 
 	protected $fillable = [
 		'name',
 		'slug'
 	];
 
-	public function headers()
+	public function questions()
 	{
-		return $this->hasMany(Header::class);
+		return $this->hasMany(Question::class);
 	}
 }
