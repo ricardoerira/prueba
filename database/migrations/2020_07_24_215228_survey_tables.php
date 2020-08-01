@@ -67,7 +67,6 @@ class SurveyTables extends Migration
         Schema::create('sections', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('header_id')->unsigned()->nullable();
             $table->string('name', 600)->nullable()->unique();
             $table->string('title', 600)->nullable();
             $table->string('subheading', 600)->nullable();
