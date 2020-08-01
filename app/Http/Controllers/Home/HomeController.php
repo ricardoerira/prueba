@@ -28,7 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('login');
+        $headers = Header::all();
+
+        return view('pages.home.home', compact('headers'));
     }
 
 }

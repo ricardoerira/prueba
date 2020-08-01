@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->route('admin.index');
+            return redirect()->route('home');
         }
 
         return back()->withInput()->with(['error_login' => 'Correo y/o Contraseña incorrecta']);

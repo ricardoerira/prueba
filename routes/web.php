@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Home\HomeController@index')->name('home');
+Route::get('/', function(){
+    return redirect()->route('login');
+});
 
 //Route Login
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::post('/login', 'Auth\LoginController@authenticate')->name('authenticate');
-
-// Route Headers
-Route::get('survey/{header:slug}/info', 'Home\HeaderController@index')->name('headers.info');
-Route::get('survey/{header:slug}/running', 'Home\HeaderController@running')->name('headers.running');
-Route::post('survey/done', 'Home\HeaderController@done')->name('headers.done');
