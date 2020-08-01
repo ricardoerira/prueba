@@ -8,8 +8,17 @@ use App\Models\Header;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 
+/**
+ * HeaderController
+ */
 class HeaderController extends Controller
 {
+    /**
+     * index
+     *
+     * @param  mixed $header
+     * @return void
+     */
     public function index(Header $header)
     {
         $sections = $header->sections()->get();
@@ -23,6 +32,12 @@ class HeaderController extends Controller
         ));
     }
 
+    /**
+     * running
+     *
+     * @param  mixed $header
+     * @return void
+     */
     public function running(Header $header)
     {
         if (
@@ -41,6 +56,12 @@ class HeaderController extends Controller
         ));
     }
 
+    /**
+     * done
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function done(Request $request)
     {
         $survey = Survey::create([
@@ -59,4 +80,5 @@ class HeaderController extends Controller
 
         return redirect()->back();
     }
+
 }

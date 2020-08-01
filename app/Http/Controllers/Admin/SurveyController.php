@@ -8,12 +8,26 @@ use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ * SurveyController
+ */
 class SurveyController extends Controller
 {
-    public function __construct() {
+    /**
+     * __construct
+     *
+     * @return void
+     */
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
+    /**
+     * index
+     *
+     * @return void
+     */
     public function index()
     {
         $surveys = Header::all();
@@ -21,6 +35,11 @@ class SurveyController extends Controller
         return view('pages.admin.survey.index', compact('surveys'));
     }
 
+    /**
+     * create
+     *
+     * @return void
+     */
     public function create()
     {
         $organizations = Organization::all();
@@ -28,6 +47,12 @@ class SurveyController extends Controller
         return view('pages.admin.survey.create', compact('organizations'));
     }
 
+    /**
+     * save
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function save(Request $request)
     {
         $request['slug'] = Str::slug($request->name);
@@ -39,6 +64,12 @@ class SurveyController extends Controller
         }
     }
 
+    /**
+     * edit
+     *
+     * @param  mixed $header
+     * @return void
+     */
     public function edit(Header $header)
     {
         $organizations = Organization::all();
@@ -46,6 +77,13 @@ class SurveyController extends Controller
         return view('pages.admin.survey.edit', compact('header', 'organizations'));
     }
 
+    /**
+     * update
+     *
+     * @param  mixed $request
+     * @param  mixed $header
+     * @return void
+     */
     public function update(Request $request, Header $header)
     {
         dd($request);
