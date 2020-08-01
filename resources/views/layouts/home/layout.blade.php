@@ -14,7 +14,7 @@
 
 <body style="min-height: 512.391px;" id="body">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">EC</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -32,7 +32,8 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> --}}
+
   @yield('content')
 
   <script src="{{ asset('js/plugins.js') }}"></script>
