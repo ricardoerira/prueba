@@ -14,6 +14,15 @@ class LoginController extends Controller
 
     public function index()
     {
+        if (Auth::check()) {
+
+            if (url()->previous() == route('login') ) {
+                return redirect()->route('home');
+            }
+
+            return redirect()->back();
+        }
+
         return view('pages.home.login');
     }
 
@@ -39,7 +48,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 
 }

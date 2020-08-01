@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('login') }}">
+            <a class="nav-link" href="{{ route('admin.index') }}">
               Administración
             </a>
           </li>
