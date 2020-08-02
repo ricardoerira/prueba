@@ -23,6 +23,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('organization_id')->unsigned();
             $table->string('name', 600)->nullable()->unique();
+            $table->int('pollster', 40);
             $table->string('slug')->unique();
             $table->string('instructions', 4096)->nullable();
             $table->string('other_header_info', 255)->nullable();
