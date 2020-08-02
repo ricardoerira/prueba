@@ -1,3 +1,11 @@
+<input type="hidden" name="questions[]" value="{{ $question->id }}">
+
+<label for="answers[]">
+    {{ $question->name }}
+    @if ( $question->answer_required_yn  == 1)
+        <span class="text-danger">  *</span>
+    @endif
+</label>
 @if ( $question->inputType->name == 'text' )
     @include('pages.home.includes.inputs.text')
 @endif
