@@ -19,7 +19,7 @@
                             <div class="inner">
                                 <p>{{ $header->name }}</p>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer">
                                 Realizar
                                 <i class="fas fa-arrow-circle-right ml-1"></i>
                             </a>

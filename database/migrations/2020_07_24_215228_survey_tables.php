@@ -166,6 +166,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('survey_id')->unsigned();
             $table->integer('question_id')->unsigned();
+            $table->integer('choice_id')->unsigned();
             $table->string('text', 855)->nullable();
 
             $table->index('survey_id','fk_answers_surveys');
@@ -175,6 +176,9 @@ class SurveyTables extends Migration
 
             $table->foreign('question_id')
                 ->references('id')->on('questions');
+
+            $table->foreign('choice_id')
+                ->references('id')->on('choices');
 
             $table->timestamps();
         });

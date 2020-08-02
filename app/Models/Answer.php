@@ -17,6 +17,7 @@ class Answer extends Model
     protected $fillable = [
         'question_id',
 		'survey_id',
+		'choice_id',
 		'text'
 	];
 

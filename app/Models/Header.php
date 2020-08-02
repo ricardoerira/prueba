@@ -61,11 +61,10 @@ class Header extends Model
      */
     public function sections()
     {
-        return $this->belongsToMany(Section::class, 'header_section')
+        return $this->belongsToMany(Section::class)
             ->withTimestamps()
-            ->withPivot('priority');
-
-            // ->orderBy('priority', 'desc');
+            ->withPivot('priority')
+            ->orderBy('priority', 'asc');
     }
 
     /**
