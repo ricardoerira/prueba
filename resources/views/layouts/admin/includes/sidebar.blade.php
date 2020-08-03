@@ -45,6 +45,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('survey.doing.index') }}" class="nav-link {{ setActive(route('survey.doing.index'), 'active') }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    Encuestas
+                                </font>
+                            </font>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('users.index') }}" class="nav-link {{ setActive(route('users.index'), 'active') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>

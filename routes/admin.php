@@ -50,3 +50,7 @@ Route::delete('survey/{header:slug}/delete', 'Admin\SurveyController@delete')->n
 
 // Route Headers
 Route::get('headers/index', 'Admin\HeaderController@index')->name('headers.index');
+
+// Route Surveys
+Route::get('surveys/doing/index', 'Admin\SurveyDoingController@index')->name('survey.doing.index');
+Route::get('surveys/doing/{header:slug}/create', 'Admin\SurveyDoingController@create')->name('survey.doing.create');

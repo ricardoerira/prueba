@@ -43,7 +43,6 @@ class SurveyDoingController extends Controller
             'header',
             'sections',
         ));
-
     }
 
     /**
