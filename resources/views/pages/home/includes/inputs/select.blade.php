@@ -1,5 +1,12 @@
-<select name="answers[]" id="" class="form-control w-50">
-    <option value="0">Seleccione...</option>
+<select
+    name="answers[]"
+    id=""
+    class="form-control w-50"
+    @if ( $question->answer_required_yn  == 1)
+        required
+    @endif
+>
+    <option value="">Seleccione...</option>
     @foreach ($question->choices as $choices)
         <option value="{{ $choices->id }}">{{ $choices->name }}</option>
     @endforeach
