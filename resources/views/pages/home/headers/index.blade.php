@@ -48,7 +48,7 @@
                     <div>
                         <span>Duracion : 10 - 20 min</span>
                         <br>
-                        <span>Sesiones : {{ $sections_count }}</span>
+                        <span>Secciones : {{ $sections_count }}</span>
                         <br>
                         {{-- <span>Preguntas : {{ $questions_count }}</span> --}}
                     </div>
@@ -57,7 +57,7 @@
                 <hr>
 
                 <div>
-                    <h6>Sesiones</h6>
+                    <h6>Secciones</h6>
 
                     <ul>
                         @foreach ($sections as $key =>  $section)
@@ -67,7 +67,7 @@
                 </div>
             </span>
 
-            <a href="{{ route('headers.running', $header->slug) }}" class="btn btn-primary">Realizar Encuesta</a>
+            <a href="{{ route('surveys.running', $header->slug) }}" class="btn btn-primary">Realizar Encuesta</a>
 
         </div>
     </div>

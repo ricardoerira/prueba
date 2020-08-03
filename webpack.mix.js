@@ -74,5 +74,9 @@ mix.scripts([
     'resources/assets/js/plugins/forms/bootstrap-switch.min.js',
 ], 'public/js/plugins-forms.js')
 
+mix.styles([
+    'resources/assets/home/styles.css'
+],'public/css/home/styles.css')
+
 // mix.js('resources/js/app.js', 'public/js')
 //     .sass('resources/sass/app.scss', 'public/css');

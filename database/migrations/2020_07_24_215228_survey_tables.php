@@ -23,6 +23,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('organization_id')->unsigned();
             $table->string('name', 600)->nullable()->unique();
+            $table->int('pollster', 40);
             $table->string('slug')->unique();
             $table->string('instructions', 4096)->nullable();
             $table->string('other_header_info', 255)->nullable();
@@ -165,6 +166,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('survey_id')->unsigned();
             $table->integer('question_id')->unsigned();
+            $table->integer('choice_id')->unsigned();
             $table->string('text', 855)->nullable();
 
             $table->index('survey_id','fk_answers_surveys');
@@ -174,6 +176,9 @@ class SurveyTables extends Migration
 
             $table->foreign('question_id')
                 ->references('id')->on('questions');
+
+            $table->foreign('choice_id')
+                ->references('id')->on('choices');
 
             $table->timestamps();
         });

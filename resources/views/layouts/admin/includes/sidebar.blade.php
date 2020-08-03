@@ -33,7 +33,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('admin.index') }}" class="nav-link">
+                    <a href="{{ route('admin.index') }}" class="nav-link {{ setActive(route('admin.index'), 'active') }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -45,7 +45,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('users.index') }}" class="nav-link">
+                    <a href="{{ route('survey.doing.index') }}" class="nav-link {{ setActive(route('survey.doing.index'), 'active') }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    Encuestas
+                                </font>
+                            </font>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('users.index') }}" class="nav-link {{ setActive(route('users.index'), 'active') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -57,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('organizations.index') }}" class="nav-link">
+                    <a href="{{ route('organizations.index') }}" class="nav-link {{ setActive(route('organizations.index'), 'active') }}">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -69,7 +81,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('inputs.index') }}" class="nav-link">
+                    <a href="{{ route('inputs.index') }}" class="nav-link {{ setActive(route('inputs.index'), 'active') }}">
                         <i class="nav-icon fas fa-keyboard"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -81,7 +93,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('survey.index') }}" class="nav-link">
+                    <a href="{{ route('survey.index') }}" class="nav-link {{ setActive(route('survey.index'), 'active') }}">
                         <i class="nav-icon fas fa-keyboard"></i>
                         <p>
                             <font style="vertical-align: inherit;">

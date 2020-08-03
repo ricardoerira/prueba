@@ -1,5 +1,8 @@
-
-<input type="hidden" name="questions[]" value="{{ $question->id }}">
-
-<label for="answers[]">{{ $question->name }}</label>
-<input type="text" name="answers[]" class="form-control">
+<input
+    type="text"
+    name="answers[]"
+    class="form-control"
+    @if ( $question->answer_required_yn  == 1)
+        required
+    @endif
+>
