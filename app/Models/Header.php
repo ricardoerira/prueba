@@ -74,7 +74,8 @@ class Header extends Model
      */
     public function surveys()
     {
-        return $this->hasMany(Survey::class);
+        return $this->hasMany(Survey::class)
+            ->whereDate('surveys.created_at', Carbon::now()->format('Y-m-d'));
     }
 
 }

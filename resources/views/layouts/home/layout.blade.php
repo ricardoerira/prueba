@@ -31,11 +31,13 @@
               Perfil
             </a>
           </li>
+          @can('edit articles')
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('admin.index') }}">
               Administración
             </a>
           </li>
+          @endcan
         </ul>
       </div>
     </div>
