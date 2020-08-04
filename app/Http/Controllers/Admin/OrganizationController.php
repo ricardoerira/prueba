@@ -22,7 +22,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * index
+     * function index
      *
      * @return void
      */
@@ -34,7 +34,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * create
+     * function create
      *
      * @return void
      */
@@ -59,7 +59,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * edit
+     * function edit
      *
      * @param  mixed $organization
      * @return void
@@ -70,7 +70,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * update
+     * function update
      *
      * @param  mixed $request
      * @param  mixed $organization
@@ -86,7 +86,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * delete
+     * function delete
      *
      * @param  mixed $organization
      * @return void
