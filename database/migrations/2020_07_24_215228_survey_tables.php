@@ -11,23 +11,22 @@ class SurveyTables extends Migration
         Schema::create('organizations', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('organization_name', 160);
-
-            $table->unique('organization_name','survey_name_unique');
+            $table->string('name', 160)->unique();
+            $table->string('slug', 160)->unique();
 
             $table->timestamps();
 
         });
 
-        Schema::create('survey_headers', function(Blueprint $table) {
+        Schema::create('headers', function(Blueprint $table) {
 
             $table->increments('id');
             $table->integer('organization_id')->unsigned();
-            $table->string('survey_name', 160)->nullable();
+            $table->string('name', 600)->nullable()->unique();
+            $table->integer('pollster', 40);
+            $table->string('slug')->unique();
             $table->string('instructions', 4096)->nullable();
             $table->string('other_header_info', 255)->nullable();
-
-            $table->unique('survey_name','survey_name_unique');
 
             $table->index('organization_id','fk_surveys_organizations1');
 
@@ -41,171 +40,184 @@ class SurveyTables extends Migration
         Schema::create('input_types', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('input_type_name', 160);
-
-            $table->unique('input_type_name','survey_name_unique');
+            $table->string('name', 160)->unique();
+            $table->string('slug', 160)->unique();
 
             $table->timestamps();
 
         });
 
-        Schema::create('survey_sections', function(Blueprint $table) {
+        Schema::create('surveys', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('survey_header_id')->unsigned()->nullable();
-            $table->string('section_name', 160)->nullable();
-            $table->string('section_title', 45)->nullable();
-            $table->string('section_subheading', 45)->nullable();
-            $table->boolean('section_required_yn')->default(1);
+            $table->bigInteger('surveyed_id')->unsigned();
+            $table->bigInteger('pollster_id')->unsigned()->nullable();
+            $table->integer('header_id')->unsigned()->nullable();
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('completion_time')->nullable();
+            $table->index('header_id','fk_survey_sections_surveys1');
 
-            $table->unique('section_name','survey_name_unique');
+            $table->foreign('surveyed_id')
+                ->references('id')->on('users');
 
-            $table->index('survey_header_id','fk_survey_sections_surveys1');
+            $table->foreign('pollster_id')
+                ->references('id')->on('users');
 
-            $table->foreign('survey_header_id')
-                ->references('id')->on('survey_headers');
+            $table->foreign('header_id')
+                ->references('id')->on('headers');
+
+            $table->timestamps();
+        });
+
+        Schema::create('sections', function(Blueprint $table) {
+
+            $table->increments('id');
+            $table->string('name', 600)->nullable()->unique();
+            $table->string('title', 600)->nullable();
+            $table->string('subheading', 600)->nullable();
+            $table->boolean('required_yn')->default(1);
 
             $table->timestamps();
 
         });
+
+        Schema::create('header_section', function(Blueprint $table) {
+
+            $table->increments('id');
+            $table->integer('header_id')->unsigned()->nullable();
+            $table->integer('section_id')->unsigned()->nullable();
+            $table->integer('priority')->nullable();
+
+            $table->index('header_id','fk_survey_sections_surveys');
+            $table->index('section_id','fk_questions_survey_sections');
+
+            $table->foreign('header_id')
+                ->references('id')->on('headers');
+
+            $table->timestamps();
+
+        });
+
 
         Schema::create('questions', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('survey_section_id')->unsigned();
             $table->integer('input_type_id')->unsigned();
-            $table->string('question_name', 255);
-            $table->string('question_subtext', 500)->nullable();
-            $table->boolean('question_required_yn')->nullable();
+            $table->string('name', 900);
+            $table->string('subtext', 500)->nullable();
+            $table->boolean('required_yn')->nullable();
             $table->boolean('answer_required_yn')->nullable()->default(1);
             $table->boolean('allow_mutiple_option_answers_yn')->nullable()->default(0);
-
-
-            $table->unique('allow_mutiple_option_answers_yn','allow_mutiple_option_answers_yn_unique');
+            $table->integer('dependent_question_id')->nullable();
+            $table->integer('dependent_question_option_id')->nullable();
+            $table->integer('dependent_answer_id')->nullable();
 
             $table->index('input_type_id','fk_questions_question_types1');
-            $table->index('survey_section_id','fk_questions_survey_sections1');
 
             $table->foreign('input_type_id')
                 ->references('id')->on('input_types');
 
-            $table->foreign('survey_section_id')
-                ->references('id')->on('survey_sections');
-
-
             $table->timestamps();
-
         });
 
 
-
-        Schema::create('unit_of_measures', function(Blueprint $table) {
+        Schema::create('question_section', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('unit_of_measures_name', 160);
+            $table->integer('section_id')->unsigned();
+            $table->integer('question_id')->unsigned();
 
-            $table->unique('unit_of_measures_name','survey_name_unique');
+            $table->index('section_id','fk_sections_questions_sections');
+            $table->index('question_id','fk_sections_questions_questions1');
 
+            $table->foreign('section_id')
+                ->references('id')->on('sections');
+            $table->foreign('question_id')
+                ->references('id')->on('questions');
             $table->timestamps();
+
+
 
         });
 
-        Schema::create('option_choices', function(Blueprint $table) {
+        Schema::create('choices', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->string('option_choice_name', 45);
-
-
+            $table->string('name', 245);
 
             $table->timestamps();
-
         });
 
-        Schema::create('question_options', function(Blueprint $table) {
+        Schema::create('choice_question', function(Blueprint $table) {
 
             $table->increments('id');
             $table->integer('question_id')->unsigned();
-            $table->integer('option_choice_id')->unsigned();
+            $table->integer('choice_id')->unsigned();
 
-
-            $table->index('question_id','fk_question_options_questions1');
-            $table->index('option_choice_id','fk_question_options_option_choices1');
+            $table->index('question_id','fk_question_options_questions');
+            $table->index('choice_id','fk_question_options_choices');
 
             $table->foreign('question_id')
                 ->references('id')->on('questions');
 
-            $table->foreign('option_choice_id')
-                ->references('id')->on('option_choices');
+            $table->foreign('choice_id')
+                ->references('id')->on('choices');
 
             $table->timestamps();
-
         });
 
         Schema::create('answers', function(Blueprint $table) {
-
             $table->increments('id');
-            $table->integer('identification')->unsigned();
-            $table->integer('question_option_id')->unsigned();
-            $table->integer('answer_numeric')->nullable();
-            $table->string('answer_text', 255)->nullable();
-            $table->boolean('answer_yn')->nullable();
-            $table->integer('unit_of_measure_id')->unsigned()->nullable();
+            $table->integer('survey_id')->unsigned();
+            $table->integer('question_id')->unsigned();
+            $table->integer('choice_id')->unsigned();
+            $table->string('text', 855)->nullable();
 
-            $table->index('unit_of_measure_id','fk_answers_unit_of_measure1');
-            $table->index('question_option_id','fk_answers_question_options1');
+            $table->index('survey_id','fk_answers_surveys');
 
+            $table->foreign('survey_id')
+                ->references('id')->on('surveys');
 
+            $table->foreign('question_id')
+                ->references('id')->on('questions');
 
-            $table->foreign('unit_of_measure_id')
-                ->references('id')->on('unit_of_measures');
-
-            $table->foreign('question_option_id')
-                ->references('id')->on('question_options');
+            $table->foreign('choice_id')
+                ->references('id')->on('choices');
 
             $table->timestamps();
-
         });
 
-        Schema::create('survey_comments', function(Blueprint $table) {
-
+        Schema::create('header_comments', function(Blueprint $table) {
             $table->integer('id');
-            $table->integer('survey_header_id')->unsigned();
+            $table->integer('header_id')->unsigned();
             $table->integer('identification_number')->unsigned();
             $table->string('comments', 4096)->nullable();
 
             $table->primary('id');
 
-            $table->index('survey_header_id','fk_survey_comments_surveys1');
+            $table->index('header_id','fk_survey_comments_surveys1');
 
-
-            $table->foreign('survey_header_id')
-                ->references('id')->on('survey_headers');
+            $table->foreign('header_id')
+                ->references('id')->on('headers');
 
             $table->timestamps();
-
         });
 
-        Schema::create('user_survey_sections', function(Blueprint $table) {
-
+        Schema::create('section_user', function(Blueprint $table) {
             $table->integer('id');
             $table->integer('identification_number')->unsigned();
-            $table->integer('survey_section_id')->unsigned();
+            $table->integer('section_id')->unsigned();
             $table->dateTime('completed_on')->nullable();
 
             $table->primary('id');
 
-            $table->index('survey_section_id','fk_user_survey_sections_survey_sections1');
+            $table->index('section_id','fk_user_survey_sections_survey_sections1');
 
-            $table->foreign('survey_section_id')
-                ->references('id')->on('survey_sections');
-
-
+            $table->foreign('section_id')
+                ->references('id')->on('sections');
 
             $table->timestamps();
-
         });
-
-
     }
 
     /**
@@ -215,18 +227,18 @@ class SurveyTables extends Migration
      */
     public function down()
     {
-        Schema::drop('user_survey_sections');
-        Schema::drop('survey_comments');
         Schema::drop('answers');
-        Schema::drop('question_options');
-        Schema::drop('option_choices');
-        Schema::drop('unit_of_measures');
-        Schema::drop('questions');
-        Schema::drop('survey_sections');
-        Schema::drop('input_types');
-        Schema::drop('survey_headers');
+        Schema::drop('surveys');
+        Schema::drop('header_comments');
+        Schema::drop('section_header');
+        Schema::drop('headers');
         Schema::drop('organizations');
-
+        Schema::drop('input_types');
+        Schema::drop('sections');
+        Schema::drop('questions');
+        Schema::drop('question_section');
+        Schema::drop('choices');
+        Schema::drop('choice_question');
+        Schema::drop('section_user');
     }
 }
-
