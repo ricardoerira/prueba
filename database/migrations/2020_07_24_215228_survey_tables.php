@@ -50,13 +50,17 @@ class SurveyTables extends Migration
         Schema::create('surveys', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('surveyed_id')->unsigned();
+            $table->bigInteger('pollster_id')->unsigned()->nullable();
             $table->integer('header_id')->unsigned()->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('completion_time')->nullable();
             $table->index('header_id','fk_survey_sections_surveys1');
 
-            $table->foreign('user_id')
+            $table->foreign('surveyed_id')
+                ->references('id')->on('users');
+
+            $table->foreign('pollster_id')
                 ->references('id')->on('users');
 
             $table->foreign('header_id')

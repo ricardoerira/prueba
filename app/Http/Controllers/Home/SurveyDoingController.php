@@ -53,8 +53,8 @@ class SurveyDoingController extends Controller
     public function store(Request $request, Header $header)
     {
         $survey = Survey::create([
-            'user_id'   => Auth::id(),
-            'header_id' => $header->id,
+            'surveyed_id'   => Auth::id(),
+            'header_id'     => $header->id,
         ]);
 
         foreach ($request->answers as $key => $answer) {
