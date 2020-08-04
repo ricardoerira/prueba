@@ -43,11 +43,11 @@ class OrganizationController extends Controller
         return view('pages.admin.organizations.create');
     }
 
-    /**
-     * save
+   /**
+     * Store a newly created resource in storage.
      *
-     * @param  mixed $request
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function save(Request $request)
     {
