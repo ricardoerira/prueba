@@ -60,6 +60,12 @@ class SurveyDoingController extends Controller
         foreach ($request->answers as $key => $answer) {
 
             if ( $this->questionHasChoices($request->questions[$key]) ) {
+
+                if (!is_string($answer)) {
+                    $question = strval($key + 1);
+                    $answer = $answer[$question];
+                }
+
                 Answer::create([
                     'survey_id'     => $survey->id,
                     'question_id'   => $request->questions[$key],
