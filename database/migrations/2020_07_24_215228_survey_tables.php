@@ -23,7 +23,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('organization_id')->unsigned();
             $table->string('name', 600)->nullable()->unique();
-            $table->integer('pollster', 40);
+            $table->integer('pollster');
             $table->string('slug')->unique();
             $table->string('instructions', 4096)->nullable();
             $table->string('other_header_info', 255)->nullable();
@@ -34,7 +34,6 @@ class SurveyTables extends Migration
                 ->references('id')->on('organizations');
 
             $table->timestamps();
-
         });
 
         Schema::create('input_types', function(Blueprint $table) {

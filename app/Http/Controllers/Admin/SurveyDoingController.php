@@ -20,6 +20,15 @@ class SurveyDoingController extends Controller
         return view('pages.admin.survey.doing.index', compact('headers'));
     }
 
+    public function filterUserView()
+    {
+        if (view()->exists('pages.admin.survey.doing.filter_user'))
+        {
+            $users = User::select('')->get();
+            return view('pages.admin.survey.doing.filter_user');
+        }
+    }
+
     public function create(Header $header)
     {
         $sections = $header->sections()->with('questions')->get();
