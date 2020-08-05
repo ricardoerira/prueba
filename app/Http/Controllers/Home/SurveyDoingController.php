@@ -62,7 +62,7 @@ class SurveyDoingController extends Controller
             if ( $this->questionHasChoices($request->questions[$key]) ) {
 
                 if (!is_string($answer)) {
-                    $question = strval($key + 1);
+                    $question = strval($request->questions[$key]);
                     $answer = $answer[$question];
                 }
 
