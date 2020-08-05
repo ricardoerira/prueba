@@ -102,7 +102,7 @@ class Question extends Model
 
 	public function questionsDepended()
 	{
-		return $this->hasMany(Question::class, 'dependent_question_id');
+		return $this->hasMany(Question::class, 'id');
 	}
 
 }
