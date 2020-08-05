@@ -14,7 +14,7 @@
             @foreach ($sections as $key => $section)
             <div class="card card-primary w-75 mx-auto">
                 <div class="card-header w-100">
-                    <h3 class="card-title">Session - {{ $section->pivot->priority }}</h3>
+                    <h3 class="card-title">Sección - {{ $section->pivot->priority }}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -26,7 +26,7 @@
                         </span>
                     </div>
                     @foreach ($section->questions as $question)
-                    <div class="form-group">
+                    <div class="form-group @if($question->questionsDepended()->exists()) d-none @endif">
                         @include('pages.home.includes.inputs.index')
                     </div>
                     @endforeach
