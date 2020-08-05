@@ -4,7 +4,7 @@
         <input
             type="radio"
             value="{{ $choice->id }}"
-            name="answers[]"
+            name="answers[][{{$question->id}}]"
             class="form-check-input"
             @if ($question->answer_required_yn == 1) required @endif
         >
