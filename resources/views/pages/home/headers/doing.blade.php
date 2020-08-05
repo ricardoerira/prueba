@@ -51,7 +51,7 @@
     <script>
         $('select#depended').on('change',function(){
             var valor = $(this).val();
-            if (valor != 172) {
+            if (valor == 172) {
                 $(".depend").each(function() {
                     $(this).addClass("d-none");
                 }).get();
