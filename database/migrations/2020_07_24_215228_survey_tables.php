@@ -169,7 +169,7 @@ class SurveyTables extends Migration
             $table->increments('id');
             $table->integer('survey_id')->unsigned();
             $table->integer('question_id')->unsigned();
-            $table->integer('choice_id')->unsigned();
+            $table->integer('choice_id')->unsigned()->nullable();
             $table->string('text', 855)->nullable();
 
             $table->index('survey_id','fk_answers_surveys');

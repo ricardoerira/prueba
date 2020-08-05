@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Header
@@ -75,6 +76,7 @@ class Header extends Model
     public function surveys()
     {
         return $this->hasMany(Survey::class)
+            ->where('surveyed_id', Auth::id())
             ->whereDate('surveys.created_at', Carbon::now()->format('Y-m-d'));
     }
 
