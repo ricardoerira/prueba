@@ -26,7 +26,7 @@
                         </span>
                     </div>
                     @foreach ($section->questions as $question)
-                    <div class="form-group @if($question->questionsDepended()->exists()) d-none @endif">
+                    <div class="form-group @if($question->questionsDepended()->exists()) d-none depend @endif">
                         @include('pages.home.includes.inputs.index')
                     </div>
                     @endforeach
@@ -45,4 +45,21 @@
 
 @section('plugins-js')
     <script src="{{ asset('js/plugins-forms.js') }}"></script>
+@endsection
+
+@section('own-js')
+    <script>
+        $('select#depended').on('change',function(){
+            var valor = $(this).val();
+            if (valor == 172) {
+                $(".depend").each(function() {
+                    $(this).addClass("d-none");
+                }).get();
+            }else{
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
+            }
+        });
+    </script>
 @endsection
