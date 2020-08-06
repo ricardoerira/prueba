@@ -39,6 +39,7 @@ class Header extends Model
      */
     protected $fillable = [
         "name",
+        "pollster",
         "slug",
         "instructions",
         "other_header_info",
