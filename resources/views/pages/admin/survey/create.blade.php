@@ -40,7 +40,12 @@
                                                 <font style="vertical-align: inherit;">Nombre</font>
                                             </font>
                                         </label>
-                                        <textarea name="name" id="" cols="30" rows="2" class="form-control"></textarea>
+                                    <textarea name="name" id="" cols="30" rows="2" class="form-control @error('name') is-invalid @enderror" >{{ old('name') }}</textarea>
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -52,7 +57,12 @@
                                             </font>
                                         </label>
                                         <textarea name="instructions" id="" cols="30" rows="2"
-                                            class="form-control"></textarea>
+                                            class="form-control @error('instructions') is-invalid @enderror">{{ old('instructions') }}</textarea>
+                                        @error('instructions')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -64,7 +74,12 @@
                                             </font>
                                         </label>
                                         <textarea name="other_header_info" id="" cols="30" rows="2"
-                                            class="form-control"></textarea>
+                                            class="form-control  @error('other_header_info') is-invalid @enderror ">{{ old('other_header_info') }}</textarea>
+                                            @error('other_header_info')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                     </div>
                                 </div>
 

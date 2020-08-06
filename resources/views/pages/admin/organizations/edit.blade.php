@@ -41,7 +41,12 @@
                                                 <font style="vertical-align: inherit;">Nombre</font>
                                             </font>
                                         </label>
-                                        <input type="name" name="name" class="form-control" id="name" placeholder="Ingrese Nombre" value="{{ $organization->name }}">
+                                        <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Ingrese Nombre" value="{{ old('name', $organization->name) }}">
+                                        @error('name')
+                                          <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                          </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

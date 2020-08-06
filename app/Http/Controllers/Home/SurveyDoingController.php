@@ -52,15 +52,17 @@ class SurveyDoingController extends Controller
      */
     public function store(Request $request, Header $header)
     {
+       
+        
         $survey = Survey::create([
             'surveyed_id'   => Auth::id(),
             'header_id'     => $header->id,
         ]);
-
+        
         foreach ($request->answers as $key => $answer) {
 
             if ( $this->questionHasChoices($request->questions[$key]) ) {
-
+                
                 if (!is_string($answer)) {
                     $question = strval($request->questions[$key]);
                     $answer = $answer[$question];

@@ -41,7 +41,12 @@
                         <font style="vertical-align: inherit;">Nombre</font>
                       </font>
                     </label>
-                    <input type="name" name="name" class="form-control" id="name" placeholder="Ingrese Nombre" value="{{ $user->name }}">
+                    <input type="name" name="name" class="form-control  @error('name') is-invalid @enderror " id="name" placeholder="Ingrese Nombre" value="{{ old('name', $user->name) }}">
+                      @error('name')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
 
                   <div class="form-group col-6">
@@ -50,7 +55,12 @@
                         <font style="vertical-align: inherit;">Correo</font>
                       </font>
                     </label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Ingrese Correo" value="{{ $user->email }}">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror " id="email" placeholder="Ingrese Correo" value="{{ old('email', $user->email) }}">
+                      @error('email')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
 
                 </div>
