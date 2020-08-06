@@ -10,6 +10,7 @@
         <h3 class="text-center p-3">{{$header->name}}</h3>
     </div>
     <form action="{{ route('surveys.done', $header->id) }}" role="form" method="POST">
+        <input type="hidden" name="header_id" id="header_id" value="{{ $header->id }}">
         @csrf
         @foreach ($sections as $key => $section)
         <div class="card card-primary w-75 mx-auto seccion-{{$section->pivot->priority}}">
@@ -49,9 +50,19 @@
 
 @section('own-js')
 <script>
-    $('.seccion-2').addClass("d-none")
-    $('.seccion-3').addClass("d-none")
     if ( $("#depended").length > 0 ) {
+
+        let header = $("#header_id").val();
+
+        alert(header);
+
+        if (header == 2) {
+            
+        }
+
+        if (header  == 3) {
+        $('.seccion-2').addClass("d-none")
+        $('.seccion-3').addClass("d-none")
         $('select#depended').on('change',function(){
             var valor = $(this).val();
             if (valor == 172) {
@@ -68,6 +79,8 @@
                 $('.seccion-3').removeClass("d-none")
             }
         });
+        }
+
     }
 </script>
 @endsection

@@ -25,3 +25,7 @@
 @if ( $question->inputType->name == 'select' )
     @include('pages.home.includes.inputs.select')
 @endif
+
+@if ( $question->inputType->name == 'date' )
+    @include('pages.home.includes.inputs.date')
+@endif
