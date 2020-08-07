@@ -37,13 +37,13 @@ Route::put('inputs/{inputTypes:slug}/edit', 'Admin\InputTypesController@update')
 Route::delete('inputs/{inputTypes:id}/delete', 'Admin\InputTypesController@delete')->name('inputs.delete');
 
 // Route Roles
-Route::get('roles/index', 'Admin\roleController@index')->name('roles.index');
-Route::get('roles/create', 'Admin\roleController@create')->name('roles.create');
-Route::get('roles/{role:id}/edit', 'Admin\roleController@edit')->name('roles.edit');
+Route::get('roles/index', 'Admin\RoleController@index')->name('roles.index');
+Route::get('roles/create', 'Admin\RoleController@create')->name('roles.create');
+Route::get('roles/{role:id}/edit', 'Admin\RoleController@edit')->name('roles.edit');
 
-Route::post('roles/create', 'Admin\roleController@store')->name('roles.store');
-Route::put('roles/{role:id}/edit', 'Admin\roleController@update')->name('roles.update');
-Route::delete('roles/{role:id}/delete', 'Admin\roleController@destroy')->name('roles.destroy');
+Route::post('roles/create', 'Admin\RoleController@store')->name('roles.store');
+Route::put('roles/{role:id}/edit', 'Admin\RoleController@update')->name('roles.update');
+Route::delete('roles/{role:id}/delete', 'Admin\RoleController@destroy')->name('roles.destroy');
 
 // Route Headers
 Route::get('survey/index', 'Admin\SurveyController@index')->name('survey.index');
