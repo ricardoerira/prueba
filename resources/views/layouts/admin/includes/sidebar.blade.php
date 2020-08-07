@@ -110,7 +110,7 @@
                         <p>
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
-                                    Tablero
+                                    Gestión Permisos
                                 </font>
                             </font><i class="right fas fa-angle-left"></i>
                         </p>
@@ -121,7 +121,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Tablero v1</font>
+                                        <font style="vertical-align: inherit;">Roles</font>
                                     </font>
                                 </p>
                             </a>
@@ -131,7 +131,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Tablero v2</font>
+                                        <font style="vertical-align: inherit;">Permisos</font>
                                     </font>
                                 </p>
                             </a>
@@ -141,7 +141,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Tablero v3</font>
+                                        <font style="vertical-align: inherit;">Asignar Permisos</font>
                                     </font>
                                 </p>
                             </a>
