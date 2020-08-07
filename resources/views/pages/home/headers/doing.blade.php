@@ -54,10 +54,12 @@
 
         let header = $("#header_id").val();
 
-        alert(header);
-
         if (header == 2) {
-            
+            alert("hola");
+            $('radio#depended').on('change',function(){
+            var valor = $(this).val();
+            alert(valor);
+        });
         }
 
         if (header  == 3) {
