@@ -54,7 +54,7 @@
               @can('view_admin')
               <div class="dropdown-divider"></div>
 
-              <a href="#" class="dropdown-item">
+              <a href="{{ route('admin.index') }}" class="dropdown-item">
 
                 <i class="fas fa-chart-line mr-2"></i>
                 <font style="vertical-align: inherit;">
@@ -66,7 +66,7 @@
 
               <div class="dropdown-divider"></div>
 
-              <a href="#" class="dropdown-item">
+              <a href="{{ route('logout') }}" class="dropdown-item">
 
                 <i class="nav-icon fas fa-power-off"></i>
                 <font style="vertical-align: inherit;">

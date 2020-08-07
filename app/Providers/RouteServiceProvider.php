@@ -76,6 +76,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminRoutes()
     {
+        // 'permission:view_admin'
         Route::middleware(['web', 'auth'])
             ->prefix('admin')
              ->namespace($this->namespace)
