@@ -26,18 +26,57 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ route('logout') }}">
-              Cerrar Sesión
+          <li class="nav-item dropdown">
+
+            <a class="nav-link bg-primary img-circle px-2 py-1" data-toggle="dropdown" href="#">
+              <i class="far fa-user"></i>
             </a>
+
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+              <span class="dropdown-item dropdown-header">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">{{ Auth::user()->name }}</font>
+                </font>
+              </span>
+
+              <div class="dropdown-divider"></div>
+
+              <a href="#" class="dropdown-item">
+
+                <i class="fas fa-users mr-2"></i>
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Perfil</font>
+                </font>
+
+              </a>
+
+              @can('view_admin')
+              <div class="dropdown-divider"></div>
+
+              <a href="#" class="dropdown-item">
+
+                <i class="fas fa-chart-line mr-2"></i>
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Administración</font>
+                </font>
+
+              </a>
+              @endcan
+
+              <div class="dropdown-divider"></div>
+
+              <a href="#" class="dropdown-item">
+
+                <i class="nav-icon fas fa-power-off"></i>
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Cerrar Sesión</font>
+                </font>
+
+              </a>
+
+            </div>
           </li>
-          @can('view.admin')
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.index') }}">
-              Administración
-            </a>
-          </li>
-          @endcan
         </ul>
       </div>
     </div>

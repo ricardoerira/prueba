@@ -21,7 +21,7 @@
             <div class="info">
                 <a href="#" class="d-block">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Alexander Pierce</font>
+                        <font style="vertical-align: inherit;">{{ Auth::user()->name }}</font>
                     </font>
                 </a>
             </div>
