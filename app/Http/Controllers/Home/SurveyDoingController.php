@@ -65,26 +65,28 @@ class SurveyDoingController extends Controller
             ]);
         }
 
+        $question = 0;
         foreach ($request->answers as $key => $answer) {
-            if ($this->questionHasChoices($request->questions[$key])) {
-                if (!is_string($answer)) {
-                    $question = strval($request->questions[$key]);
-                    $answer = $answer[$question];
-                }
+
+            if ($this->questionHasChoices($request->questions[$question])) {
 
                 Answer::create([
-                    'survey_id' => $survey->id,
-                    'question_id' => $request->questions[$key],
-                    'choice_id' => $answer,
+                    'survey_id'     => $survey->id,
+                    'question_id'   => $request->questions[$question],
+                    'choice_id'     => $answer,
                 ]);
+
+                $question++;
                 continue;
             }
 
             Answer::create([
-                'survey_id' => $survey->id,
-                'question_id' => $request->questions[$key],
-                'text' => $answer
+                'survey_id'     => $survey->id,
+                'question_id'   => $request->questions[$question],
+                'text'          => $answer
             ]);
+
+            $question++;
         }
 
         return redirect()->back();

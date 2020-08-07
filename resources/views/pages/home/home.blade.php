@@ -18,21 +18,21 @@
                     <div class="col-lg-3 col-6">
                         <div
                             class="small-box
-                            
-                            @if ($header->surveys()->exists() || $formIni == 0 && $header-> id <> 2)
+
+                            @if ($header->surveys()->exists() || ($formIni == 0 && $header->id <> 2))
                                 bg-info
                             @else
                                 bg-danger
                             @endif
                             "
                         >
-                     
+
                             <div class="inner">
                                 <p>{{ $header->name }}</p>
                             </div>
 
                             @if ((!$header->surveys()->exists() && $formIni > 0) || ($header->id == 2 && $formIni == 0)  )
-                                
+
                                 <a
                                     href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
                                 >
