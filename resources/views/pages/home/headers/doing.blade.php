@@ -55,11 +55,21 @@
         let header = $("#header_id").val();
 
         if (header == 2) {
-            alert("hola");
-            $('radio#depended').on('change',function(){
-            var valor = $(this).val();
-            alert(valor);
-        });
+            $('.seccion-18').addClass("d-none")
+
+            $('#radio_depended_0').change(() => {
+                $('.seccion-18').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
+            });
+
+            $('#radio_depended_1').change(() => {
+                $('.seccion-18').addClass("d-none")
+                $(".depend").each(function() {
+                    $(this).addClass("d-none");
+                }).get();
+            });
         }
 
         if (header  == 3) {
