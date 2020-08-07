@@ -19,7 +19,7 @@
                         <div
                             class="small-box
 
-                            @if ($header->surveys()->exists() || ($formIni == 0 && $header->id <> 2))
+                            @if (($header->id == 2 && $formIni > 0) || ($header->id == 3 && !$header->surveys()->exists()))
                                 bg-info
                             @else
                                 bg-danger
@@ -31,8 +31,7 @@
                                 <p>{{ $header->name }}</p>
                             </div>
 
-                            @if ((!$header->surveys()->exists() && $formIni > 0) || ($header->id == 2 && $formIni == 0)  )
-
+                            @if (!(($header->id == 2 && $formIni > 0) || ($header->id == 3 && !$header->surveys()->exists())))
                                 <a
                                     href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
                                 >
