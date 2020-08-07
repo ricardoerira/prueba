@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
+use App\Http\Requests\Admin\UserRequest;
 
 class UserController extends Controller
 {
@@ -63,7 +64,8 @@ class UserController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function save(Request $request)
+    
+    public function save(UserRequest $request)
     {
         $request->password = bcrypt($request->password);
         $request->remember_token = Str::random(10);
@@ -72,7 +74,7 @@ class UserController extends Controller
             return redirect()->route('users.index');
         }
 
-        return back()->withInput()->with(['error' => 'Algo va mal']);
+        return back()->withInput()->with(['error' => 'Algo va mal']); 
     }
 
     /**
@@ -82,7 +84,7 @@ class UserController extends Controller
      * @param  mixed $user
      * @return void
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         if ($user->update($request->all())) {
             return redirect()->route('users.index');

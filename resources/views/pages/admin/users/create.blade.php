@@ -17,6 +17,7 @@
         </h1>
       </div>
     </div>
+   
     <section class="content">
       <div class="row">
         <div class="col-12">
@@ -40,7 +41,13 @@
                         <font style="vertical-align: inherit;">Nombre</font>
                       </font>
                     </label>
-                    <input type="name" name="name" class="form-control" id="name" placeholder="Ingrese Nombre">
+               
+                    <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Ingrese Nombre" value = "{{ old('name') }}">
+                      @error('name')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
 
                   <div class="form-group col-6">
@@ -49,9 +56,14 @@
                         <font style="vertical-align: inherit;">Correo</font>
                       </font>
                     </label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Ingrese Correo">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror " id="email" placeholder="Ingrese Correo" value = "{{ old('email') }}">
+                      @error('email')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
-
+                  
                 </div>
                 <div class="row">
 
@@ -61,8 +73,13 @@
                         <font style="vertical-align: inherit;">Contraseña</font>
                       </font>
                     </label>
-                    <input type="password" name="password" class="form-control" id="password"
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
                       placeholder="Ingrese Contraseña">
+                      @error('password')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
 
                   <div class="form-group col-6">

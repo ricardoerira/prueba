@@ -7,6 +7,7 @@ use App\Models\Header;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Http\Requests\Admin\SurveyRequest;
 
 /**
  * SurveyController
@@ -53,7 +54,7 @@ class SurveyController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function save(Request $request)
+    public function save(SurveyRequest $request)
     {
         $request['slug'] = Str::slug($request->name);
 
@@ -70,7 +71,7 @@ class SurveyController extends Controller
      * @param  mixed $header
      * @return void
      */
-    public function edit(Header $header)
+    public function edit(Header $header, SurveyRequest $request)
     {
         $organizations = Organization::all();
 
@@ -84,9 +85,13 @@ class SurveyController extends Controller
      * @param  mixed $header
      * @return void
      */
-    public function update(Request $request, Header $header)
+    public function update(SurveyRequest $request, Header $header)
     {
-        dd($request);
+        $request['slug'] = Str::slug($request->name);
+
+        if ($header->update($request->all())) {
+            return redirect()->route('survey.index');
+        }
     }
 
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Http\Requests\Admin\OrganizationRequest;
 
 /**
  * OrganizationController
@@ -22,7 +23,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * function index
+     * index
      *
      * @return void
      */
@@ -34,7 +35,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * function create
+     * create
      *
      * @return void
      */
@@ -49,7 +50,7 @@ class OrganizationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function save(Request $request)
+    public function save(OrganizationRequest $request)
     {
         $request['slug'] = Str::slug($request->name);
 
@@ -59,7 +60,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * function edit
+     * edit
      *
      * @param  mixed $organization
      * @return void
@@ -70,23 +71,23 @@ class OrganizationController extends Controller
     }
 
     /**
-     * function update
+     * update
      *
      * @param  mixed $request
      * @param  mixed $organization
      * @return void
      */
-    public function update(Request $request, Organization $organization)
+    public function update(OrganizationRequest $request, Organization $organization)
     {
         $request['slug'] = Str::slug($request->name);
 
-        if ($organization->update($request->all())) {
+        if ($organization->update($request->validated())) {
             return redirect()->route('organizations.index');
         }
     }
 
     /**
-     * function delete
+     * delete
      *
      * @param  mixed $organization
      * @return void
