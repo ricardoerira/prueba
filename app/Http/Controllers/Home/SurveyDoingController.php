@@ -18,7 +18,8 @@ class SurveyDoingController extends Controller
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         //
     }
 
@@ -32,8 +33,7 @@ class SurveyDoingController extends Controller
         if (
             url()->previous() != route('surveys.info', $header->slug) &
             url()->previous() != route('surveys.running', $header->slug)
-        )
-        {
+        ) {
             return redirect()->route('headers.info', $header->slug);
         }
 
@@ -52,41 +52,45 @@ class SurveyDoingController extends Controller
      */
     public function store(Request $request, Header $header)
     {
-       
-        
-        $survey = Survey::create([
-            'surveyed_id'   => Auth::id(),
-            'header_id'     => $header->id,
-        ]);
-        
-        foreach ($request->answers as $key => $answer) {
+        if ($header->pollster == 2) {
+            $survey = Survey::create([
+                'pollster_id' => Auth::id(),
+                'surveyed_id' => $request->answers[1],
+                'header_id' => $header->id,
+            ]);
+        } else {
+            $survey = Survey::create([
+                'surveyed_id' => Auth::id(),
+                'header_id' => $header->id,
+            ]);
+        }
 
-            if ( $this->questionHasChoices($request->questions[$key]) ) {
-                
+        foreach ($request->answers as $key => $answer) {
+            if ($this->questionHasChoices($request->questions[$key])) {
                 if (!is_string($answer)) {
                     $question = strval($request->questions[$key]);
                     $answer = $answer[$question];
                 }
 
                 Answer::create([
-                    'survey_id'     => $survey->id,
-                    'question_id'   => $request->questions[$key],
-                    'choice_id'     => $answer,
+                    'survey_id' => $survey->id,
+                    'question_id' => $request->questions[$key],
+                    'choice_id' => $answer,
                 ]);
                 continue;
             }
 
             Answer::create([
-                'survey_id'     => $survey->id,
-                'question_id'   => $request->questions[$key],
-                'text'          => $answer
+                'survey_id' => $survey->id,
+                'question_id' => $request->questions[$key],
+                'text' => $answer
             ]);
         }
 
         return redirect()->back();
     }
 
-    public function questionHasChoices(int $questionId): Bool
+    public function questionHasChoices(int $questionId): bool
     {
         $question = Question::find($questionId);
 

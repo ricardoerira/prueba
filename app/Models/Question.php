@@ -100,4 +100,14 @@ class Question extends Model
 			->withTimestamps();
 	}
 
+	public function questionsDepended()
+	{
+		return $this->belongsTo(Question::class, 'dependent_question_id');
+	}
+
+	public function questionsDependedMy()
+	{
+		return $this->hasOne(Question::class, 'dependent_question_id');
+	}
+
 }

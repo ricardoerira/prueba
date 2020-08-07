@@ -39,6 +39,7 @@ class Header extends Model
      */
     protected $fillable = [
         "name",
+        "pollster",
         "slug",
         "instructions",
         "other_header_info",
@@ -75,9 +76,15 @@ class Header extends Model
      */
     public function surveys()
     {
-        return $this->hasMany(Survey::class)
-            ->where('surveyed_id', Auth::id())
-            ->whereDate('surveys.created_at', Carbon::now()->format('Y-m-d'));
+        if ($this->id == 3) {
+            return $this->hasMany(Survey::class)
+                ->where('surveyed_id', Auth::id())
+                ->whereDate('surveys.completion_time', Carbon::now()->format('Y-m-d'));
+        } else {
+            return $this->hasMany(Survey::class)
+                ->where('surveyed_id', Auth::id());
+        }
+
     }
 
 }
