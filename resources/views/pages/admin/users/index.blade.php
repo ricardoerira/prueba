@@ -96,7 +96,7 @@
                           </td>
                           <td>
                             <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">{{$user->role->name}}</font>
+                              <font style="vertical-align: inherit;">{{ implode(" ", $user->getRoleNames()->toArray() )}}</font>
                             </font>
                           </td>
                           <td class="d-flex aling-item-center">
