@@ -89,7 +89,11 @@ class SurveyDoingController extends Controller
             $question++;
         }
 
-        return redirect()->back();
+        if ($header->pollster == 2) {
+            return redirect()->route('survey.doing.index');
+        }
+
+        return redirect()->route('home');
     }
 
     public function questionHasChoices(int $questionId): bool
