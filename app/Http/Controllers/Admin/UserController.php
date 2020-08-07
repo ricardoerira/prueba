@@ -87,6 +87,9 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
+        $request->password = bcrypt($request->password);
+        $request->remember_token = Str::random(10);
+
         if ($user->update($request->all())) {
 
             $user->roles()->detach();
