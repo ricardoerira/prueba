@@ -31,7 +31,7 @@
               Cerrar Sesión
             </a>
           </li>
-          @can('edit articles')
+          @can('view.admin')
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('admin.index') }}">
               Administración
