@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
     public function __construct() {
-        //
+        $users = User::all();
+        foreach ($users as $key => $user) {
+            $user->assignRole('common-user');
+        }
     }
 
     public function index()
