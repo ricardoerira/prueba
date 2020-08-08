@@ -50,7 +50,7 @@
           <span class="info-box-number">
             <font style="vertical-align: inherit;">
               <font style="vertical-align: inherit;">
-                10
+                {{ $daySurveyCount }}
               </font>
             </font>
           </span>
@@ -73,7 +73,7 @@
           </span>
           <span class="info-box-number">
             <font style="vertical-align: inherit;">
-              <font style="vertical-align: inherit;">41,410</font>
+              <font style="vertical-align: inherit;">{{$casesCovid}}</font>
             </font>
           </span>
         </div>
