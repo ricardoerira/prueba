@@ -35,11 +35,14 @@ class HomeController extends Controller
             ->where('pollster', 1)
             ->OrderBy('created_at', 'desc')
             ->get();
-
         $formIni = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '2')->get())->count();
-        
+        $fecha = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '3')->OrderBy('created_at', 'desc')->first());
+        if ($fecha<>""){
+            $fecha = ($fecha ->created_at)->format('d/m/Y');
+        }
+   
 
-        return view('pages.home.home', compact('headers', 'formIni'));
+        return view('pages.home.home', compact('headers', 'formIni', 'fecha'));
     }
 
 }
