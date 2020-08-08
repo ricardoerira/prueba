@@ -42,11 +42,12 @@
 
               <div class="dropdown-divider"></div>
 
-              <a href="#" class="dropdown-item">
+            <a href="{{ route('home.profile') }}" class="dropdown-item">
 
                 <i class="fas fa-users mr-2"></i>
                 <font style="vertical-align: inherit;">
                   <font style="vertical-align: inherit;">Perfil</font>
+                
                 </font>
 
               </a>
