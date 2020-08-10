@@ -1,11 +1,11 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-        <img src="{{ asset('images/admin/logo/logo.png') }}" alt="Logotipo de AdminLTE"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="{{ route('home') }}" class="brand-link">
+        <img src="{{ asset('images/admin/logo/logo-idpac.png') }}" alt="Logotipo de AdminLTE"
+            class="brand-image elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">
             <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">AdminLTE 3</font>
+                <font style="vertical-align: inherit;">Home</font>
             </font>
         </span>
     </a>

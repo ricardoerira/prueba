@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
   @yield('plugins-css')
   <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
+  <link rel="shortcut icon" href="{{ asset('images/Icono-idpac.png') }}"> 
   @yield('own-styles')
 </head>
 

@@ -3,7 +3,9 @@
 @section('content')
 <title>{{ $user->name }}</title>
 <section class="content-header">
-   
+  <br>
+  <br>
+  <br>
       <section class="content col-sm-11">
       
               <!-- /.card-header -->

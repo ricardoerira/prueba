@@ -12,14 +12,15 @@
   <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home/styles.css') }}">
   @yield('own-styles')
+  <link rel="shortcut icon" href="{{ asset('images/Icono-idpac.png') }}"> 
 </head>
 
 <body style="min-height: 512.391px;" id="body">
 
   @auth
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light gris scrolling-navbar fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ route('home') }}">EC</a>
+      <a class="navbar-brand " href="{{ route('home') }}"><img class="" src="{{ asset('images/home/logo-idpac.png') }}" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -83,6 +84,7 @@
       </div>
     </div>
   </nav>
+
   @endauth
 
   @if (session()->get('message'))
