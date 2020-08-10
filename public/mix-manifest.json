@@ -6,6 +6,8 @@
     "/css/admin/plugins-datatables.css": "/css/admin/plugins-datatables.css",
     "/js/admin/plugins-datatables.js": "/js/admin/plugins-datatables.js",
     "/css/plugins-forms.css": "/css/plugins-forms.css",
+    "/css/plugins-sweetalert.css": "/css/plugins-sweetalert.css",
     "/js/plugins-forms.js": "/js/plugins-forms.js",
+    "/js/plugins-sweetalert.js": "/js/plugins-sweetalert.js",
     "/css/home/styles.css": "/css/home/styles.css"
 }
