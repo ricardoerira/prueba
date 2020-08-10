@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home/styles.css') }}">
   @yield('own-styles')
-  <link rel="shortcut icon" href="{{ asset('images/Icono-idpac.png') }}"> 
+  <link rel="shortcut icon" href="{{ asset('images/logo-idpac.ico') }}"> 
 </head>
 
 <body style="min-height: 512.391px;" id="body">
