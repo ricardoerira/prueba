@@ -62,6 +62,12 @@ mix.styles([
     'resources/assets/css/plugins/forms/bootstrap-duallistbox.min',
 ], 'public/css/plugins-forms.css')
 
+// General sweetalert2 plugins css
+mix.styles([
+    'resources/assets/css/plugins/sweetalert2/bootstrap-4.min.css',
+    'resources/assets/css/plugins/sweetalert2/toastr.min.css',
+], 'public/css/plugins-sweetalert.css')
+
 // General forms plugins js
 mix.scripts([
     'resources/assets/js/plugins/forms/select2.full.min.js',
@@ -73,6 +79,12 @@ mix.scripts([
     'resources/assets/js/plugins/forms/tempusdominus-bootstrap-4.min.js',
     'resources/assets/js/plugins/forms/bootstrap-switch.min.js',
 ], 'public/js/plugins-forms.js')
+
+// General sweetalert2 plugins js
+mix.scripts([
+    'resources/assets/js/plugins/sweetalert2/sweetalert2.min.js',
+    'resources/assets/js/plugins/sweetalert2/toastr.min.js',
+], 'public/js/plugins-sweetalert.js')
 
 mix.styles([
     'resources/assets/home/styles.css'

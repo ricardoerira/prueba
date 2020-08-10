@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ env('APP_NAME', 'Escuentas | Covid') }}</title>
   <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/plugins-sweetalert.css') }}">
   @yield('plugins-css')
   <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home/styles.css') }}">
@@ -84,12 +85,28 @@
   </nav>
   @endauth
 
+  @if (session()->get('message'))
+  <div id="toast-container" class="toast-top-right">
+    <div class="toast toast-{{session()->get('type')}}" aria-live="polite" style="">
+      <div class="toast-message">{{session()->get('message')}}</div>
+    </div>
+  </div>
+  @endif
+
   @yield('content')
 
   <script src="{{ asset('js/plugins.js') }}"></script>
+  <script src="{{ asset('js/plugins-sweetalert.js') }}"></script>
   @yield('plugins-js')
   <script src="{{ asset('js/app.js') }}"></script>
   @yield('own-js')
+
+  <script>
+    setTimeout(function(){
+      $('#toast-container').remove();
+    }, 4000);
+  </script>
+
 </body>
 
 </html>
