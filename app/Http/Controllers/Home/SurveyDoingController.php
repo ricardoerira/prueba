@@ -93,7 +93,7 @@ class SurveyDoingController extends Controller
             return redirect()->route('survey.doing.index');
         }
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
     }
 
     public function questionHasChoices(int $questionId): bool
