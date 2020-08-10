@@ -21,7 +21,7 @@ class GuestionsSeeder extends Seeder
      */
     public function run()
     {
-        for ($j = 1; $j < 8; $j++) {
+        for ($j = 1; $j < 6; $j++) {
             $csvFileName = "form" . $j . ".csv";
             $csvFile = public_path('' . $csvFileName);
             $customerArr = $this->csvToArray($csvFile);
@@ -72,7 +72,7 @@ class GuestionsSeeder extends Seeder
 
             $survey = Survey::create([
 
-                'user_id' => $user_id,
+                'surveyed_id' => $user_id,
                 'header_id' => $header_id,
                 'start_time' => $start_time,
                 'completion_time' => $completion_time,
