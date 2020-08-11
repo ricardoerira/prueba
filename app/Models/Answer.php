@@ -31,4 +31,9 @@ class Answer extends Model
 		return $this->belongsTo(Survey::class);
 	}
 
+	public function choice()
+	{
+		return $this->belongsTo(Choice::class);
+	}
+
 }

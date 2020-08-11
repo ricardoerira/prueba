@@ -40,7 +40,7 @@ class HomeController extends Controller
         if ($fecha<>""){
             $fecha = ($fecha ->created_at)->format('d/m/Y');
         }
-   
+
 
         return view('pages.home.home', compact('headers', 'formIni', 'fecha'));
     }

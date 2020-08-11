@@ -149,6 +149,16 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('cases_follow.index', 'all')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Seguimiento</font>
+                            </font>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-power-off"></i>
                         <p>
