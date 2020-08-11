@@ -6,7 +6,7 @@
             value="{{ $choice->id }}"
             name="answers[{{$question->id}}]"
             class="form-check-input"
-            id="@if($question->questionsDependedMy()->exists()){{'radio_depended_'}}{{$key}}@endif"
+            id="radio_depended_{{$question->id}}_{{$key}}"
             @if ($question->answer_required_yn == 1) required @endif
         >
         <label for="answers[]" class="form-check-label">{{ $choice->name }}</label>

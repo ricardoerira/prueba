@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
 use App\Models\Survey;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CaseFollowController extends Controller
@@ -24,7 +25,19 @@ class CaseFollowController extends Controller
                 $cases = Answer::with('survey')->where(['question_id' => 128])->get();
                 break;
             case 'positive':
-                $cases = Answer::with('survey')->where(['choice_id' => 3, 'question_id' => 128])->orderBy('id', 'desc')->get();
+                // $cases = Answer::with('survey')->where(['choice_id' => 3, 'question_id' => 128, ''])->orderBy('id', 'desc')->get();
+                $users = User::all();
+
+                foreach ($users as $key => $user) {
+                    $survey = Survey::where(['surveyed_id' => $user->id, 'header_id' => 6])->get()->last();
+
+                    // TODO:: Filter date created_at->first()
+                    if ($survey == null) {
+                        continue;
+                    }
+                    dd($survey->answers->where('question_id', 128));
+                }
+                // dd($casesCovid);
                 break;
             case 'negative':
                 $cases = Answer::with('survey')->where(['choice_id' => 4, 'question_id' => 128])->get();
