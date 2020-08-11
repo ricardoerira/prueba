@@ -15,31 +15,51 @@
         <div class="card-body">
             <div class="row">
                 @foreach ($headers as $header)
+                    
                     <div class="col-lg-3 col-6">
                         <div
                             class="small-box
-
-                            @if ($header->surveys()->exists() || ($formIni == 0 && $header->id <> 2))
-                                bg-info
+                            @if ($formIni > 0)
+                                @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
+                                    bg-info
+                                @else
+                                    bg-danger
+                                @endif
                             @else
-                                bg-danger
+                                @if ($header->id == 2)
+                                    bg-danger
+                                @else
+                                    bg-info
+                                @endif
                             @endif
+                            
                             "
                         >
+                      
 
                             <div class="inner">
                                 <p>{{ $header->name }}</p>
                             </div>
-
-                            @if ((!$header->surveys()->exists() && $formIni > 0) || ($header->id == 2 && $formIni == 0)  )
-
-                                <a
-                                    href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
-                                >
-                                    Realizar
-                                    <i class="fas fa-arrow-circle-right ml-1"></i>
-                                </a>
+                            @if ($formIni > 0)
+                                @if (!($header->id == 2 || ($header->id == 3 && ($fecha == now()->format('d/m/Y')))))
+                                        <a
+                                        href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
+                                    >
+                                        Realizar
+                                        <i class="fas fa-arrow-circle-right ml-1"></i>
+                                    </a>
+                                @endif
+                            @else
+                                @if (($header->id == 2))
+                                        <a
+                                        href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
+                                    >
+                                        Realizar
+                                        <i class="fas fa-arrow-circle-right ml-1"></i>
+                                    </a>
+                                @endif
                             @endif
+
                         </div>
                     </div>
                 @endforeach

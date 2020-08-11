@@ -3,7 +3,9 @@
 @section('plugins-css')
 <link rel="stylesheet" href="{{ asset('css/plugins-forms.css') }}">
 @endsection
-
+<br>
+<br>
+<br>
 @section('content')
 <div class="mt-3">
     <div class="bg-primary mx-auto w-75">
