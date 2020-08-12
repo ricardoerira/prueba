@@ -56,17 +56,42 @@
 
         let header = $("#header_id").val();
 
+       /* Conditional questions header 2 */
         if (header == 2) {
-            $('.seccion-188').addClass("d-none")
-
-            $('#radio_depended_0').change(() => {
-                $('.seccion-18').removeClass("d-none")
+            $('.seccion-18').addClass("d-none")
+            $('#radio_depended_79_0').change(() => {
+                $('.seccion-15').removeClass("d-none")
                 $(".depend").each(function() {
                     $(this).removeClass("d-none");
                 }).get();
             });
 
-            $('#radio_depended_1').change(() => {
+            $('#radio_depended_79_1').change(() => {
+                $(".depend").each(function() {
+                    $(this).addClass("d-none");
+                }).get();
+            });
+
+            $('#radio_depended_83_0').change(() => {
+                $('.seccion-16').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
+            });
+            $('#radio_depended_83_1').change(() => {  
+                $(".depend").each(function() {
+                    $(this).addClass("d-none");
+                }).get();
+            });
+
+            $('#radio_depended_85_0').change(() => {
+                $('.seccion-17').removeClass("d-none")
+                $('.seccion-18').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
+            });
+            $('#radio_depended_85_1').change(() => {
                 $('.seccion-18').addClass("d-none")
                 $(".depend").each(function() {
                     $(this).addClass("d-none");
@@ -74,6 +99,7 @@
             });
         }
 
+        /* Conditional questions header 3 */
         if (header  == 3) {
             $('.seccion-2').addClass("d-none")
             $('.seccion-3').addClass("d-none")
@@ -97,6 +123,7 @@
             });
         }
 
+        /* Conditional questions header 6 */
         if (header == 6) {
             $('.seccion-4').addClass("d-none")
             $('.seccion-5').addClass("d-none")
