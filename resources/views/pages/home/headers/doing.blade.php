@@ -78,7 +78,7 @@
                     $(this).removeClass("d-none");
                 }).get();
             });
-            $('#radio_depended_83_1').change(() => {  
+            $('#radio_depended_83_1').change(() => {
                 $(".depend").each(function() {
                     $(this).addClass("d-none");
                 }).get();
@@ -99,8 +99,8 @@
             });
         }
 
-        /* Conditional questions header 3 */
-        if (header  == 3) {
+         /* Conditional questions header 3 */
+         if (header  == 3) {
             $('.seccion-2').addClass("d-none")
             $('.seccion-3').addClass("d-none")
 
@@ -178,7 +178,7 @@
                 $('.seccion-24').addClass("d-none")
                 $('.seccion-25').addClass("d-none")
                 $('.seccion-26').addClass("d-none")
-                
+
             });
             $('#radio_depended_126_0').change(() => {
                 $('.seccion-6').removeClass("d-none")
@@ -194,7 +194,7 @@
                     $('.seccion-29').addClass("d-none")
                     $('.seccion-22').addClass("d-none")
                     $('.seccion-27').addClass("d-none")
-                    $('#radio_depended_130_0').change(() => {   
+                    $('#radio_depended_130_0').change(() => {
                         $('.seccion-8').removeClass("d-none")
                         $('#radio_depended_131_0').change(() => {
                             $('.seccion-10').addClass("d-none")
@@ -230,7 +230,7 @@
 
                         });
                     });
-                    
+
                 });
 
                 $('#radio_depended_128_1').change(() => {
@@ -242,7 +242,7 @@
                     $('.seccion-28').addClass("d-none")
                     $('.seccion-29').addClass("d-none")
                     $('#radio_depended_134_0').change(() => {
-                        
+
                         $('.seccion-22').removeClass("d-none")
                         $('#radio_depended_135_0').change(() => {
                             $('.seccion-29').removeClass("d-none")
@@ -268,7 +268,7 @@
                                     $('.seccion-29').addClass("d-none")
                                 });
                             });
-                       
+
                         });
                     });
                 });
@@ -339,7 +339,7 @@
                                             $('.seccion-28').removeClass("d-none")
                                             $('#radio_depended_137_0').change(() => {
                                                 $('.seccion-29').removeClass("d-none")
-                                    
+
                                             });
                                         });
                                     });
@@ -353,7 +353,7 @@
                                             $('.seccion-29').addClass("d-none")
                                         });
                                     });
-                       
+
                                 });
                                 $('#radio_depended_135_1').change(() => {
                                     $('.seccion-29').addClass("d-none")
