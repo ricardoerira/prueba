@@ -99,29 +99,7 @@
             });
         }
 
-        /* Conditional questions header 3 */
-        if (header  == 3) {
-            $('.seccion-2').addClass("d-none")
-            $('.seccion-3').addClass("d-none")
-
-            $('select#depended').on('change',function(){
-                var valor = $(this).val();
-
-                if (valor == 172) {
-                    $(".depend").each(function() {
-                        $(this).addClass("d-none");
-                    }).get();
-                    $('.seccion-2').addClass("d-none")
-                    $('.seccion-3').addClass("d-none")
-                }else{
-                    $(".depend").each(function() {
-                        $(this).removeClass("d-none");
-                    }).get();
-                    $('.seccion-2').removeClass("d-none")
-                    $('.seccion-3').removeClass("d-none")
-                }
-            });
-        }
+       
 
         /* Conditional questions header 6 */
         if (header == 6) {
