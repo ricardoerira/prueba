@@ -22,25 +22,13 @@ class CaseFollowController extends Controller
 
         switch ($filter) {
             case 'all':
-                $cases = Answer::with('survey')->where(['question_id' => 128])->get();
+                $cases = Answer::with('survey')->where(['question_id' => 128])->orderBy('updated_at', 'desc')->get();
                 break;
             case 'positive':
-                // $cases = Answer::with('survey')->where(['choice_id' => 3, 'question_id' => 128, ''])->orderBy('id', 'desc')->get();
-                $users = User::all();
-
-                foreach ($users as $key => $user) {
-                    $survey = Survey::where(['surveyed_id' => $user->id, 'header_id' => 6])->get()->last();
-
-                    // TODO:: Filter date created_at->first()
-                    if ($survey == null) {
-                        continue;
-                    }
-                    dd($survey->answers->where('question_id', 128));
-                }
-                // dd($casesCovid);
+                $cases = Answer::with('survey')->where(['choice_id' => 3, 'question_id' => 128])->orderBy('updated_at', 'desc')->get();
                 break;
             case 'negative':
-                $cases = Answer::with('survey')->where(['choice_id' => 4, 'question_id' => 128])->get();
+                $cases = Answer::with('survey')->where(['choice_id' => 4, 'question_id' => 128])->orderBy('updated_at', 'desc')->get();
                 break;
         }
 
