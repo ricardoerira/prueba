@@ -21,18 +21,52 @@ class CaseFollowController extends Controller
         $cases = new Answer();
 
         switch ($filter) {
-            case 'all':
-                $cases = Answer::with('survey')->where(['question_id' => 128])->orderBy('updated_at', 'desc')->get();
-                break;
             case 'positive':
-                $cases = Answer::with('survey')->where(['choice_id' => 3, 'question_id' => 128])->orderBy('updated_at', 'desc')->get();
+                $surveys = Survey::where(['header_id' => 6])->orderBy('created_at', 'desc')->get()->unique('surveyed_id');
+                $cases = [];
+
+                foreach ($surveys as $survey) {
+                    $case = $survey->answers->where('question_id', 128)->where('choice_id', 182)->first();
+                    if ($case == null) {
+                        continue;
+                    }
+
+                    array_push($cases, $case);
+                }
                 break;
+
             case 'negative':
-                $cases = Answer::with('survey')->where(['choice_id' => 4, 'question_id' => 128])->orderBy('updated_at', 'desc')->get();
+                $surveys = Survey::where(['header_id' => 6])->orderBy('created_at', 'desc')->get()->unique('surveyed_id');
+                $cases = [];
+
+                foreach ($surveys as $survey) {
+                    $case = $survey->answers->where('question_id', 128)->where('choice_id', 183)->first();
+
+                    if ($case == null) {
+                        continue;
+                    }
+
+                    array_push($cases, $case);
+                }
                 break;
         }
 
         return view('pages.admin.case_follow.index', compact('cases'));
+    }
+
+    public function follow(Survey $survey)
+    {
+        $surveyed = $survey->surveyed;
+        $answers = $survey->answers;
+
+        $datePositive = $answers->where('question_id', 128)->pluck('updated_at')->first()->format('d-m-Y');
+
+        return view('pages.admin.case_follow.follow', compact(
+            'survey',
+            'surveyed',
+            'answers',
+            'datePositive'
+        ));
     }
 
     /**

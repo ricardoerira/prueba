@@ -93,15 +93,15 @@
                               <font style="vertical-align: inherit;">{{$case->survey->surveyed->email}}</font>
                             </font>
                           </td>
-                          <td>
+                          <td>k
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">
-                                {{is_positive($case->choice->name)}}
+                                {{$case->choice->name}}
                               </font>
                             </font>
                           </td>
                           <td class="d-flex aling-item-center">
-                            <a href="#" class="btn btn-primary mx-1">
+                            <a href="{{ route('cases_follow_user.index', $case->survey->id) }}" class="btn btn-primary mx-1">
                               <i class="nav-icon fas fa-edit"></i>
                             </a>
                           </td>
