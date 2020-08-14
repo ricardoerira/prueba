@@ -42,6 +42,18 @@ class Survey extends Model
     return $this->hasMany(Answer::class);
   }
 
+  /**
+   * answers
+   *
+   * @return void
+   */
+  public function answersQuestion()
+  {
+    return Answer::whereIn( 'question_id', [
+      2, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+    ])->get();
+  }
+
   public function surveyed()
   {
     return $this->belongsTo(User::class, 'surveyed_id', 'id');

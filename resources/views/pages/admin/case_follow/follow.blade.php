@@ -1,5 +1,16 @@
 @extends('layouts.admin.layout')
 
+@section('own-styles')
+    <style>
+      .ellipsis {
+        width: 300px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    </style>
+@endsection
+
 @section('content')
 <section class="content-header">
   <div class="container-fluid">
@@ -30,18 +41,19 @@
 
                 <div class="timeline-body">
                   <div class="row container-fluid">
-                    <div class="form-group col-4">
-                      <label for="name">Nombre</label>
-                      <input class="form-control" type="text" value="{{ $surveyed->name }}" disabled>
+                    @foreach ($dataHealthCondition as $dataCondition)
+                    @if ($dataCondition->choice)
+                    <div class="form-group col-4 mw-100">
+                      <label for="name" class="ellipsis">{{$dataCondition->question->name}}</label>
+                      <input class="form-control" type="text" value="{{$dataCondition->choice->name}}" disabled>
                     </div>
-                    <div class="form-group col-4">
-                      <label for="name">Documento</label>
-                      <input class="form-control" type="text" value="{{ $surveyed->id }}" disabled>
+                    @else
+                    <div class="form-group col-4 mw-100">
+                      <label for="name" class="ellipsis">{{$dataCondition->question->name}}</label>
+                      <input class="form-control" type="text" value="{{$dataCondition->text}}" disabled>
                     </div>
-                    <div class="form-group col-4">
-                      <label for="name">Correo</label>
-                      <input class="form-control" type="text" value="{{ $surveyed->email }}" disabled>
-                    </div>
+                    @endif
+                    @endforeach
                   </div>
                 </div>
               </div>
