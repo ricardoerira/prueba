@@ -17,7 +17,7 @@
 
         @foreach ($sections as $key => $section)
 
-        <div class="card card-primary w-75 mx-auto @if($ant->count() == 0 )seccion-{{$section->pivot->priority}}@endif">
+        <div class="card card-primary w-75 mx-auto @if (sectionExist($section->id, $ant) == false)seccion-{{$section->pivot->priority}} @endif">
             <div class="card-header w-100">
                 <h3 class="card-title">Sección - {{ $section->pivot->priority }}</h3>
             </div>
@@ -57,79 +57,9 @@
 @section('own-js')
 <script>
     if ( $("#depended").length > 0 ) {
-
-        let header = $("#header_id").val();
-
-       /* Conditional questions header 2 */
-        if (header == 2) {
-            $('.seccion-18').addClass("d-none")
-            $('#radio_depended_79_0').change(() => {
-                $('.seccion-15').removeClass("d-none")
-                $(".depend").each(function() {
-                    $(this).removeClass("d-none");
-                }).get();
-            });
-
-            $('#radio_depended_79_1').change(() => {
-                $(".depend").each(function() {
-                    $(this).addClass("d-none");
-                }).get();
-            });
-
-            $('#radio_depended_83_0').change(() => {
-                $('.seccion-16').removeClass("d-none")
-                $(".depend").each(function() {
-                    $(this).removeClass("d-none");
-                }).get();
-            });
-            $('#radio_depended_83_1').change(() => {
-                $(".depend").each(function() {
-                    $(this).addClass("d-none");
-                }).get();
-            });
-
-            $('#radio_depended_85_0').change(() => {
-                $('.seccion-17').removeClass("d-none")
-                $('.seccion-18').removeClass("d-none")
-                $(".depend").each(function() {
-                    $(this).removeClass("d-none");
-                }).get();
-            });
-            $('#radio_depended_85_1').change(() => {
-                $('.seccion-18').addClass("d-none")
-                $(".depend").each(function() {
-                    $(this).addClass("d-none");
-                }).get();
-            });
-        }
-
-         /* Conditional questions header 3 */
-         if (header  == 3) {
-            $('.seccion-2').addClass("d-none")
-            $('.seccion-3').addClass("d-none")
-
-            $('select#depended').on('change',function(){
-                var valor = $(this).val();
-
-                if (valor == 172) {
-                    $(".depend").each(function() {
-                        $(this).addClass("d-none");
-                    }).get();
-                    $('.seccion-2').addClass("d-none")
-                    $('.seccion-3').addClass("d-none")
-                }else{
-                    $(".depend").each(function() {
-                        $(this).removeClass("d-none");
-                    }).get();
-                    $('.seccion-2').removeClass("d-none")
-                    $('.seccion-3').removeClass("d-none")
-                }
-            });
-        }
-
-        /* Conditional questions header 6 */
-        if (header == 6) {
-            $('.seccion-4').addClass("d-none")
+        
+      
+        $('.seccion-4').addClass("d-none")
             $('.seccion-5').addClass("d-none")
             $('.seccion-6').addClass("d-none")
             $('.seccion-7').addClass("d-none")
@@ -459,11 +389,55 @@
                     });
                 });
             });
+            
+            $('#radio_depended_130_0').change(() => {
+                $('.seccion-8').removeClass("d-none")
+                $('#radio_depended_131_0').change(() => {
+                    $('.seccion-10').addClass("d-none")
+                    $('.seccion-28').addClass("d-none")
+                    $('.seccion-29').addClass("d-none")
+                    $('.seccion-9').removeClass("d-none")
+                    $('#radio_depended_132_0').change(() => {
+                        $('.seccion-28').removeClass("d-none")
+                        $('#radio_depended_137_0').change(() => {
+                            $('.seccion-29').removeClass("d-none")
+                        });
+                        $('#radio_depended_137_1').change(() => {
+                            $('.seccion-29').addClass("d-none")
+                        });
+                    });
+                });
+                $('#radio_depended_131_1').change(() => {
+                    $('.seccion-9').addClass("d-none")
+                    $('.seccion-28').addClass("d-none")
+                    $('.seccion-29').addClass("d-none")
+                    $('.seccion-10').removeClass("d-none")
+                    $('#radio_depended_133_0').change(() => {
+                        alert("hola1")
+                        $('.seccion-28').removeClass("d-none")
+                        $('#radio_depended_137_0').change(() => {
+                            alert("hola")
+                            $('.seccion-29').removeClass("d-none")
+                        });
+                        $('#radio_depended_137_1').change(() => {
+                            alert("hola2")
+                            $('.seccion-29').addClass("d-none")
+                        });
+                    });
 
 
-
-        }
-
+                });
+            });
+            $('#radio_depended_130_1').change(() => {
+                $('.seccion-28').addClass("d-none")
+                $('.seccion-29').addClass("d-none")
+                $('.seccion-10').addClass("d-none")
+                $('.seccion-8').addClass("d-none")
+                $('.seccion-9').addClass("d-none")
+            });
+           
     }
+
+
 </script>
 @endsection

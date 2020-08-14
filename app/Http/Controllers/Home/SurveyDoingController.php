@@ -39,10 +39,24 @@ class SurveyDoingController extends Controller
 
         $sections = $header->sections()->with('questions')->get();
 
-        return view('pages.home.headers.doing', compact(
-            'header',
-            'sections',
-        ));
+        if ($header->id == 6){
+            $aux  = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->get()->pluck('id'));
+            $ant = (Answer::where('survey_id', $aux)->get());
+            if ($ant->count()> 0){
+                return view('pages.home.headers.edit', compact(
+                    'header',
+                    'sections', 'ant',
+                ));
+            }
+        }
+
+
+
+            return view('pages.home.headers.doing', compact(
+                'header',
+                'sections',
+            ));
+
     }
 
     /**
