@@ -44,18 +44,21 @@
                         </p>
                     </a>
                 </li>
+                @can('view_survey_vigilant')
                 <li class="nav-item">
                     <a href="{{ route('survey.doing.index') }}" class="nav-link {{ setActive(route('survey.doing.index'), 'active') }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
-                                    Encuestas
+                                    Control de vigilancia
                                 </font>
                             </font>
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('view_users')
                 <li class="nav-item">
                     <a href="{{ route('users.index') }}" class="nav-link {{ setActive(route('users.index'), 'active') }}">
                         <i class="nav-icon fas fa-users"></i>
@@ -68,6 +71,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('view_organizations')
                 <li class="nav-item">
                     <a href="{{ route('organizations.index') }}" class="nav-link {{ setActive(route('organizations.index'), 'active') }}">
                         <i class="nav-icon fas fa-boxes"></i>
@@ -80,6 +85,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('view_inputs')
                 <li class="nav-item">
                     <a href="{{ route('inputs.index') }}" class="nav-link {{ setActive(route('inputs.index'), 'active') }}">
                         <i class="nav-icon fas fa-keyboard"></i>
@@ -92,6 +99,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('view_surveys')
                 <li class="nav-item">
                     <a href="{{ route('survey.index') }}" class="nav-link {{ setActive(route('survey.index'), 'active') }}">
                         <i class="nav-icon fas fa-keyboard"></i>
@@ -104,6 +113,8 @@
                         </p>
                     </a>
                 </li>
+                @endcan
+                @can('view_gestion_permissions')
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -148,6 +159,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('view_follow_up')
                 <li class="nav-item">
                     <a href="{{route('cases_follow.index', 'positive')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -158,6 +171,7 @@
                         </p>
                     </a>
                 </li>
+                @endcan
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-power-off"></i>

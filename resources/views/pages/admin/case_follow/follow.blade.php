@@ -35,7 +35,7 @@
             <!-- /.timeline-label -->
             <!-- timeline item -->
             <div>
-              <i class="fas fa-user bg-blue"></i>
+              <i class="fas fa-user bg-info"></i>
               <div class="timeline-item">
                 <h3 class="timeline-header">Datos Personales</h3>
 
@@ -76,7 +76,20 @@
             <!-- /.timeline-label -->
             <!-- timeline item -->
             <div>
-              <i class="fa fa-camera bg-purple"></i>
+              <i class="fa fa-envelope bg-info"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">uploaded new photos</h3>
+                <div class="timeline-body">
+                </div>
+              </div>
+            </div>
+            <div class="time-label">
+              <span class="bg-green">3 Jan. 2014</span>
+            </div>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <div>
+              <i class="fa fa-envelope bg-info"></i>
               <div class="timeline-item">
                 <h3 class="timeline-header">uploaded new photos</h3>
                 <div class="timeline-body">
@@ -85,7 +98,7 @@
             </div>
             <!-- END timeline item -->
             <div>
-              <i class="fas fa-clock bg-gray"></i>
+              <i class="fas fa-plus bg-primary"></i>
             </div>
           </div>
         </div>
