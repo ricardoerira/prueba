@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\observation;
+use App\Http\Controllers\Controller;
+use App\Models\Observation;
 use Illuminate\Http\Request;
 
 class ObservationController extends Controller
@@ -41,10 +42,10 @@ class ObservationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\observation  $observation
+     * @param  \App\Models\Observation  $observation
      * @return \Illuminate\Http\Response
      */
-    public function show(observation $observation)
+    public function show(Observation $observation)
     {
         //
     }
@@ -52,10 +53,10 @@ class ObservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\observation  $observation
+     * @param  \App\Models\Observation  $observation
      * @return \Illuminate\Http\Response
      */
-    public function edit(observation $observation)
+    public function edit(Observation $observation)
     {
         //
     }
@@ -64,10 +65,10 @@ class ObservationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\observation  $observation
+     * @param  \App\Models\Observation  $observation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, observation $observation)
+    public function update(Request $request, Observation $observation)
     {
         //
     }
@@ -78,8 +79,9 @@ class ObservationController extends Controller
      * @param  \App\Models\observation  $observation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(observation $observation)
+    public function destroy(Observation $observation)
     {
         //
     }
+
 }
