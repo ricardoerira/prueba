@@ -59,13 +59,22 @@ class CaseFollowController extends Controller
         $surveyed = $survey->surveyed;
         $answers = $survey->answers;
 
+        $dataHealthCondition = Survey::with('answers')->where(['surveyed_id' => $surveyed->id, 'header_id' => 2])->first();
+
+        $dataHealthCondition = Answer::where('survey_id', $dataHealthCondition->id)->whereIn('question_id', [
+            2, 17, 18, 19, 20, 21, 22, 24, 27, 28, 29, 30
+        ])->get();
+
+        // dd($dataHealthCondition);
+
         $datePositive = $answers->where('question_id', 128)->pluck('updated_at')->first()->format('d-m-Y');
 
         return view('pages.admin.case_follow.follow', compact(
             'survey',
             'surveyed',
             'answers',
-            'datePositive'
+            'datePositive',
+            'dataHealthCondition'
         ));
     }
 
