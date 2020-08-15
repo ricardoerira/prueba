@@ -103,39 +103,44 @@
               <div class="timeline-item">
                 <h3 class="timeline-header">Crear Seguimiento</h3>
                 <div class="timeline-body">
-                  <form action="#" method="POST">
+                  <form action="{{route('cases_follow_user.store')}}" method="POST">
                     @csrf
                     <div class="row">
 
                       <div class="form-group col-12">
                         <label class="form-check-label" for="inlineRadio1">Observación General</label>
-                        <textarea name="observation_general" id="" cols="10" rows="3" class="w-100 form-control"></textarea>
+                        <textarea name="observation" id="" cols="10" rows="3" class="w-100 form-control @error('observation') is-invalid @enderror"></textarea>
+                        @error('observation')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
                       </div>
 
-                      <div class="form-group col-2">
+                      <div class="form-group col-4">
                         <label class="form-check-label" for="inlineRadio1">Se realizo llamada</label>
                         <br>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="call" value="Si">
+                          <input class="form-check-input @error('call') is-invalid @enderror" type="radio" name="call" value="Si">
                           <label class="form-check-label" for="call">Si</label>
                         </div>
                         <br>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="call" value="No">
+                          <input class="form-check-input @error('call') is-invalid @enderror" type="radio" name="call" value="No">
                           <label class="form-check-label" for="call">No</label>
                         </div>
                       </div>
 
-                      <div class="form-group col-2">
+                      <div class="form-group col-4">
                         <label class="form-check-label" for="inlineRadio1">Se envió correo</label>
                         <br>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="email" value="Si">
+                          <input class="form-check-input @error('call') is-invalid @enderror" type="radio" name="email" value="Si">
                           <label class="form-check-label" for="email">Si</label>
                         </div>
                         <br>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="email" value="No">
+                          <input class="form-check-input @error('call') is-invalid @enderror" type="radio" name="email" value="No">
                           <label class="form-check-label" for="email">No</label>
                         </div>
                       </div>

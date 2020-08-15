@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ObservationRequest;
 use App\Models\Observation;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,9 @@ class ObservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ObservationRequest $request)
     {
-        //
+        echo "hola";
     }
 
     /**
