@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Types\Null_;
 use PhpParser\Node\Expr\Cast\Bool_;
 
 class SurveyDoingController extends Controller
@@ -39,9 +40,10 @@ class SurveyDoingController extends Controller
 
         $sections = $header->sections()->with('questions')->get();
 
-        if ($header->id == 6){
-            $aux  = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->get()->pluck('id'));
-            $ant = (Answer::where('survey_id', $aux)->get());
+        $aux = Survey::select('id')->where(['surveyed_id' => auth()->user()->id, "header_id" => 6])->first();
+
+        if ($header->id == 6 and $aux != null){
+            $ant = (Answer::where('survey_id', $aux->id)->get());
             if ($ant->count()> 0){
                 return view('pages.home.headers.edit', compact(
                     'header',
@@ -50,13 +52,10 @@ class SurveyDoingController extends Controller
             }
         }
 
-
-
             return view('pages.home.headers.doing', compact(
                 'header',
                 'sections',
             ));
-
     }
 
     /**

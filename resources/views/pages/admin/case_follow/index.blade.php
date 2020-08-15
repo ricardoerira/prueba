@@ -93,7 +93,7 @@
                               <font style="vertical-align: inherit;">{{$case->survey->surveyed->email}}</font>
                             </font>
                           </td>
-                          <td>k
+                          <td>
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">
                                 {{$case->choice->name}}

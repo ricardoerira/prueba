@@ -30,7 +30,7 @@
           <div class="timeline">
             <!-- timeline time label -->
             <div class="time-label">
-              <span class="bg-red">{{ $datePositive }}</span>
+              <span class="bg-primary">{{ $dateInit }}</span>
             </div>
             <!-- /.timeline-label -->
             <!-- timeline item -->
@@ -93,6 +93,59 @@
               <div class="timeline-item">
                 <h3 class="timeline-header">uploaded new photos</h3>
                 <div class="timeline-body">
+                </div>
+              </div>
+            </div>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <div>
+              <i class="fa fa-plus bg-primary"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">Crear Seguimiento</h3>
+                <div class="timeline-body">
+                  <form action="#" method="POST">
+                    @csrf
+                    <div class="row">
+
+                      <div class="form-group col-12">
+                        <label class="form-check-label" for="inlineRadio1">Observación General</label>
+                        <textarea name="observation_general" id="" cols="10" rows="3" class="w-100 form-control"></textarea>
+                      </div>
+
+                      <div class="form-group col-2">
+                        <label class="form-check-label" for="inlineRadio1">Se realizo llamada</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="call" value="Si">
+                          <label class="form-check-label" for="call">Si</label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="call" value="No">
+                          <label class="form-check-label" for="call">No</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group col-2">
+                        <label class="form-check-label" for="inlineRadio1">Se envió correo</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="email" value="Si">
+                          <label class="form-check-label" for="email">Si</label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="email" value="No">
+                          <label class="form-check-label" for="email">No</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group col-12 mb-0">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
+
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

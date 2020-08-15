@@ -17,7 +17,7 @@
 
         @foreach ($sections as $key => $section)
 
-        <div class="card card-primary w-75 mx-auto @if($ant->count() == 0 )seccion-{{$section->pivot->priority}}@endif">
+        <div class="card card-primary w-75 mx-auto">
             <div class="card-header w-100">
                 <h3 class="card-title">Sección - {{ $section->pivot->priority }}</h3>
             </div>
