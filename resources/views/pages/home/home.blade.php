@@ -35,7 +35,7 @@
                             
                             "
                         >
-                      
+
 
                             <div class="inner">
                                 <p>{{ $header->name }}</p>
