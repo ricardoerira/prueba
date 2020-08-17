@@ -140,7 +140,7 @@ if (!function_exists('lastAnswer')) {
         $aux = $data[0]->survey_id;
         $ant = Answer::where('survey_id', $aux)->where( function($query) {
             $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
-        })->OrderBy('question_id', 'desc')->first();
+        })->OrderBy('id', 'desc')->first();
 
         if ($ant->question_id == $previous){
             $bandera = true;

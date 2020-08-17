@@ -201,6 +201,9 @@
                 $('.seccion-17').addClass("d-none")
                 $('.seccion-23').addClass("d-none")
                 $('.seccion-24').addClass("d-none")
+                $('.seccion-26').addClass("d-none")
+                $('.seccion-28').addClass("d-none")
+                $('.seccion-29').addClass("d-none")
 
                 $('#radio_depended_128_0').change(() => {
                     $('.seccion-7').removeClass("d-none")
@@ -265,8 +268,7 @@
                     $('#radio_depended_134_0').change(() => {
 
                         $('.seccion-22').removeClass("d-none")
-                        $('#radio_depended_135_0').change(() => {
-                            $('.seccion-29').removeClass("d-none")
+                        
                             $('#radio_depended_135_0').change(() => {
                                 $('.seccion-27').removeClass("d-none")
                                 $('.seccion-14').addClass("d-none")
@@ -277,6 +279,10 @@
                                     $('#radio_depended_137_0').change(() => {
                                         $('.seccion-29').removeClass("d-none")
                                     });
+                                });
+                                $('#radio_depended_150_1').change(() => {
+                                    $('.seccion-28').addClass("d-none")
+                                    $('.seccion-29').addClass("d-none")
                                 });
                             });
                             $('#radio_depended_135_1').change(() => {
@@ -290,7 +296,13 @@
                                 });
                             });
 
-                        });
+                        
+                    });
+
+                    $('#radio_depended_134_1').change(() => {
+                        $('.seccion-22').addClass("d-none")
+                        $('.seccion-28').addClass("d-none")
+                        $('.seccion-29').addClass("d-none")
                     });
                 });
             });
@@ -349,8 +361,7 @@
                                 $('.seccion-29').addClass("d-none")
                                 $('.seccion-28').addClass("d-none")
                                 $('.seccion-22').removeClass("d-none")
-                                $('#radio_depended_135_0').change(() => {
-                                    $('.seccion-29').removeClass("d-none")
+                                
                                     $('#radio_depended_135_0').change(() => {
                                         $('.seccion-27').removeClass("d-none")
                                         $('.seccion-14').addClass("d-none")
@@ -362,6 +373,10 @@
                                                 $('.seccion-29').removeClass("d-none")
 
                                             });
+                                        });
+                                        $('#radio_depended_150_1').change(() => {
+                                            $('.seccion-28').addClass("d-none")
+                                            $('.seccion-29').addClass("d-none")
                                         });
                                     });
                                     $('#radio_depended_135_1').change(() => {
@@ -375,7 +390,7 @@
                                         });
                                     });
 
-                                });
+                               
                                 $('#radio_depended_135_1').change(() => {
                                     $('.seccion-29').addClass("d-none")
                                 });
@@ -386,6 +401,7 @@
                     });
                     $('#radio_depended_139_1').change(() => {
                         $('.seccion-21').addClass("d-none")
+                        $('.seccion-20').addClass("d-none")
                         $('.seccion-22').addClass("d-none")
                         $('.seccion-27').addClass("d-none")
                         $('.seccion-28').addClass("d-none")
@@ -408,7 +424,8 @@
                                 });
                             });
                             $('#radio_depended_145_1').change(() => {
-                                $('.seccion-28').removeClass("d-none")
+                                $('.seccion-28').addClass("d-none")
+                                $('.seccion-29').addClass("d-none")
 
                             });
                         });
@@ -423,8 +440,12 @@
                                 $('#radio_depended_137_1').change(() => {
                                     $('.seccion-29').addClass("d-none")
                                 });
-                            });
 
+                            });
+                            $('#radio_depended_153_1').change(() => {
+                                $('.seccion-28').addClass("d-none")
+                                $('.seccion-29').addClass("d-none")
+                            });
                         });
                     });
                     $('#radio_depended_139_2').change(() => {
