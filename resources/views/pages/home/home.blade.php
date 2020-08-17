@@ -1,4 +1,3 @@
-
 @extends('layouts.home.layout')
 
 @section('content')
@@ -14,18 +13,15 @@
         </div>
         <hr>
         <div class="card-body">
-            <div class="row  ">
+            <div class="row">
                 @foreach ($headers as $header)
-
+                    
                     <div class="col-lg-3 col-6">
                         <div
                             class="small-box
                             @if ($formIni > 0)
                                 @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
                                     d-none
-¡
-                                @elseif ($header->id == 6 && searchSurvey())
-                                    bg-warning
                                 @else
                                     bg-success
                                 @endif
@@ -36,9 +32,8 @@
                                     bg-secondary
                                 @endif
                             @endif
-
-
-
+                            
+                            "
                         >
 
 
@@ -50,7 +45,7 @@
                                         <a
                                         href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
                                     >
-                                    @if ($header->id == 6 && searchSurvey()) Continuar @else Realizar @endif
+                                        Realizar
                                         <i class="fas fa-arrow-circle-right ml-1"></i>
                                     </a>
                                 @endif

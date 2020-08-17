@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Answer;
+use App\Models\Question;
+use App\Models\Survey;
 use Illuminate\Support\Facades\DB;
 use SebastianBergmann\Environment\Console;
 
@@ -17,9 +19,12 @@ if (!function_exists('sectionExist')) {
     {
         $i=0;
         $bandera = false;
+        
+        $data = (object) $data;
         while(!$bandera &&  $i < $data->count()){
             $ant = DB::table('question_section')->where ('section_id', $section)->where('question_id', $data[$i]->question_id)->get();
             $i++;
+            $ant = (object) $ant;
             if ($ant->count() > 0){
                 $bandera = true;
             }
@@ -53,5 +58,84 @@ if (!function_exists('getAnswerChoice')) {
         $aux = $data[0]->survey_id;
         $resp = (Answer::where('survey_id', $aux)->where('question_id', $question)->get()->pluck('choice_id'));
         return $resp;
+    }
+}
+
+//verifies whether the survey has already started
+if (!function_exists('searchSurvey')) {
+    function searchSurvey()
+    {
+        $resp = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', 6)->count());
+        if ($resp > 0) {
+            $bandera = true;
+        } else {
+            $bandera = false;
+        }
+        return $resp;
+    }
+}
+
+//returns the section with which the edition starts
+if (!function_exists('searchSurvey')) {
+    function searchSurvey()
+    {
+        $resp = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', 6)->count());
+        if ($resp > 0) {
+            $bandera = true;
+        } else {
+            $bandera = false;
+        }
+        return $resp;
+    }
+}
+
+
+//verifies whether or not that question already has an answer to add
+if (!function_exists('existAnswer')) {
+    function existAnswer(int $questionId, string $survey):bool
+    {
+        $resp = (Answer::where('survey_id', $survey)->where('question_id', $questionId)->where( function($query) {
+            $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
+            })->count());
+
+        if ($resp > 0) {
+            $bandera = true;
+        } else {
+            $bandera = false;
+        }
+
+        return $bandera;
+    }
+}
+
+//check the type of field, true if it is choice and false if it is a text
+if (!function_exists('questionHasChoices')) {
+    function questionHasChoices(int $questionId):bool
+    {
+        $question = Question::find($questionId);
+        if ($question->input_type_id == 8){
+            $bandera = true;
+        }else{
+            $bandera = false;
+        }
+        return $bandera;
+    }
+}
+
+//check the type of field, true if it is choice and false if it is a text
+if (!function_exists('lastAnswer')) {
+    function lastAnswer(int $previous, object $data):bool
+    {
+        $aux = $data[0]->survey_id;
+        $ant = Answer::where('survey_id', $aux)->where( function($query) {
+            $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
+        })->OrderBy('question_id', 'desc')->first();
+
+        if ($ant->question_id == $previous){
+            $bandera = true;
+        }else{
+            $bandera = false;
+        }
+        return $bandera;
     }
 }

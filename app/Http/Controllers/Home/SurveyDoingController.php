@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\Bool_;
 
 class SurveyDoingController extends Controller
@@ -38,15 +39,22 @@ class SurveyDoingController extends Controller
         }
 
         $sections = $header->sections()->with('questions')->get();
-
+        
         if ($header->id == 6){
-            $aux  = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->get()->pluck('id'));
-            $ant = (Answer::where('survey_id', $aux)->get());
-            if ($ant->count()> 0){
-                return view('pages.home.headers.edit', compact(
-                    'header',
-                    'sections', 'ant',
-                ));
+            $aux  = Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('id', 'desc')->pluck('id')->first();
+            if ($aux <> null){
+                
+                $ant = Answer::where('survey_id', $aux)->where( function($query) {
+                    $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
+                })->get();
+                
+                if ($ant->count() > 0){
+                    return view('pages.home.headers.edit', compact(
+                        'header',
+                        'sections',
+                        'ant',
+                    ));
+                }
             }
         }
 
@@ -66,41 +74,28 @@ class SurveyDoingController extends Controller
      */
     public function store(Request $request, Header $header)
     {
-        if ($header->pollster == 2) {
-            $survey = Survey::create([
-                'pollster_id' => Auth::id(),
-                'surveyed_id' => $request->answers[1],
-                'header_id' => $header->id,
-            ]);
-        } else {
-            $survey = Survey::create([
-                'surveyed_id' => Auth::id(),
-                'header_id' => $header->id,
-            ]);
-        }
+        $survey = Survey::create([
+            'surveyed_id'   => Auth::id(),
+            'header_id'     => $header->id,
+        ]);
 
-        $question = 0;
         foreach ($request->answers as $key => $answer) {
-
-            if ($this->questionHasChoices($request->questions[$question])) {
+            if ($answer <> null){
+                if (questionHasChoices($key)) {
+                    Answer::create([
+                        'survey_id'     => $survey->id,
+                        'question_id'   => $key,
+                        'choice_id'     => $answer,
+                    ]);
+                    continue;
+                }
 
                 Answer::create([
                     'survey_id'     => $survey->id,
-                    'question_id'   => $request->questions[$question],
-                    'choice_id'     => $answer,
+                    'question_id'   => $key,
+                    'text'          => $answer
                 ]);
-
-                $question++;
-                continue;
             }
-
-            Answer::create([
-                'survey_id'     => $survey->id,
-                'question_id'   => $request->questions[$question],
-                'text'          => $answer
-            ]);
-
-            $question++;
         }
 
         if ($header->pollster == 2) {
@@ -108,13 +103,51 @@ class SurveyDoingController extends Controller
         }
 
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
+
+
     }
 
-    public function questionHasChoices(int $questionId): bool
+    public function add (Request $request, Header $header)
+    {
+        return $request;
+        $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('created_at', 'desc')->first());
+        foreach ($request->answers as $key => $answer) {
+            if ($answer <> null){
+                if (!existAnswer($key, $survey->id)){
+                    //FALTA ELIMINAR O ACTUALIZAR REGISTRO CON EL Q INICIA PARA NO GENERAR CONFLICTO
+                    if (questionHasChoices($key)) {
+                        Answer::create([
+                            'survey_id'     => $survey->id,
+                            'question_id'   => $key,
+                            'choice_id'     => $answer,
+                        ]);
+
+                        continue;
+                    }
+
+                    Answer::create([
+                        'survey_id'     => $survey->id,
+                        'question_id'   => $key,
+                        'text'          => $answer,
+                    ]);
+                }
+            }
+        }
+        if ($header->pollster == 2) {
+            return redirect()->route('survey.doing.index');
+        }
+
+        return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta actualizada con éxito"]);
+      
+    }
+    /*public function questionHasChoices(int $questionId): bool
     {
         $question = Question::find($questionId);
 
         return $question->choices()->exists();
-    }
+    }*/
+
+
+
 
 }
