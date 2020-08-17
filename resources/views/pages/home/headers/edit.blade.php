@@ -11,13 +11,13 @@
     <div class="bg-primary mx-auto w-75">
         <h3 class="text-center p-3">{{$header->name}}</h3>
     </div>
-    <form action="{{ route('surveys.done', $header->id) }}" role="form" method="POST">
+    <form action="{{ route('surveys.edit', $header->id) }}" role="form" method="POST">
         <input type="hidden" name="header_id" id="header_id" value="{{ $header->id }}">
         @csrf
 
         @foreach ($sections as $key => $section)
 
-        <div class="card card-primary w-75 mx-auto @if (sectionExist($section->id, $ant) == false)seccion-{{$section->pivot->priority}} @endif">
+        <div class="card card-primary w-75 mx-auto @if (sectionExist($section->id, $ant) == false) seccion-{{$section->pivot->priority}} @else {{$aux = $section->id}} @endif">
             <div class="card-header w-100">
                 <h3 class="card-title">Sección - {{ $section->pivot->priority }}</h3>
             </div>
@@ -30,8 +30,8 @@
                         {{ $section->subheading }}
                     </span>
                 </div>
-                @foreach ($section->questions as $question)
 
+                @foreach ($section->questions as $question)
                 <div class="form-group @if($question->questionsDepended()->exists()) d-none depend @endif">
                     @include('pages.home.includes.inputs.index')
                 </div>
@@ -40,10 +40,14 @@
 
             <!-- /.card-body -->
         </div>
+
         @endforeach
+
+
+
         <div class="w-75 mx-auto pb-4">
             <div>
-                <button type="submit" class="btn btn-primary m-auto">Guardar</button>
+                <button type="submit" class="btn btn-primary m-auto">Actualizar</button>
             </div>
         </div>
     </form>
@@ -59,7 +63,7 @@
     if ( $("#depended").length > 0 ) {
         
       
-        $('.seccion-4').addClass("d-none")
+            $('.seccion-4').addClass("d-none")
             $('.seccion-5').addClass("d-none")
             $('.seccion-6').addClass("d-none")
             $('.seccion-7').addClass("d-none")
@@ -164,6 +168,13 @@
 
                         });
                     });
+                    $('#radio_depended_130_1').change(() => {
+                        $('.seccion-8').addClass("d-none")
+                        $('.seccion-9').addClass("d-none")
+                        $('.seccion-28').addClass("d-none")
+                        $('.seccion-29').addClass("d-none")
+                    });
+
 
                 });
 
@@ -179,22 +190,12 @@
 
                         $('.seccion-22').removeClass("d-none")
                         $('#radio_depended_135_0').change(() => {
-                            $('.seccion-29').removeClass("d-none")
-                            $('#radio_depended_135_0').change(() => {
-                                $('.seccion-27').removeClass("d-none")
-                                $('.seccion-14').addClass("d-none")
-                                $('.seccion-28').addClass("d-none")
-                                $('.seccion-29').addClass("d-none")
-                                $('#radio_depended_150_0').change(() => {
-                                    $('.seccion-28').removeClass("d-none")
-                                    $('#radio_depended_137_0').change(() => {
-                                        $('.seccion-29').removeClass("d-none")
-                                    });
-                                });
-                            });
-                            $('#radio_depended_135_1').change(() => {
+                            $('.seccion-27').removeClass("d-none")
+                            $('.seccion-14').addClass("d-none")
+                            $('.seccion-28').addClass("d-none")
+                            $('.seccion-29').addClass("d-none")
+                            $('#radio_depended_150_0').change(() => {
                                 $('.seccion-28').removeClass("d-none")
-                                $('.seccion-27').addClass("d-none")
                                 $('#radio_depended_137_0').change(() => {
                                     $('.seccion-29').removeClass("d-none")
                                 });
@@ -202,8 +203,19 @@
                                     $('.seccion-29').addClass("d-none")
                                 });
                             });
-
                         });
+                        $('#radio_depended_135_1').change(() => {
+                            $('.seccion-28').removeClass("d-none")
+                            $('.seccion-27').addClass("d-none")
+                            $('#radio_depended_137_0').change(() => {
+                                $('.seccion-29').removeClass("d-none")
+                            });
+                            $('#radio_depended_137_1').change(() => {
+                                $('.seccion-29').addClass("d-none")
+                            });
+                        });
+
+
                     });
                 });
             });
@@ -263,23 +275,12 @@
                                 $('.seccion-28').addClass("d-none")
                                 $('.seccion-22').removeClass("d-none")
                                 $('#radio_depended_135_0').change(() => {
-                                    $('.seccion-29').removeClass("d-none")
-                                    $('#radio_depended_135_0').change(() => {
-                                        $('.seccion-27').removeClass("d-none")
-                                        $('.seccion-14').addClass("d-none")
-                                        $('.seccion-28').addClass("d-none")
-                                        $('.seccion-29').addClass("d-none")
-                                        $('#radio_depended_150_0').change(() => {
-                                            $('.seccion-28').removeClass("d-none")
-                                            $('#radio_depended_137_0').change(() => {
-                                                $('.seccion-29').removeClass("d-none")
-
-                                            });
-                                        });
-                                    });
-                                    $('#radio_depended_135_1').change(() => {
+                                    $('.seccion-27').removeClass("d-none")
+                                    $('.seccion-14').addClass("d-none")
+                                    $('.seccion-28').addClass("d-none")
+                                    $('.seccion-29').addClass("d-none")
+                                    $('#radio_depended_150_0').change(() => {
                                         $('.seccion-28').removeClass("d-none")
-                                        $('.seccion-27').addClass("d-none")
                                         $('#radio_depended_137_0').change(() => {
                                             $('.seccion-29').removeClass("d-none")
                                         });
@@ -287,8 +288,18 @@
                                             $('.seccion-29').addClass("d-none")
                                         });
                                     });
-
                                 });
+                                $('#radio_depended_135_1').change(() => {
+                                    $('.seccion-28').removeClass("d-none")
+                                    $('.seccion-27').addClass("d-none")
+                                    $('#radio_depended_137_0').change(() => {
+                                        $('.seccion-29').removeClass("d-none")
+                                    });
+                                    $('#radio_depended_137_1').change(() => {
+                                        $('.seccion-29').addClass("d-none")
+                                    });
+                                });
+
                                 $('#radio_depended_135_1').change(() => {
                                     $('.seccion-29').addClass("d-none")
                                 });
@@ -411,6 +422,8 @@
                     $('.seccion-9').addClass("d-none")
                     $('.seccion-28').addClass("d-none")
                     $('.seccion-29').addClass("d-none")
+                    $('.seccion-22').addClass("d-none")
+                    $('.seccion-27').addClass("d-none")
                     $('.seccion-10').removeClass("d-none")
                     $('#radio_depended_133_0').change(() => {
                         alert("hola1")
@@ -435,7 +448,77 @@
                 $('.seccion-8').addClass("d-none")
                 $('.seccion-9').addClass("d-none")
             });
-           
+
+            $('#radio_depended_134_0').change(() => {
+
+                $('.seccion-22').removeClass("d-none")
+                    $('#radio_depended_135_0').change(() => {
+                        $('.seccion-27').removeClass("d-none")
+                        $('.seccion-14').addClass("d-none")
+                        $('.seccion-28').addClass("d-none")
+                        $('.seccion-29').addClass("d-none")
+                        $('#radio_depended_150_0').change(() => {
+                            $('.seccion-28').removeClass("d-none")
+                            $('#radio_depended_137_0').change(() => {
+                                $('.seccion-29').removeClass("d-none")
+                            });
+                            $('#radio_depended_137_1').change(() => {
+                                $('.seccion-29').addClass("d-none")
+                            });
+                        });
+                    });
+                    $('#radio_depended_135_1').change(() => {
+                        $('.seccion-28').removeClass("d-none")
+                        $('.seccion-27').addClass("d-none")
+                        $('#radio_depended_137_0').change(() => {
+                            $('.seccion-29').removeClass("d-none")
+                        });
+                        $('#radio_depended_137_1').change(() => {
+                            $('.seccion-29').addClass("d-none")
+                        });
+                    });
+
+               
+            });
+            $('#radio_depended_134_1').change(() => {
+                $('.seccion-22').addClass("d-none")
+                $('.seccion-28').addClass("d-none")
+                $('.seccion-29').addClass("d-none")
+                $('.seccion-27').addClass("d-none")
+            });
+
+            $('#radio_depended_137_0').change(() => {
+                $('.seccion-29').removeClass("d-none")
+            });
+            $('#radio_depended_137_1').change(() => {
+                $('.seccion-29').addClass("d-none")
+            });
+
+            $('#radio_depended_135_0').change(() => {
+                $('.seccion-27').removeClass("d-none")
+                $('.seccion-14').addClass("d-none")
+                $('.seccion-28').addClass("d-none")
+                $('.seccion-29').addClass("d-none")
+                $('#radio_depended_150_0').change(() => {
+                    $('.seccion-28').removeClass("d-none")
+                    $('#radio_depended_137_0').change(() => {
+                        $('.seccion-29').removeClass("d-none")
+                    });
+                    $('#radio_depended_137_1').change(() => {
+                        $('.seccion-29').addClass("d-none")
+                    });
+                });
+            });
+            $('#radio_depended_135_1').change(() => {
+                $('.seccion-28').removeClass("d-none")
+                $('.seccion-27').addClass("d-none")
+                $('#radio_depended_137_0').change(() => {
+                    $('.seccion-29').removeClass("d-none")
+                });
+                $('#radio_depended_137_1').change(() => {
+                    $('.seccion-29').addClass("d-none")
+                });
+            });
     }
 
 

@@ -1,6 +1,10 @@
+
 <input
     type="date"
     name="answers[]"
+    @if ($header->id == 6 && isset($ant))
+        value = "{{getAnswerText($question->id, $ant)}}"
+    @endif
     class="form-control w-50"
     @if ( $question->answer_required_yn  == 1)
         required

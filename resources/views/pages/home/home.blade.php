@@ -21,15 +21,15 @@
                             class="small-box
                             @if ($formIni > 0)
                                 @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
-                                    bg-info
+                                    d-none
                                 @else
-                                    bg-danger
+                                    bg-success
                                 @endif
                             @else
                                 @if ($header->id == 2)
-                                    bg-danger
+                                    bg-success
                                 @else
-                                    bg-info
+                                    bg-secondary
                                 @endif
                             @endif
                             

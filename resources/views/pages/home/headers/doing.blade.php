@@ -1,5 +1,4 @@
 @extends('layouts.home.layout')
-
 @section('plugins-css')
 <link rel="stylesheet" href="{{ asset('css/plugins-forms.css') }}">
 @endsection
@@ -17,7 +16,7 @@
 
         @foreach ($sections as $key => $section)
 
-        <div class="card card-primary w-75 mx-auto">
+        <div class="card card-primary w-75 mx-auto  seccion-{{$section->pivot->priority}}">
             <div class="card-header w-100">
                 <h3 class="card-title">Sección - {{ $section->pivot->priority }}</h3>
             </div>
@@ -59,6 +58,12 @@
     if ( $("#depended").length > 0 ) {
 
         let header = $("#header_id").val();
+
+        if (header == 3) {
+            $('.seccion-2').addClass("d-none")
+            $('.seccion-3').addClass("d-none")
+
+        }
 
        /* Conditional questions header 2 */
         if (header == 2) {
@@ -103,6 +108,32 @@
             });
         }
 
+        if (header  == 3) {
+
+            
+
+            $('select#depended').on('change',function(){
+                var valor = $(this).val();
+                $('.seccion-2').removeClass("d-none")
+                $('.seccion-3').removeClass("d-none")
+
+                if (valor == 172) {
+                    $(".depend").each(function() {
+                        $(this).addClass("d-none");
+                    }).get();
+                    $('.seccion-2').addClass("d-none")
+                    $('.seccion-3').addClass("d-none")
+                }else{
+                    $(".depend").each(function() {
+                        $(this).removeClass("d-none");
+                    }).get();
+                    $('.seccion-2').removeClass("d-none")
+                    $('.seccion-3').removeClass("d-none")
+                }
+            });
+        }
+
+
        
 
         /* Conditional questions header 6 */
@@ -116,6 +147,7 @@
             $('.seccion-10').addClass("d-none")
             $('.seccion-11').addClass("d-none")
             $('.seccion-12').addClass("d-none")
+            $('.seccion-13').addClass("d-none")
             $('.seccion-27').addClass("d-none")
             $('.seccion-14').addClass("d-none")
             $('.seccion-28').addClass("d-none")
@@ -147,6 +179,7 @@
                 $('.seccion-10').addClass("d-none")
                 $('.seccion-11').addClass("d-none")
                 $('.seccion-12').addClass("d-none")
+                $('.seccion-13').addClass("d-none")
                 $('.seccion-27').addClass("d-none")
                 $('.seccion-14').addClass("d-none")
                 $('.seccion-28').addClass("d-none")
@@ -211,6 +244,12 @@
 
 
                         });
+                    });
+                    $('#radio_depended_130_1').change(() => {
+                        $('.seccion-8').addClass("d-none")
+                        $('.seccion-9').addClass("d-none")
+                        $('.seccion-28').addClass("d-none")
+                        $('.seccion-29').addClass("d-none")
                     });
 
                 });

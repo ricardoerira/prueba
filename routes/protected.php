@@ -16,6 +16,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('survey/{header:slug}/info', 'Home\SurveyInformationController@index')->name('surveys.info');
 Route::get('survey/{header:slug}/running', 'Home\SurveyDoingController@index')->name('surveys.running');
 Route::post('survey/done/{header:id}', 'Home\SurveyDoingController@store')->name('surveys.done');
+Route::post('survey/edit/{header:id}', 'Home\SurveyDoingController@add')->name('surveys.edit');
 
 // Route Profile
 Route::get('/profile', 'Home\ProfileController@edit')->name('home.profile');
