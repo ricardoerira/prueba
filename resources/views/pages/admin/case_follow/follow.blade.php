@@ -135,12 +135,12 @@
                         <label class="form-check-label" for="inlineRadio1">Se envió correo</label>
                         <br>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input @error('call') is-invalid @enderror" type="radio" name="email" value="Si">
+                          <input class="form-check-input @error('email') is-invalid @enderror" type="radio" name="email" value="Si">
                           <label class="form-check-label" for="email">Si</label>
                         </div>
                         <br>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input @error('call') is-invalid @enderror" type="radio" name="email" value="No">
+                          <input class="form-check-input @error('email') is-invalid @enderror" type="radio" name="email" value="No">
                           <label class="form-check-label" for="email">No</label>
                         </div>
                       </div>

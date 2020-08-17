@@ -15,7 +15,16 @@ class CreateObservationsTable extends Migration
     {
         Schema::create('observations', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("user_id")->unsigned();
+            $table->text("observation");
+            $table->string("call");
+            $table->string("email");
             $table->timestamps();
+
+            $table->foreign("user_id")
+                ->references("id")
+                ->on("users")
+                ->onDelete("cascade");
         });
     }
 
