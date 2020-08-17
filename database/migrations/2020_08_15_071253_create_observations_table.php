@@ -15,6 +15,9 @@ class CreateObservationsTable extends Migration
     {
         Schema::create('observations', function (Blueprint $table) {
             $table->id();
+            $table->text("observation");
+            $table->string("call");
+            $table->string("email");
             $table->timestamps();
         });
     }
