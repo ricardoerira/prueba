@@ -37,7 +37,11 @@ class ObservationController extends Controller
      */
     public function store(ObservationRequest $request)
     {
-        echo "hola";
+        $observation = Observation::create($request->all());
+
+        if ($observation) {
+            return redirect()->back();
+        }
     }
 
     /**

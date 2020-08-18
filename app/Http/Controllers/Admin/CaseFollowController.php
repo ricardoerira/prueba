@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
+use App\Models\Level;
 use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -63,6 +64,10 @@ class CaseFollowController extends Controller
 
         $dateInit = $dataHealthCondition->first()->created_at->format('d-m-Y');
 
+        $levels = Level::all();
+
+        $observations = $surveyed->observations;
+
         $dataHealthCondition = Answer::where('survey_id', $dataHealthCondition->id)->whereIn('question_id', [
             2, 17, 18, 19, 20, 21, 22, 24, 27, 28, 29, 30
         ])->get();
@@ -73,7 +78,9 @@ class CaseFollowController extends Controller
             'surveyed',
             'answers',
             'dateInit',
-            'dataHealthCondition'
+            'dataHealthCondition',
+            'levels',
+            'observations'
         ));
     }
 
