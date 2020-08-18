@@ -1,6 +1,6 @@
 <input
     type="text"
-    name="answers[]"
+    name="answers[{{$question->id}}]"
     @if ($header->id == 6 && isset($ant))
         value = "{{getAnswerText($question->id, $ant)}}"
     @endif

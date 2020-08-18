@@ -123,7 +123,7 @@ if (!function_exists('existAnswer')) {
 if (!function_exists('questionHasChoices')) {
     function questionHasChoices(int $questionId):bool
     {
-        $question = Question::find($questionId);
+        $question = Question::where('id', $questionId)->first();
         if ($question->input_type_id == 8){
             $bandera = true;
         }else{
