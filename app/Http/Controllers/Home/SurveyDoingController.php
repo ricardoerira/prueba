@@ -103,6 +103,9 @@ class SurveyDoingController extends Controller
             return redirect()->route('survey.doing.index');
         }
 
+        //method to identify assets and negatives of covid-19
+         initialDiagnostic($request->answers);
+
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
 
 

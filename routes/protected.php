@@ -6,7 +6,11 @@
 |--------------------------------------------------------------------------
 */
 
+
+
 // Home
+
+
 Route::get('home', 'Home\HomeController@index')->name('home');
 
 // Route Login
