@@ -140,6 +140,11 @@ class SurveyDoingController extends Controller
                 }
             }
         }
+        //method called in case of containing any of the answers involving the covid state
+        if(array_key_exists('131', $request->answers) || array_key_exists('135', $request->answers) || array_key_exists('142', $request->answers)){
+            continuityNotification($request->answers);
+        }
+
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
         }
