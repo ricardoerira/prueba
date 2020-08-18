@@ -110,7 +110,6 @@ class SurveyDoingController extends Controller
 
     public function add (Request $request, Header $header)
     {
-
         $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('created_at', 'desc')->first());
         $last = (Answer::where('survey_id', $survey->id)->OrderBy('question_id', 'desc')->first());
 
