@@ -1,7 +1,7 @@
 
 <input
     type="date"
-    name="answers[]"
+    name="answers[{{$question->id}}]"
     @if ($header->id == 6 && isset($ant))
         value = "{{getAnswerText($question->id, $ant)}}"
     @endif

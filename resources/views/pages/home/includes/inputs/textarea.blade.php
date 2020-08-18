@@ -1,6 +1,6 @@
 <textarea
     type="text"
-    name="answers[]"
+    name="answers[{{$question->id}}]"
     class="form-control"
     @if ( $question->answer_required_yn  == 1)
         required

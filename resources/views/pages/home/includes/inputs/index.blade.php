@@ -1,6 +1,6 @@
 <input type="hidden" name="questions[]" value="{{ $question->id }}">
 
-<label for="answers[]">
+<label for="answers[{{$question->id}}]">
     {{ $question->name }}
     @if ( $question->answer_required_yn  == 1)
         <span class="text-danger">  *</span>

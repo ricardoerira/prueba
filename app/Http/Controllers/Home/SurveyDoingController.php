@@ -75,7 +75,6 @@ class SurveyDoingController extends Controller
      */
     public function store(Request $request, Header $header)
     {
-        dd($request);
         $survey = Survey::create([
             'surveyed_id'   => Auth::id(),
             'header_id'     => $header->id,
