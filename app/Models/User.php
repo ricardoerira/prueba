@@ -51,4 +51,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
+    public function observations()
+    {
+        return $this->hasMany(Observation::class);
+    }
+
 }
