@@ -30,7 +30,7 @@
             <span class="info-box-text">
               <font style="vertical-align: inherit;">
                 <font style="vertical-align: inherit;">
-                  Encuestas Realizadas
+                  Encuestas Hoy
                 </font>
               </font>
             </span>
@@ -46,7 +46,48 @@
         </div>
         <!-- /.info-box -->
       </div>
-      <!-- /.col -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-primary elevation-1">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Encuestas totales</font>
+              </font>
+            </span>
+            <span class="info-box-number">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{ $totalSurveyCount }}</font>
+              </font>
+            </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-warning elevation-1">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Total de pruebas</font>
+              </font>
+            </span>
+            <span class="info-box-number">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{ $totalTestCount }}</font>
+              </font>
+            </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
       <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box mb-3">
           <span class="info-box-icon bg-danger elevation-1">
@@ -55,12 +96,12 @@
           <div class="info-box-content">
             <span class="info-box-text">
               <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">Casos Covid</font>
+                <font style="vertical-align: inherit;">Pruebas positivos</font>
               </font>
             </span>
             <span class="info-box-number">
               <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">{{$casesCovid}}</font>
+                <font style="vertical-align: inherit;">{{ $totalcasesPositive }}</font>
               </font>
             </span>
           </div>
@@ -68,7 +109,48 @@
         </div>
         <!-- /.info-box -->
       </div>
-      <!-- /.col -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-success elevation-1">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Pruebas negativas</font>
+              </font>
+            </span>
+            <span class="info-box-number">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{ $totalcasesNegative }}</font>
+              </font>
+            </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-success elevation-1">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Recuperados</font>
+              </font>
+            </span>
+            <span class="info-box-number">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{ $totalcasesRecovered }}</font>
+              </font>
+            </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
     @endcan
     <!-- fix for small devices only -->
     <div class="clearfix hidden-md-up"></div>
