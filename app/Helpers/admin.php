@@ -125,7 +125,7 @@ if (!function_exists('continuityNotification')) {
                 }
             }
         }
-
+        
         //Update result in user table
         $aux = User::where('id', auth()->user()->id)->update(['status'=>$resultado[0]]);
         
@@ -135,16 +135,17 @@ if (!function_exists('continuityNotification')) {
             $detail = "Caso recuperado de covid-19";
         }elseif($resultado[2]=="continua"){
             if($resultado[0] == 1){
-                $aux = "positivo";
+                $aux1 = "positivo";
             }else{
-                $aux = "negativo";
+                $aux1 = "negativo";
             }
             if ($resultado[3] == 131){
-                $detail = "Continua "+$aux+" tras prueba dia 14";
-            }elseif ($resultado[3] == 135){
-                $detail = "Continua "+$aux+" tras prueba 48 o 72h";
+                $detail = "Continua "+$aux1+" tras prueba dia 14";
+            }elseif ($resultado[3] == 135){ 
+                $detail = "Continua ".$aux1." tras prueba 48 o 72h";
             }
         }
+
         //Record in observations table
         Observation::create([
             'user_id' => auth()->user()->id,
@@ -181,7 +182,7 @@ if (!function_exists('getResult')) {
                 $level = 3;
             }
             if($previous <> 0){
-                if($previous == $resultado){
+                if($previous == $resultado || $previous == 2){
                     $detail = "continua";
                 }else{
                     $detail = "recuperado";
@@ -189,6 +190,7 @@ if (!function_exists('getResult')) {
                 }
             }
         }
+
         return(array($resultado, $level, $detail, $question));
     }
 }
