@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
 use App\Models\Header;
 use App\Models\Question;
 use App\Models\Survey;
+use App\Models\User;
+use App\Notifications\casePositive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\Bool_;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Notification;
 
 class SurveyDoingController extends Controller
 {
@@ -97,14 +102,21 @@ class SurveyDoingController extends Controller
                     'text'          => $answer
                 ]);
             }
-        }
+        }//Notification
+        //event(new PostEvent($survey));
 
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
         }
 
         //method to identify assets and negatives of covid-19
-         initialDiagnostic($request->answers);
+        if ($header->id == 6){
+            $post = initialDiagnostic($request->answers);
+            if ($post->observation == "Caso positivo para covid-19"){
+                $users = user::where('role_id', '3') -> get();
+                Notification::send($users, new casePositive($post));
+            }
+        }
 
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
 
@@ -113,7 +125,7 @@ class SurveyDoingController extends Controller
 
     public function add (Request $request, Header $header)
     {
-        
+
         $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('created_at', 'desc')->first());
         $last = (Answer::where('survey_id', $survey->id)->OrderBy('question_id', 'desc')->first());
 

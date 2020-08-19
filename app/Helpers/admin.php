@@ -80,11 +80,12 @@ if (!function_exists('initialDiagnostic')) {
         }
 
         //Record in observations table
-        Observation::create([
+        $noti = Observation::create([
             'user_id' => auth()->user()->id,
             'level_id' => $resultado[1],
             'observation' => $res,
         ]);
+        return $noti;
     }
 }
 
