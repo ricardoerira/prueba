@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UsersPositivesExport;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
 use App\Models\Level;
 use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CaseFollowController extends Controller
 {
@@ -27,7 +29,7 @@ class CaseFollowController extends Controller
                 $cases = [];
 
                 foreach ($surveys as $survey) {
-                    $case = $survey->answers->where('question_id', 128)->where('choice_id', 182)->first();
+                    $case = $survey->answers->where('question_id', 128)->where('choice_id', 3)->first();
                     if ($case == null) {
                         continue;
                     }
@@ -148,5 +150,10 @@ class CaseFollowController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new UsersPositivesExport, 'positives.xlsx');
     }
 }
