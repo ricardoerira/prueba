@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
   @yield('plugins-css')
   <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
-  <link rel="shortcut icon" href="{{ asset('images/logo-idpac.ico') }}">  
+  <link rel="shortcut icon" href="{{ asset('images/logo-idpac.ico') }}">
   @yield('own-styles')
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <!-- Navbar -->
     @include('layouts.admin.includes.navbar')
@@ -32,9 +32,13 @@
     @include('layouts.admin.includes.footer')
     <!-- /.Footer -->
 
-    <div id="sidebar-overlay"></div>
   </div>
   <script src="{{ asset('js/plugins.js') }}"></script>
+  <script>
+    $("#icon-menu").click(function() {
+      $("body").toggleClass("sidebar-collapse");
+    });
+  </script>
   @yield('plugins-js')
   <script src="{{ asset('js/app.js') }}"></script>
   @yield('own-js')

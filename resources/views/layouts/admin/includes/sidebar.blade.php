@@ -1,14 +1,12 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('home') }}" class="brand-link">
-        <img src="{{ asset('images/admin/logo/logo-idpac.png') }}" alt="Logotipo de idpac"
-            class="brand-image  elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">
-            <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">Home</font>
-            </font>
-        </span>
-    </a>
+    <div class="d-block">
+        <a href="{{ route('home') }}" class="brand-link mx-auto">
+            <img src="{{ asset('images/admin/logo/logo-idpac.png') }}" alt="Logotipo de idpac"
+                class="brand-image  elevation-3" style="opacity: .8">
+            <br>
+        </a>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -33,7 +31,8 @@
                 <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('admin.index') }}" class="nav-link {{ setActive(route('admin.index'), 'active') }}">
+                    <a href="{{ route('admin.index') }}"
+                        class="nav-link {{ setActive(route('admin.index'), 'active') }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -46,7 +45,8 @@
                 </li>
                 @can('view_survey_vigilant')
                 <li class="nav-item">
-                    <a href="{{ route('survey.doing.index') }}" class="nav-link {{ setActive(route('survey.doing.index'), 'active') }}">
+                    <a href="{{ route('survey.doing.index') }}"
+                        class="nav-link {{ setActive(route('survey.doing.index'), 'active') }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -60,7 +60,8 @@
                 @endcan
                 @can('view_users')
                 <li class="nav-item">
-                    <a href="{{ route('users.index') }}" class="nav-link {{ setActive(route('users.index'), 'active') }}">
+                    <a href="{{ route('users.index') }}"
+                        class="nav-link {{ setActive(route('users.index'), 'active') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -74,7 +75,8 @@
                 @endcan
                 @can('view_organizations')
                 <li class="nav-item">
-                    <a href="{{ route('organizations.index') }}" class="nav-link {{ setActive(route('organizations.index'), 'active') }}">
+                    <a href="{{ route('organizations.index') }}"
+                        class="nav-link {{ setActive(route('organizations.index'), 'active') }}">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -88,7 +90,8 @@
                 @endcan
                 @can('view_inputs')
                 <li class="nav-item">
-                    <a href="{{ route('inputs.index') }}" class="nav-link {{ setActive(route('inputs.index'), 'active') }}">
+                    <a href="{{ route('inputs.index') }}"
+                        class="nav-link {{ setActive(route('inputs.index'), 'active') }}">
                         <i class="nav-icon fas fa-keyboard"></i>
                         <p>
                             <font style="vertical-align: inherit;">
@@ -102,7 +105,8 @@
                 @endcan
                 @can('view_surveys')
                 <li class="nav-item">
-                    <a href="{{ route('survey.index') }}" class="nav-link {{ setActive(route('survey.index'), 'active') }}">
+                    <a href="{{ route('survey.index') }}"
+                        class="nav-link {{ setActive(route('survey.index'), 'active') }}">
                         <i class="nav-icon fas fa-keyboard"></i>
                         <p>
                             <font style="vertical-align: inherit;">

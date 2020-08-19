@@ -64,6 +64,7 @@ Route::get('surveys/doing/{header:slug}/create', 'Admin\SurveyDoingController@cr
 // Cases Follow
 Route::get('cases/follow/{filter}', 'Admin\CaseFollowController@index')->name('cases_follow.index');
 Route::get('cases/follow/{survey:id}/user', 'Admin\CaseFollowController@follow')->name('cases_follow_user.index');
+Route::get('export/positive', 'Admin\CaseFollowController@export')->name('export.positive');
 
 // Route Observation
 Route::post('cases/follow', 'Admin\ObservationController@store')->name('cases_follow_user.store');

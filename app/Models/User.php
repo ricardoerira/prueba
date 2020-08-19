@@ -56,4 +56,14 @@ class User extends Authenticatable
         return $this->hasMany(Observation::class);
     }
 
+    public function surveys()
+    {
+        return $this->hasMany(Survey::class);
+    }
+
+    public function surveyHeaderData()
+    {
+        return $this->hasMany(Survey::class, 'surveyed_id')->with("answersQuestion")->where("header_id", 2);
+    }
+
 }
