@@ -68,3 +68,6 @@ Route::get('export/positive', 'Admin\CaseFollowController@export')->name('export
 
 // Route Observation
 Route::post('cases/follow', 'Admin\ObservationController@store')->name('cases_follow_user.store');
+
+Route::get('export/surveys', 'Admin\ExportSurvey@index')->name('export.survey');
+Route::post('export/surveys', 'Admin\ExportSurvey@export')->name('export.survey');

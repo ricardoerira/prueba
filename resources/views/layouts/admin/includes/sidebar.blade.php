@@ -118,6 +118,19 @@
                     </a>
                 </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{ route('export.survey') }}"
+                        class="nav-link {{ setActive(route('survey.index'), 'active') }}">
+                        <i class="nav-icon fas fa-keyboard"></i>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    Exportaciones
+                                </font>
+                            </font>
+                        </p>
+                    </a>
+                </li>
                 @can('view_gestion_permissions')
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
