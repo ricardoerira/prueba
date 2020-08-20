@@ -40,7 +40,7 @@ class HomeController extends Controller
         
         $surveys = Survey::where("header_id", 6)->get();
         $totalcasesNegative = 0;
-        $totalcasesNegative = Observation::where('observation', 'Caso negativo para covid-19')->count();
+        $totalcasesNegative = Observation::where('observation', 'Caso negativo covid-19')->count();
         $totalcasesRecovered = User::where("status", 2)->get()->count();
 
         return view('pages.admin.home', compact('daySurveyCount', 'totalSurveyCount', 'totalTestCount', 'totalcasesPositive', 'totalcasesNegative', 'totalcasesRecovered'));

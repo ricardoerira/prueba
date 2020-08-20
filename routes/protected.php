@@ -25,3 +25,4 @@ Route::post('survey/edit/{header:id}', 'Home\SurveyDoingController@add')->name('
 // Route Profile
 Route::get('/profile', 'Home\ProfileController@edit')->name('home.profile');
 Route::put('/profile/{user}', 'Home\ProfileController@update')->name('profile.update');
+

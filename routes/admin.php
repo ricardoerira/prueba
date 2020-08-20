@@ -68,3 +68,11 @@ Route::get('export/positive', 'Admin\CaseFollowController@export')->name('export
 
 // Route Observation
 Route::post('cases/follow', 'Admin\ObservationController@store')->name('cases_follow_user.store');
+
+//Route Notification
+Route::get('markAsRead', function(){
+    auth()->user()->unreadNotifications->markAsRead();
+    return redirect()->back();
+})->name('markAsRead');
+Route::get('notification/index', 'Admin\notificationController@index')->name('mark.index');
+Route::post('notification/mark-as-read','Admin\notificationController@markNotification')->name('markNotification');

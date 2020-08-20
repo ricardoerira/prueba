@@ -49,11 +49,9 @@ class SurveyDoingController extends Controller
             $aux  = Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('id', 'desc')->pluck('id')->first();
 
             if ($aux <> null){
-
                 $ant = Answer::where('survey_id', $aux)->where( function($query) {
                     $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
                 })->get();
-
                 if ($ant->count() > 0){
                     return view('pages.home.headers.edit', compact(
                         'header',
@@ -112,7 +110,7 @@ class SurveyDoingController extends Controller
         //method to identify assets and negatives of covid-19
         if ($header->id == 6){
             $post = initialDiagnostic($request->answers);
-            if ($post->observation == "Caso positivo para covid-19"){
+            if ($post->observation == "Caso positivo covid-19"){
                 event(new PostEvent($post));
             }
         }

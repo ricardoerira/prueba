@@ -140,7 +140,7 @@
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                @foreach(auth()->user()->unreadNotifications as $notification)
+                @forelse(auth()->user()->unreadNotifications as $notification)
                     <a href="#" class="dropdown-item">
                         <i class="fas fa-envelope mr-2"></i>
                         <font style="vertical-align: inherit;">
@@ -152,11 +152,29 @@
                             </font>
                     </span>
                 </a>
-                @endforeach
+                @empty
+                    <span class="dropdown-header">Sin notificaciones por leer</span>
+                @endforelse
                
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">
+                @forelse(auth()->user()->readNotifications as $notification)
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;"> {{$notification->data['title']}}
+                            </font>
+                            </font><span class="pull-right text-muted text-sm">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">{{$notification->created_at->diffForHumans()}}</font>
+                            </font>
+                        </span>
+                    </a>
+                @empty
+                    <span class="dropdown-header">Sin notificaciones leidas</span>
+                @endforelse
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('mark.index') }}" class="dropdown-item dropdown-footer">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">Ver todas las notificaciones</font>
                     </font>
@@ -166,3 +184,5 @@
     </ul>
 </nav>
 <!-- /.navbar -->
+
+@yield('scripts')

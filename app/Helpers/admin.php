@@ -74,9 +74,9 @@ if (!function_exists('initialDiagnostic')) {
 
 
         if ($resultado[0] == 1){
-            $res = "Caso positivo para covid-19";
+            $res = "Caso positivo covid-19";
         }elseif($resultado[0] == 3){
-            $res = "Caso negativo para covid-19";
+            $res = "Caso negativo covid-19";
         }
 
         //Record in observations table
@@ -131,7 +131,7 @@ if (!function_exists('continuityNotification')) {
         $aux = User::where('id', auth()->user()->id)->update(['status'=>$resultado[0]]);
         
         if ($resultado[2]=="nuevo"){
-            $detail = "Caso positivo para covid-19";
+            $detail = "Caso positivo covid-19";
         }elseif($resultado[2]=="recuperado"){
             $detail = "Caso recuperado de covid-19";
         }elseif($resultado[2]=="continua"){
@@ -148,11 +148,12 @@ if (!function_exists('continuityNotification')) {
         }
 
         //Record in observations table
-        Observation::create([
+        $noti = Observation::create([
             'user_id' => auth()->user()->id,
             'level_id' => $resultado[1],
             'observation' => $detail,
         ]);
+        return $noti;
 
     }
 }
