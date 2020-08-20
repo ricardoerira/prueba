@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Survey;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
 class SurveyExport implements FromView
