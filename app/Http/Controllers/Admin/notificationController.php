@@ -9,7 +9,7 @@ class notificationController extends Controller
 {
     public function index (request $request){
         $notifications = auth()->user()->unreadNotifications;
-        return view('pages.admin.index_notification.positive', compact('notifications'));
+        return view('pages.admin.Index_notification.positive', compact('notifications'));
     }
 
     public function markNotification(Request $request){

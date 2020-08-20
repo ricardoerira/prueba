@@ -1,5 +1,4 @@
 @extends('layouts.admin.layout')
-
 @section('plugins-css')
 <link rel="stylesheet" href="{{ asset('css/admin/plugins-datatables.css') }}">
 @endsection
