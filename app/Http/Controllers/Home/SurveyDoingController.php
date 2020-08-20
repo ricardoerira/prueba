@@ -113,8 +113,7 @@ class SurveyDoingController extends Controller
         if ($header->id == 6){
             $post = initialDiagnostic($request->answers);
             if ($post->observation == "Caso positivo para covid-19"){
-                $users = user::where('role_id', '3') -> get();
-                Notification::send($users, new casePositive($post));
+                event(new PostEvent($post));
             }
         }
 

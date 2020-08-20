@@ -29,7 +29,7 @@
                 <i class="far fa-comments"></i>
                 <span class="badge badge-danger navbar-badge">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">3</font>
+                        <font style="vertical-align: inherit;">5</font>
                     </font>
                 </span>
             </a>
@@ -129,53 +129,31 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">
+                <span class="navbar-badge">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">15</font>
+                        <font style="vertical-align: inherit;">
+                            @if(count(auth()->user()->unreadNotifications) > 0 )
+                                <span class="badge badge-warning">{{count(auth()->user()->unreadNotifications)}}</span>
+                            @endif
+                        </font>
                     </font>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">15 notificaciones</font>
-                    </font>
-                </span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;"> 4 mensajes nuevos
-                        </font>
-                    </font><span class="float-right text-muted text-sm">
+                @foreach(auth()->user()->unreadNotifications as $notification)
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i>
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">3 minutos</font>
-                        </font>
+                            <font style="vertical-align: inherit;"> {{$notification->data['title']}}
+                            </font>
+                        </font><span class="pull-right text-muted text-sm">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">{{$notification->created_at->diffForHumans()}}</font>
+                            </font>
                     </span>
                 </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;"> 8 solicitudes de amistad
-                        </font>
-                    </font><span class="float-right text-muted text-sm">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">12 horas</font>
-                        </font>
-                    </span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;"> 3 nuevos informes
-                        </font>
-                    </font><span class="float-right text-muted text-sm">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">2 días</font>
-                        </font>
-                    </span>
+                @endforeach
+               
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">

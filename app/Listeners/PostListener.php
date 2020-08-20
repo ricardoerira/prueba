@@ -29,9 +29,8 @@ class PostListener
      */
     public function handle($event)
     {
-        User::where ('role_id', '3')->each(function(User $user) use ($event){
+        User::where ('role_id', '3')->where('id', '<>', auth()->user()->id)->each(function(User $user) use ($event){
             Notification::send($user, new casePositive($event->post));
-            //Notification::send($users, new InvoicePaid($invoice));
         });
     }
 }
