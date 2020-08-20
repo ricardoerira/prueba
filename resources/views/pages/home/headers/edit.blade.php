@@ -14,7 +14,6 @@
     <form action="{{ route('surveys.edit', $header->id) }}" role="form" method="POST">
         <input type="hidden" name="header_id" id="header_id" value="{{ $header->id }}">
         @csrf
-
         @foreach ($sections as $key => $section)
 
         <div class="card card-primary w-75 mx-auto @if (sectionExist($section->id, $ant) == false) seccion-{{$section->pivot->priority}} @else {{$aux = $section->id}} @endif">
