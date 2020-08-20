@@ -15,8 +15,16 @@
         <div class="card-body">
             <div class="row">
                 @foreach ($headers as $header)
-                    
-                    <div class="col-lg-3 col-6">
+
+                    <div
+                        class="col-lg-3 col-6
+                        @if ($formIni > 0)
+                            @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
+                                d-none
+                            @endif
+                        @endif
+                        "
+                    >
                         <div
                             class="small-box
                             @if ($formIni > 0)
@@ -32,7 +40,6 @@
                                     bg-secondary
                                 @endif
                             @endif
-                            
                             "
                         >
 
