@@ -18,7 +18,7 @@ class LoginTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit(route('login'))
-                ->assertSee('EncuestasCovid')
+                ->assertSee('FormatosCovid')
                 ->assertSee('Inicia sesión para comenzar tu sesión')
                 ;
         });
