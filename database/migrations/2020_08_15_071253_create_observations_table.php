@@ -17,7 +17,7 @@ class CreateObservationsTable extends Migration
             $table->id();
             $table->bigInteger("user_id")->unsigned();
             $table->text("observation");
-            $table->string("call");
+            $table->string("call")->default(null);
             $table->string("email");
             $table->timestamps();
 

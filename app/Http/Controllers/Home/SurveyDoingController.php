@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
 use App\Models\Header;
 use App\Models\Question;
 use App\Models\Survey;
+use App\Models\User;
+use App\Notifications\casePositive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\Bool_;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Notification;
 
 class SurveyDoingController extends Controller
 {
@@ -44,11 +49,9 @@ class SurveyDoingController extends Controller
             $aux  = Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('id', 'desc')->pluck('id')->first();
 
             if ($aux <> null){
-
                 $ant = Answer::where('survey_id', $aux)->where( function($query) {
                     $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
                 })->get();
-
                 if ($ant->count() > 0){
                     return view('pages.home.headers.edit', compact(
                         'header',
@@ -97,10 +100,19 @@ class SurveyDoingController extends Controller
                     'text'          => $answer
                 ]);
             }
-        }
+        }//Notification
+        //event(new PostEvent($survey));
 
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
+        }
+
+        //method to identify assets and negatives of covid-19
+        if ($header->id == 6){
+            $post = initialDiagnostic($request->answers);
+            if ($post->observation == "Caso positivo covid-19"){
+                event(new PostEvent($post));
+            }
         }
 
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
@@ -110,6 +122,7 @@ class SurveyDoingController extends Controller
 
     public function add (Request $request, Header $header)
     {
+
         $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('created_at', 'desc')->first());
         $last = (Answer::where('survey_id', $survey->id)->OrderBy('question_id', 'desc')->first());
 
@@ -137,6 +150,11 @@ class SurveyDoingController extends Controller
                 }
             }
         }
+        //method called in case of containing any of the answers involving the covid state
+        if(array_key_exists('131', $request->answers) || array_key_exists('135', $request->answers) || array_key_exists('142', $request->answers)){
+            continuityNotification($request->answers);
+        }
+
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
         }
