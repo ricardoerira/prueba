@@ -47,7 +47,7 @@
                           Documento: {{ $notification->notifiable_id }} <br>
                           Reporte: {{ $notification->data['title'] }}
                           <p>{{ $notification->created_at->diffForHumans() }}</p>
-                          <button type="submit" class="mark-as-read btn btn-sm btn-dark" data-id="{{ $notification->id }}">Marcar como leido</button>
+                          <button type="submit" class="btn btn-sm btn-dark" id="mark-as-read" data-id="{{ $notification->id }}">Marcar como leido</button>
                         </div>
                         @if ($loop->last)
                           <a href="#" id="mark-all">Marcar todos como leidos</a>
@@ -85,7 +85,7 @@
 </section>
 @endsection
 
-@section('scripts')
+@section('own-js')
 <script>
   function sendMarkRequest(id = null){
     return $.ajax("{{ route('markNotification') }}", {
@@ -96,8 +96,9 @@
       }
     });
   }
-  $(function(){
-    $('.mark-as-read').click(function(){
+
+    
+    $('#mark-as-read').click(function(){
       let request = sendMarkRequest($(this).data('id'));
       request.done(() => {
         $(this).parents('div.alert').remove();
@@ -109,6 +110,6 @@
         $('div.alert').remove();
       })
     });
-  });
+
 </script>
 @endsection
