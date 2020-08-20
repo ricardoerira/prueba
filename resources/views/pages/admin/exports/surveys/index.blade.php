@@ -25,7 +25,7 @@
                         <div class="card-header">
                             <h3 class="card-title">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Exportación de encuestas</font>
+                                    <font style="vertical-align: inherit;">Exportación de formatos</font>
                                 </font>
                             </h3>
                         </div>

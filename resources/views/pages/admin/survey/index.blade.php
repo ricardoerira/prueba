@@ -22,7 +22,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between">
-              <h3>Datos de Encuestas</h3>
+              <h3>Datos de Formatos</h3>
               <a href="{{ route('survey.create') }}" class="btn btn-primary">Crear encuesta</a>
             </div>
             <!-- /.card-header -->

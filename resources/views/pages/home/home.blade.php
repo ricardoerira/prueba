@@ -2,14 +2,13 @@
 
 @section('content')
 <header class="header__home">
-    <h1 class="header__home_title">Encuestas IDPAC</h1>
+    <h1 class="header__home_title">REPORTES EMERGENCIA SANITARIA COVID-19 – IDPAC</h1>
 </header>
 
 <div class="container mt-5">
     <div class="card">
         <div>
-            <h3>Encuestas</h3>
-
+            <h3>Formatos</h3>
         </div>
         <hr>
         <div class="card-body">
