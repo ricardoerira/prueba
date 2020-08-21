@@ -30,7 +30,7 @@
             <span class="info-box-text">
               <font style="vertical-align: inherit;">
                 <font style="vertical-align: inherit;">
-                  Encuestas Hoy
+                  Formatos Hoy
                 </font>
               </font>
             </span>
@@ -54,7 +54,7 @@
           <div class="info-box-content">
             <span class="info-box-text">
               <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">Encuestas totales</font>
+                <font style="vertical-align: inherit;">Formatos totales</font>
               </font>
             </span>
             <span class="info-box-number">

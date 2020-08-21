@@ -31,7 +31,7 @@
     <div class="card">
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item active">Encuestas Publicas</li>
+                <li class="list-group-item active">Formatos Públicos</li>
                 @foreach ($sections as  $section)
                     @foreach ($section->questions()->get() as  $question )
 

@@ -111,7 +111,7 @@
                         <p>
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
-                                    Encuestas
+                                    Formatos
                                 </font>
                             </font>
                         </p>

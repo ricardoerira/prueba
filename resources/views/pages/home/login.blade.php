@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Encuestas</b>Covid</a>
+        <a href="#"><b>Formatos</b>Covid</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -38,7 +38,7 @@
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary w-100">Inicias Sesión</button>
+                        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
                     </div>
                     <!-- /.col -->
                 </div>
