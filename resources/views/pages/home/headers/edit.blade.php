@@ -321,6 +321,9 @@
 
             $('#radio_depended_137_0').change(() => {
                 $('.seccion-29').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
             });
             $('#radio_depended_137_1').change(() => {
                 $('.seccion-29').addClass("d-none")
