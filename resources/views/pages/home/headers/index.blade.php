@@ -52,6 +52,7 @@
                     </ul>
                     <span>Diligencie todas las preguntas en cada una de las sesiones hasta finalizar, son de única respuesta</span>
                     <br>
+                    <br>
                     <span>{{ $header->instructions }}</span>
                 </div>
             </span>
