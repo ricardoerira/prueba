@@ -42,7 +42,7 @@
                         @if (auth()->user())
                         @forelse ($notifications as $notification)
                         <div class="alert alert-default-warning">
-                          Nombre: {{ $notification->notifiable_id }}<br>
+                          Nombre: {{ getUsername($notification->notifiable_id) }}<br>
                           Documento: {{ $notification->notifiable_id }} <br>
                           Reporte: {{ $notification->data['title'] }}
                           <p>{{ $notification->created_at->diffForHumans() }}</p>
