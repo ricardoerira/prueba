@@ -14,8 +14,19 @@
         <input type="hidden" name="header_id" id="header_id" value="{{ $header->id }}">
         @csrf
 
-        @foreach ($sections as $key => $section)
 
+        <div class="card card-primary w-75 mx-auto">
+            <div class="card-body">
+                <div class="w-100">
+                    <h3 class="card-title">{{$header->header_info_title}}</h3>
+                </div>
+                <br>
+                <p>
+                    {{ $header->other_header_info }}
+                </p>
+            </div>
+        </div>
+        @foreach ($sections as $key => $section)
         <div class="card card-primary w-75 mx-auto  seccion-{{$section->pivot->priority}}">
             <div class="card-header w-100">
                 <h3 class="card-title">Sección - {{ $section->pivot->priority }}</h3>

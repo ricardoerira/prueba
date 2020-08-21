@@ -36,38 +36,30 @@
                 <h2>Instrucciones</h2>
             </div>
             <span>
-                <p>
-                    {{ $header->instructions }}
-                </p>
-                <p>
-                    {{ $header->other_header_info }}
-                </p>
-
-                <hr>
                 <div>
                     <div>
-                        <span>Duracion : 10 - 20 min</span>
+                        <span>Duración de diligenciamiento: 10 a 20 minutos</span>
                         <br>
                         <span>Secciones : {{ $sections_count }}</span>
-                        <br>
-                        {{-- <span>Preguntas : {{ $questions_count }}</span> --}}
                     </div>
                 </div>
 
-                <hr>
-
                 <div>
-                    <h6>Secciones</h6>
-
                     <ul>
                         @foreach ($sections as $key =>  $section)
                             <li>{{ ++$key }} - {{ $section->title }}</li>
                         @endforeach
                     </ul>
+                    <span>Diligencie todas las preguntas en cada una de las sesiones hasta finalizar, son de única respuesta</span>
+                    <br>
+                    <br>
+                    <span>{{ $header->instructions }}</span>
                 </div>
             </span>
 
-            <a href="{{ route('surveys.running', $header->slug) }}" class="btn btn-primary">Diligenciar Formato</a>
+            <div class="w-100 py-4 d-flex">
+                <a href="{{ route('surveys.running', $header->slug) }}" class="btn btn-primary w-25 mx-auto">Diligenciar Formato</a>
+            </div>
 
         </div>
     </div>
