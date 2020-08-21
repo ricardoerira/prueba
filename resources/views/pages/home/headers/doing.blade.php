@@ -21,6 +21,7 @@
                 <div class="w-100">
                     <h3 class="card-title">{{$header->header_info_title}}</h3>
                 </div>
+                <br>
                 <p>
                     {{ $header->other_header_info }}
                 </p>
