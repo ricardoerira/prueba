@@ -51,11 +51,14 @@
                         @endforeach
                     </ul>
                     <span>Diligencie todas las preguntas en cada una de las sesiones hasta finalizar, son de única respuesta</span>
+                    <br>
                     <span>{{ $header->instructions }}</span>
                 </div>
             </span>
 
-            <a href="{{ route('surveys.running', $header->slug) }}" class="btn btn-primary">Diligenciar Formato</a>
+            <div class="w-100 py-4 d-flex">
+                <a href="{{ route('surveys.running', $header->slug) }}" class="btn btn-primary w-25 mx-auto">Diligenciar Formato</a>
+            </div>
 
         </div>
     </div>
