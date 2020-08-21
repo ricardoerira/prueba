@@ -3,6 +3,7 @@
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Survey;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use SebastianBergmann\Environment\Console;
@@ -148,5 +149,15 @@ if (!function_exists('lastAnswer')) {
             $bandera = false;
         }
         return $bandera;
+    }
+}
+
+//get username
+if (!function_exists('getUsername')) {
+    function getUsername(string $id)
+    {
+        $name = User::where('id', $id)->pluck('name');
+        return ($name[0]);
+        
     }
 }
