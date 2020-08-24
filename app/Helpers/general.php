@@ -57,7 +57,7 @@ if (!function_exists('getAnswerChoice')) {
     function getAnswerChoice(int $question, object $data)
     {
         $aux = $data[0]->survey_id;
-        $resp = (Answer::where('survey_id', $aux)->where('question_id', $question)->get()->pluck('choice_id'));
+        $resp = (Answer::where('survey_id', $aux)->where('question_id', $question)->pluck('choice_id')->first());
         return $resp;
     }
 }
@@ -124,7 +124,7 @@ if (!function_exists('questionHasChoices')) {
     function questionHasChoices(int $questionId):bool
     {
         $question = Question::where('id', $questionId)->first();
-        if ($question->input_type_id == 8){
+        if ($question->input_type_id <> 5 && $question->input_type_id <> 9){
             $bandera = true;
         }else{
             $bandera = false;

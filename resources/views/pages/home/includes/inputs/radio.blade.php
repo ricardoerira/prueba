@@ -8,13 +8,15 @@
             class="form-check-input"
             id="radio_depended_{{$question->id}}_{{$key}}"
             @if ($question->answer_required_yn == 1) required @endif
-            @if ($header->id == 6 && isset($ant))
+            @if (isset($ant))
                 @if(questionExist($question->id, $ant))
-                    @if (lastAnswer($question->id, $ant) == false)
-                        disabled
+                    @if($header->id == 6)
+                        @if (lastAnswer($question->id, $ant) == false)
+                            disabled
+                        @endif
                     @endif
                 @endif
-                @if (getAnswerChoice($question->id, $ant) == '['.$choice->id.']')
+                @if (getAnswerChoice($question->id, $ant) == $choice->id)
                     checked
                 @endif
 

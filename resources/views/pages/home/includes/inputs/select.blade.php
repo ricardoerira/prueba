@@ -5,14 +5,24 @@
     @if ( $question->answer_required_yn  == 1)
         required
     @endif
-    @if ($header->id == 6 && isset($ant))
-        @if(questionExist($question->id, $ant))
-            disabled
+    @if (isset($ant))
+        @if($header->id == 6)
+            @if(questionExist($question->id, $ant))
+                disabled
+             @endif
+        value = "1"
         @endif
+
     @endif
 >
     <option value="">Seleccione...</option>
     @foreach ($question->choices as $choices)
-        <option value="{{ $choices->id }}">{{ $choices->name }}</option>
+            <option value="{{ $choices->id }}" 
+            @if(isset($ant))
+            value="{{getAnswerChoice($question->id, $ant)}}"
+                @if(strval(getAnswerChoice($question->id, $ant)) == $choices->id)
+                    selected
+                @endif
+            @endif>{{ $choices->name }}</option>
     @endforeach
 </select>

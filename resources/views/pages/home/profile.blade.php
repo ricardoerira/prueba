@@ -43,11 +43,11 @@
                               <div class="text-center">
                                 <img class="profile-user-img img-fluid img-circle" src="{{ asset('images/home/user.png') }}" alt="User profile picture">
                               </div>
-              
+
                               <h3 class="profile-username text-center">{{ $user->name }}</h3>
-              
+
                               <p class="text-muted text-center">{{ implode(" ", $user->getRoleNames()->toArray() )}}</p>
-              
+
                               <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
                                   <b>Reporte Diario</b> <a class="float-right">{{ $repDiario }}</a>
@@ -58,13 +58,13 @@
                                 <li class="list-group-item">
                                 <b>Seguimiento</b> <a class="float-right">{{ $repSeg }}</a>
                                 </li>
+                                <li class="list-group-item">
+                                <b><a href="{{ route('profile.editReporte', $headers[0]->slug) }}">Actualizar reporte identificacion de condiciones de salud</a></b>
+                                </li>
                               </ul>
                             </div>
                             <!-- /.card-body -->
                           </div>
-                          <!-- /.card -->
-              
-                          
                           <!-- /.card -->
                         </div>
                         <!-- /.col -->
@@ -72,7 +72,7 @@
                           <div class="card">
                             <div class="card-header p-2">
                               <ul class="nav nav-pills">
-                               
+
                                 <li class="nav-item"><a class="nav-link info" href="#settings" data-toggle="tab">Informacion</a></li>
                               </ul>
                             </div><!-- /.card-header -->
@@ -93,9 +93,7 @@
                                   </div>
 
                                 </div>
-  
-              
-                           
+
                                   <form action="{{ route('profile.update', $user) }}" method="POST" role="form">
                                     @csrf
                                     @method('PUT')
@@ -121,7 +119,7 @@
                                         @enderror
                                       </div>
                                     </div>
-                                   
+
                                     <div class="form-group row">
                                       <label for="inputSkills" class="col-sm-2 col-form-label">Documento</label>
                                       <div class="col-sm-10">
@@ -136,7 +134,7 @@
                                           </font>
                                         </button>
                                       </div>
-                                    
+
                                   </form>
                               </div>  
                             </div>  
@@ -144,5 +142,5 @@
                         </div>
                       </div>
                     </div>
-                  
+
 @endsection

@@ -14,7 +14,6 @@
     <form action="{{ route('surveys.edit', $header->id) }}" role="form" method="POST">
         <input type="hidden" name="header_id" id="header_id" value="{{ $header->id }}">
         @csrf
-
         @foreach ($sections as $key => $section)
 
         <div class="card card-primary w-75 mx-auto @if (sectionExist($section->id, $ant) == false) seccion-{{$section->pivot->priority}} @else {{$aux = $section->id}} @endif">
@@ -32,7 +31,7 @@
                 </div>
 
                 @foreach ($section->questions as $question)
-                <div class="form-group @if($question->questionsDepended()->exists()) d-none depend @endif">
+                <div class="form-group question-{{$question->id}} @if($question->questionsDepended()->exists()) d-none depend @endif">
                     @include('pages.home.includes.inputs.index')
                 </div>
                 @endforeach
@@ -62,6 +61,74 @@
 <script>
     if ( $("#depended").length > 0 ) {
 
+        let header = $("#header_id").val();
+
+        if (header == 2) {
+            $('.seccion-18').addClass("d-none")
+            $('.seccion-19').addClass("d-none")
+            $('#radio_depended_79_0').change(() => {
+                $('.seccion-15').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
+            });
+
+            $('#radio_depended_79_1').change(() => {
+                $(".depend").each(function() {
+                    $(this).addClass("d-none");
+                }).get();
+            });
+
+            $('#radio_depended_83_0').change(() => {
+                $('.seccion-16').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
+            });
+            $('#radio_depended_83_1').change(() => {
+                $(".depend").each(function() {
+                    $(this).addClass("d-none");
+                }).get();
+            });
+
+            $('#radio_depended_85_0').change(() => {
+                $('.seccion-18').removeClass("d-none")
+                $('.seccion-19').removeClass("d-none")
+            });
+            $('#radio_depended_85_1').change(() => {
+                $('.seccion-18').addClass("d-none")
+                $('.seccion-19').addClass("d-none")
+            });
+
+            $('#radio_depended_158_1').change(() => {
+                $('.question-27').removeClass("d-none")
+            });
+            $('#radio_depended_158_0').change(() => {
+                $('.question-27').addClass("d-none")
+            });
+
+            $('#radio_depended_23_0').change(() => {
+                $('.question-159').removeClass("d-none")
+            });
+            $('#radio_depended_23_1').change(() => {
+                $('.question-159').addClass("d-none")
+            });
+
+            $('#radio_depended_67_0').change(() => {
+                $('.question-68').removeClass("d-none")
+            });
+            $('#radio_depended_67_1').change(() => {
+                $('.question-68').addClass("d-none")
+            });
+
+            $('#radio_depended_69_0').change(() => {
+                $('.question-70').removeClass("d-none")
+            });
+            $('#radio_depended_69_1').change(() => {
+                $('.question-70').addClass("d-none")
+            });
+        }
+        if (header == 2) {
             $('.seccion-4').addClass("d-none")
             $('.seccion-5').addClass("d-none")
             $('.seccion-6').addClass("d-none")
@@ -436,6 +503,8 @@
                 $('.seccion-28').addClass("d-none")
                 $('.seccion-29').addClass("d-none")
             });
+        }
+            
     }
 
 
