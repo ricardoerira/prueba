@@ -2,7 +2,7 @@
 <input
     type="date"
     name="answers[{{$question->id}}]"
-    @if ($header->id == 6 && isset($ant))
+    @if (isset($ant))
         value = "{{getAnswerText($question->id, $ant)}}"
     @endif
     class="form-control w-50"

@@ -44,10 +44,8 @@ class SurveyDoingController extends Controller
         }
 
         $sections = $header->sections()->with('questions')->get();
-
         if ($header->id == 6){
             $aux  = Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('id', 'desc')->pluck('id')->first();
-
             if ($aux <> null){
                 $ant = Answer::where('survey_id', $aux)->where( function($query) {
                     $query->where('choice_id', '<>', '')->orWhere('text', '<>', '');
@@ -123,40 +121,74 @@ class SurveyDoingController extends Controller
     public function add (Request $request, Header $header)
     {
 
-        $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', '6')->OrderBy('created_at', 'desc')->first());
+        $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', $header->id)->OrderBy('created_at', 'desc')->first());
         $last = (Answer::where('survey_id', $survey->id)->OrderBy('question_id', 'desc')->first());
 
         foreach ($request->answers as $key => $answer) {
-            if($key == $last->question_id){
-                $res = Answer::where ('survey_id', $survey->id)->where ('question_id', $key)->delete();
-            }
-            if ($answer <> null){
-                if (!existAnswer($key, $survey->id)){
-                    if (questionHasChoices($key)) {
+            if ($header->id == 6){
+                if($key == $last->question_id){
+                    $res = Answer::where ('survey_id', $survey->id)->where ('question_id', $key)->delete();
+                }
+                if ($answer <> null){
+                    if (!existAnswer($key, $survey->id)){
+                        if (questionHasChoices($key)) {
+                            Answer::create([
+                                'survey_id'     => $survey->id,
+                                'question_id'   => $key,
+                                'choice_id'     => $answer,
+                            ]);
+    
+                            continue;
+                        }
+    
                         Answer::create([
                             'survey_id'     => $survey->id,
                             'question_id'   => $key,
-                            'choice_id'     => $answer,
+                            'text'          => $answer,
                         ]);
-
-                        continue;
                     }
+                }
+            }else{
+                if ($answer <> null){
 
-                    Answer::create([
-                        'survey_id'     => $survey->id,
-                        'question_id'   => $key,
-                        'text'          => $answer,
-                    ]);
+                    if (existAnswer($key, $survey->id)){
+                        if (questionHasChoices($key)) {
+                            Answer::where('survey_id', $survey->id)->where('question_id', $key)->update(['choice_id'=>$answer]);
+                        }else{
+                            Answer::where('survey_id', $survey->id)->where('question_id', $key)->update(['text'=>$answer]);
+                        }
+                    }else{
+                        if (questionHasChoices($key)) {
+                            Answer::create([
+                                'survey_id'     => $survey->id,
+                                'question_id'   => $key,
+                                'choice_id'     => $answer,
+                            ]);
+    
+                            continue;
+                        }
+                        Answer::create([
+                            'survey_id'     => $survey->id,
+                            'question_id'   => $key,
+                            'text'          => $answer,
+                        ]);
+                    }
+                }
+
+            }
+            
+        }
+        //method called in case of containing any of the answers involving the covid state
+        if($header->id == 6){
+            if(array_key_exists('131', $request->answers) || array_key_exists('135', $request->answers) || array_key_exists('142', $request->answers)){
+                $post = continuityNotification($request->answers);
+                if ($post->observation == "Caso positivo covid-19"){
+                    event(new PostEvent($post));
                 }
             }
         }
-        //method called in case of containing any of the answers involving the covid state
-        if(array_key_exists('131', $request->answers) || array_key_exists('135', $request->answers) || array_key_exists('142', $request->answers)){
-            $post = continuityNotification($request->answers);
-            if ($post->observation == "Caso positivo covid-19"){
-                event(new PostEvent($post));
-            }
-        }
+        
+        
 
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
