@@ -10,7 +10,6 @@
             @if(questionExist($question->id, $ant))
                 disabled
              @endif
-        value = "1"
         @endif
 
     @endif
