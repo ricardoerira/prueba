@@ -309,11 +309,11 @@
             });
 
             $('#radio_depended_134_0').change(() => {
-
                 $('.seccion-22').removeClass("d-none")
                     
             });
             $('#radio_depended_134_1').change(() => {
+                $('.seccion-27').addClass("d-none")
                 $('.seccion-22').addClass("d-none")
                 $('.seccion-28').addClass("d-none")
                 $('.seccion-29').addClass("d-none")
@@ -321,6 +321,9 @@
 
             $('#radio_depended_137_0').change(() => {
                 $('.seccion-29').removeClass("d-none")
+                $(".depend").each(function() {
+                    $(this).removeClass("d-none");
+                }).get();
             });
             $('#radio_depended_137_1').change(() => {
                 $('.seccion-29').addClass("d-none")

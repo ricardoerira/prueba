@@ -33,7 +33,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <div class="card-body">
+        <div class="card-body">
                 <div>
                     <h5>{{$section->title}}</h5>
                     <span>
@@ -42,7 +42,7 @@
                 </div>
                 @foreach ($section->questions as $question)
 
-                <div class="form-group @if($question->questionsDepended()->exists()) d-none depend @endif">
+                <div class="form-group question-{{$question->id}} @if($question->questionsDepended()->exists()) d-none depend @endif">
                     @include('pages.home.includes.inputs.index')
                 </div>
                 @endforeach
@@ -78,7 +78,9 @@
 
        /* Conditional questions header 2 */
         if (header == 2) {
+
             $('.seccion-18').addClass("d-none")
+            $('.seccion-19').addClass("d-none")
             $('#radio_depended_79_0').change(() => {
                 $('.seccion-15').removeClass("d-none")
                 $(".depend").each(function() {
@@ -105,17 +107,40 @@
             });
 
             $('#radio_depended_85_0').change(() => {
-                $('.seccion-17').removeClass("d-none")
                 $('.seccion-18').removeClass("d-none")
-                $(".depend").each(function() {
-                    $(this).removeClass("d-none");
-                }).get();
+                $('.seccion-19').removeClass("d-none")
             });
             $('#radio_depended_85_1').change(() => {
                 $('.seccion-18').addClass("d-none")
-                $(".depend").each(function() {
-                    $(this).addClass("d-none");
-                }).get();
+                $('.seccion-19').addClass("d-none")
+            });
+
+            $('#radio_depended_158_1').change(() => {
+                $('.question-27').removeClass("d-none")
+            });
+            $('#radio_depended_158_0').change(() => {
+                $('.question-27').addClass("d-none")
+            });
+
+            $('#radio_depended_23_0').change(() => {
+                $('.question-159').removeClass("d-none")
+            });
+            $('#radio_depended_23_1').change(() => {
+                $('.question-159').addClass("d-none")
+            });
+
+            $('#radio_depended_67_0').change(() => {
+                $('.question-68').removeClass("d-none")
+            });
+            $('#radio_depended_67_1').change(() => {
+                $('.question-68').addClass("d-none")
+            });
+
+            $('#radio_depended_69_0').change(() => {
+                $('.question-70').removeClass("d-none")
+            });
+            $('#radio_depended_69_1').change(() => {
+                $('.question-70').addClass("d-none")
             });
         }
 
@@ -311,6 +336,7 @@
                     });
 
                     $('#radio_depended_134_1').change(() => {
+                        $('.seccion-27').addClass("d-none")
                         $('.seccion-22').addClass("d-none")
                         $('.seccion-28').addClass("d-none")
                         $('.seccion-29').addClass("d-none")
