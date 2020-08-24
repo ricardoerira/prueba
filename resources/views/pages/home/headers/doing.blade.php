@@ -21,7 +21,7 @@
                     <h3 class="card-title">{{$header->header_info_title}}</h3>
                 </div>
                 <br>
-                <p>
+                <p class="text-justify">
                     {{ $header->other_header_info }}
                 </p>
             </div>
