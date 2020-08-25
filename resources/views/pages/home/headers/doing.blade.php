@@ -250,6 +250,7 @@
                     $('.seccion-27').addClass("d-none")
                     $('#radio_depended_130_0').change(() => {
                         $('.seccion-8').removeClass("d-none")
+
                         $('#radio_depended_131_0').change(() => {
                             $('.seccion-10').addClass("d-none")
                             $('.seccion-28').addClass("d-none")
