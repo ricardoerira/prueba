@@ -1,6 +1,6 @@
 <select
     name="answers[{{$question->id}}]"
-    id="@if($question->questionsDependedMy()->exists()){{'depended'}}@endif"
+    id = "select_depended_{{$question->id}}"
     class="form-control w-50"
     @if ( $question->answer_required_yn  == 1)
         required
