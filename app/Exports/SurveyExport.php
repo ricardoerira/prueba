@@ -27,17 +27,17 @@ class SurveyExport implements FromView
     public function view(): View
     {
         if ($this->users == "all") {
-            $surveys = Survey::where("header_id", $this->idSurvey)->get();
+            $surveys = Survey::where("header_id", $this->idSurvey)->whereBetween("created_at", $this->dates)->get();
+            dd($surveys);
+        }else{
+            $userIds = [];
+            foreach ($this->users  as $user) {
+                array_push($userIds, intval($user));
+            }
+            $surveys = Survey::where("header_id", $this->idSurvey)->whereIn("surveyed_id", $userIds)->whereBetween("created_at", $this->dates)->get();
         }
 
-        $userIds = [];
-        foreach ($this->users  as $user) {
-            array_push($userIds, intval($user));
-        }
-
-        $surveys = Survey::where("header_id", $this->idSurvey)->whereIn("surveyed_id", $userIds)->whereBetween("created_at", $this->dates)->get();
-
-        return view('export.admin.surveys.' . $this->view, [
+        return view('export.admin.surveys.surveys', [
             'surveys' => $surveys
         ]);
     }
