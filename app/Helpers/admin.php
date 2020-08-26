@@ -3,7 +3,9 @@
 
 
 use App\Models\Answer;
+use App\Models\Choice;
 use App\Models\Observation;
+use App\Models\Question;
 use App\Models\User;
 
 //detects status (positive or negative) of the first admission of the follow-up
@@ -194,5 +196,22 @@ if (!function_exists('getResult')) {
         }
 
         return(array($resultado, $level, $detail, $question));
+    }
+}
+
+if (!function_exists('checkPathology')) {
+    function checkPathology(string $idSurvey)
+    {
+        $pathology = "";
+        for ($i = 44; $i<63; $i++){
+
+                $aux = Answer::where('survey_id', $idSurvey)->where('question_id', $i)->where('choice_id', 3)->get();
+                
+
+            if($aux->count() > 0){
+                $pathology = $pathology." ,".Question::where('id', $i)->pluck('name')[0];
+            }
+        }
+        return substr($pathology, 2);
     }
 }
