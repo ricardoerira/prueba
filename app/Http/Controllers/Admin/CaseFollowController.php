@@ -10,6 +10,7 @@ use App\Models\Survey;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class CaseFollowController extends Controller
 {
@@ -155,5 +156,13 @@ class CaseFollowController extends Controller
     public function export()
     {
         return Excel::download(new UsersPositivesExport, 'positives.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $pdf = PDF::loadView("export.admin.pdf.follow");
+
+        return $pdf->download("follow-case.pdf");
+        // return view("export.admin.pdf.follow");
     }
 }
