@@ -138,6 +138,32 @@
                         <p>
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
+                                    Reportes
+                                </font>
+                            </font><i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('report.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Condiciones de salud</font>
+                                    </font>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endcan
+                @can('view_gestion_permissions')
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
                                     Gestión Permisos
                                 </font>
                             </font><i class="right fas fa-angle-left"></i>
