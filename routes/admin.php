@@ -65,12 +65,14 @@ Route::get('surveys/doing/{header:slug}/create', 'Admin\SurveyDoingController@cr
 Route::get('cases/follow/{filter}', 'Admin\CaseFollowController@index')->name('cases_follow.index');
 Route::get('cases/follow/{survey:id}/user', 'Admin\CaseFollowController@follow')->name('cases_follow_user.index');
 Route::get('export/positive', 'Admin\CaseFollowController@export')->name('export.positive');
+Route::get('export/follow', 'Admin\CaseFollowController@exportPdf')->name('export.follow');
 
 // Route Observation
 Route::post('cases/follow', 'Admin\ObservationController@store')->name('cases_follow_user.store');
 
 Route::get('export/surveys', 'Admin\ExportSurvey@index')->name('export.survey');
 Route::post('export/surveys', 'Admin\ExportSurvey@export')->name('export.survey');
+
 //Route Notification
 Route::get('markAsRead', function(){
     auth()->user()->unreadNotifications->markAsRead();
