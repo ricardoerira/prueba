@@ -108,10 +108,11 @@ class SurveyDoingController extends Controller
             if($header->id == 1){
                 if ($request->answers[15] == 3 && $request->answers[16] >= 38){
                     //temperature notification greater than 38º
-                    $post = Observation::create([
+                    $post = [
                         'user_id' => $request->answers[2],
                         'observation' => 'Temperatura de '.$request->answers[16].'º en ingreso',
-                    ]);
+                    ];
+                    
                     event(new PostEvent($post));
                 }
             }
