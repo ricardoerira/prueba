@@ -6,6 +6,7 @@ use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
 use App\Models\Header;
+use App\Models\Observation;
 use App\Models\Question;
 use App\Models\Survey;
 use App\Models\User;
@@ -109,6 +110,12 @@ class SurveyDoingController extends Controller
         if ($header->id == 2){
             if(healthFilter($survey->id) == true){
                 User::where('id', auth()->user()->id)->update(['highRisk' => 1]);
+                $post = Observation::create([
+                    'user_id' => auth()->user()->id,
+                    'observation' => 'Persona alto riesgo',
+                ]);
+
+                event(new PostEvent($post));
             }
         }
 
@@ -185,12 +192,25 @@ class SurveyDoingController extends Controller
             }
 
         }
-        //method to identify high risk
+
+        //method upgrade to identify high risk
         if ($header->id == 2){
-            if(healthFilter($survey->id) == true){
+            $riesgo = healthFilter($survey->id);
+
+            if(User::where('id', auth()->user()->id)->pluck('highRisk')[0] == 1 && $riesgo == false){
+                User::where('id', auth()->user()->id)->update(['highRisk' => 0]);
+            }
+            if(User::where('id', auth()->user()->id)->pluck('highRisk')[0] == 0  && $riesgo == true){
                 User::where('id', auth()->user()->id)->update(['highRisk' => 1]);
+                $post = [
+                    'user_id' => auth()->user()->id,
+                    'observation' => 'Persona alto riesgo',
+                ];
+
+                event(new PostEvent($post));
             }
         }
+
         //method called in case of containing any of the answers involving the covid state
         if($header->id == 6){
             if(array_key_exists('131', $request->answers) || array_key_exists('135', $request->answers) || array_key_exists('142', $request->answers)){
