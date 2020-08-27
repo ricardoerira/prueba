@@ -105,6 +105,13 @@ class SurveyDoingController extends Controller
             return redirect()->route('survey.doing.index');
         }
 
+        //method to identify high risk
+        if ($header->id == 2){
+            if(healthFilter($survey->id) == true){
+                User::where('id', auth()->user()->id)->update(['highRisk' => 1]);
+            }
+        }
+
         //method to identify assets and negatives of covid-19
         if ($header->id == 6){
             $post = initialDiagnostic($request->answers);
@@ -137,10 +144,10 @@ class SurveyDoingController extends Controller
                                 'question_id'   => $key,
                                 'choice_id'     => $answer,
                             ]);
-    
+
                             continue;
                         }
-    
+
                         Answer::create([
                             'survey_id'     => $survey->id,
                             'question_id'   => $key,
@@ -164,7 +171,7 @@ class SurveyDoingController extends Controller
                                 'question_id'   => $key,
                                 'choice_id'     => $answer,
                             ]);
-    
+
                             continue;
                         }
                         Answer::create([
@@ -176,7 +183,13 @@ class SurveyDoingController extends Controller
                 }
 
             }
-            
+
+        }
+        //method to identify high risk
+        if ($header->id == 2){
+            if(healthFilter($survey->id) == true){
+                User::where('id', auth()->user()->id)->update(['highRisk' => 1]);
+            }
         }
         //method called in case of containing any of the answers involving the covid state
         if($header->id == 6){
@@ -187,8 +200,7 @@ class SurveyDoingController extends Controller
                 }
             }
         }
-        
-        
+
 
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');

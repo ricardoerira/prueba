@@ -22,8 +22,8 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between">
-              <h3>Datos de usuariós</h3>
-              <a href="{{ route('report.pdf')}}" class="btn btn-primary">Exportar pdf</a>
+            <h3>Personas de alto riesgo en {{ $nameP }}</h3>
+              <a href="{{ route('report.pdf', $name)}}" class="btn btn-primary">Exportar pdf</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -60,16 +60,6 @@
                               <font style="vertical-align: inherit;">Cargo</font>
                             </font>
                           </th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
-                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Puede trabajar</font>
-                            </font>
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
-                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">Enfermedades cronicas e inmunologicas</font>
-                            </font>
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -92,16 +82,6 @@
                           <td>
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">{{$item['cargo']}}</font>
-                            </font>
-                          </td>
-                          <td>
-                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">{{$item['work']}}</font>
-                            </font>
-                          </td>
-                          <td>
-                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">{{$item['pathology']}}</font>
                             </font>
                           </td>
                         </tr>
