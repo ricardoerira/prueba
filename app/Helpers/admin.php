@@ -83,11 +83,17 @@ if (!function_exists('initialDiagnostic')) {
         }
 
         //Record in observations table
-        $noti = Observation::create([
+        Observation::create([
             'user_id' => auth()->user()->id,
             'level_id' => $resultado[1],
             'observation' => $res,
         ]);
+
+        $noti =[
+            'user_id' => auth()->user()->id,
+            'level_id' => $resultado[1],
+            'observation' => $res,
+        ];
         return $noti;
     }
 }
@@ -145,17 +151,23 @@ if (!function_exists('continuityNotification')) {
             }
             if ($resultado[3] == 131){
                 $detail = "Continua "+$aux1+" tras prueba dia 14";
-            }elseif ($resultado[3] == 135){ 
+            }elseif ($resultado[3] == 135){
                 $detail = "Continua ".$aux1." tras prueba 48 o 72h";
             }
         }
 
         //Record in observations table
-        $noti = Observation::create([
+        Observation::create([
             'user_id' => auth()->user()->id,
             'level_id' => $resultado[1],
             'observation' => $detail,
         ]);
+
+        $noti = [
+            'user_id' => auth()->user()->id,
+            'level_id' => $resultado[1],
+            'observation' => $detail,
+        ];
         return $noti;
 
     }

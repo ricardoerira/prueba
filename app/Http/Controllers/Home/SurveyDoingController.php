@@ -77,6 +77,7 @@ class SurveyDoingController extends Controller
      */
     public function store(Request $request, Header $header)
     {
+
         $survey = Survey::create([
             'surveyed_id'   => Auth::id(),
             'header_id'     => $header->id,
@@ -103,35 +104,88 @@ class SurveyDoingController extends Controller
         //event(new PostEvent($survey));
 
         if ($header->pollster == 2) {
+            //Check-in survey
+            if($header->id == 1){
+                if ($request->answers[15] == 3 && $request->answers[16] >= 38){
+                    //temperature notification greater than 38º
+                    $post = Observation::create([
+                        'user_id' => $request->answers[2],
+                        'observation' => 'Temperatura de '.$request->answers[16].'º en ingreso',
+                    ]);
+                    event(new PostEvent($post));
+                }
+            }
+
+            //Check-out survey
+            if($header->id == 5){
+                if ($request->answers[15] == 3 && $request->answers[16] >= 38){
+                    //temperature notification greater than 38º
+                    $post = ([
+                        'user_id' => $request->answers[2],
+                        'observation' => 'Temperatura de '.$request->answers[16].'º en salida',
+                    ]);
+                    //$post = settype($post,"Observation");
+                    event(new PostEvent($post));
+                }
+             }
+
             return redirect()->route('survey.doing.index');
         }
 
-        //method to identify high risk
         if ($header->id == 2){
+            
+            //method to identify high risk
             if(healthFilter($survey->id) == true){
                 User::where('id', auth()->user()->id)->update(['highRisk' => 1]);
-                $post = Observation::create([
+                Observation::create([
                     'user_id' => auth()->user()->id,
                     'observation' => 'Persona alto riesgo',
                 ]);
-
+                $post = [
+                    'user_id' => auth()->user()->id,
+                    'observation' => 'Persona alto riesgo',
+                ];
                 event(new PostEvent($post));
+                
             }
+            
+
+            //request psychological support
+            if(isset($request->answers[84])){
+                if(Answer::where('survey_id',$survey->id )->where('question_id', 84)->flick('choice_id')[0] == 3){
+                
+                    Observation::create([
+                        'user_id' => auth()->user()->id,
+                        'observation' => 'Solicita apoyo emocional y psicosocial',
+                    ]);
+    
+                    $post = [
+                        'user_id' => auth()->user()->id,
+                        'observation' => 'Solicita apoyo emocional y psicosocial',
+                    ];
+                    event(new PostEvent($post));
+                }
+            }
+           
+            
         }
+
 
         //method to identify assets and negatives of covid-19
         if ($header->id == 6){
             $post = initialDiagnostic($request->answers);
-            if ($post->observation == "Caso positivo covid-19"){
+            if ($post['observation'] == "Caso positivo covid-19"){
                 event(new PostEvent($post));
             }
         }
-
+        
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
 
 
     }
 
+
+    //Update surveys
     public function add (Request $request, Header $header)
     {
 
@@ -193,21 +247,42 @@ class SurveyDoingController extends Controller
 
         }
 
-        //method upgrade to identify high risk
-        if ($header->id == 2){
-            $riesgo = healthFilter($survey->id);
 
+        //report identification of health conditions
+        if ($header->id == 2){
+
+            //method upgrade to identify high risk
+            $riesgo = healthFilter($survey->id);
             if(User::where('id', auth()->user()->id)->pluck('highRisk')[0] == 1 && $riesgo == false){
                 User::where('id', auth()->user()->id)->update(['highRisk' => 0]);
             }
             if(User::where('id', auth()->user()->id)->pluck('highRisk')[0] == 0  && $riesgo == true){
                 User::where('id', auth()->user()->id)->update(['highRisk' => 1]);
+                Observation::create([
+                    'user_id' => auth()->user()->id,
+                    'observation' => 'Persona alto riesgo',
+                ]);
                 $post = [
                     'user_id' => auth()->user()->id,
                     'observation' => 'Persona alto riesgo',
                 ];
 
                 event(new PostEvent($post));
+            }
+
+            //request psychological support
+            if(isset($request->answers['84'])){
+                if($request->answers['84'] == 3){
+                    Observation::create([
+                        'user_id' => auth()->user()->id,
+                        'observation' => 'Solicita apoyo emocional y psicosocial',
+                    ]);
+                    $post = [
+                        'user_id' => auth()->user()->id,
+                        'observation' => 'Solicita apoyo emocional y psicosocial',
+                    ];
+                    event(new PostEvent($post));
+                }
             }
         }
 

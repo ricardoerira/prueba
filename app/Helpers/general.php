@@ -157,7 +157,12 @@ if (!function_exists('getUsername')) {
     function getUsername(string $id)
     {
         $name = User::where('id', $id)->pluck('name');
-        return ($name[0]);
+        if($name->count() > 0){
+            $nameF = $name[0];
+        }else{
+            $nameF = 'visitante';
+        }
+        return $nameF;
         
     }
 }

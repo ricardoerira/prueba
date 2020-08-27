@@ -13,7 +13,7 @@
             <input type="hidden" name="header_id" id="header_id" value="{{ $header->id }}">
             @csrf
             @foreach ($sections as $key => $section)
-            <div class="card card-primary w-75 mx-auto">
+            <div class="card card-primary w-75 mx-auto seccion-{{$section->pivot->priority}}">
                 <div class="card-header w-100">
                     <h3 class="card-title">Session - {{ $section->pivot->priority }}</h3>
                 </div>
@@ -54,8 +54,9 @@
         if ( $("#depended").length > 0 ) {
         
             let header = $("#header_id").val();
+
             if (header == 1) {
-                
+                $('.seccion-4').addClass("d-none");
                 $('#radio_depended_160_0').change(() => {
                     $(".depend").each(function() {
                         $(this).addClass("d-none");
@@ -76,6 +77,22 @@
                         }
                     }).get();
                 });
+
+            }
+
+            if (header == 5) {
+                $('.question-10').addClass("d-none");
+                $('.question-11').addClass("d-none");
+                $('.question-12').addClass("d-none");
+                $('.question-14').addClass("d-none");
+                $("#radio_depended_10_0").prop("required", false);
+                $("#radio_depended_10_1").prop("required", false);
+                $("#radio_depended_11_0").prop("required", false);
+                $("#radio_depended_11_1").prop("required", false);
+                $("#radio_depended_12_0").prop("required", false);
+                $("#radio_depended_12_1").prop("required", false);
+                $("#radio_depended_14_0").prop("required", false);
+                $("#radio_depended_14_1").prop("required", false);
             }
         }
     </script>
