@@ -7,25 +7,14 @@ use App\Models\InputType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-/**
- * InputTypeController
- */
-class InputTypeController extends Controller
+class InputController extends Controller
 {
-    /**
-     * __construct
-     *
-     * @return void
-     */
+
     public function __construct() {
         $this->middleware('auth');
     }
 
-    /**
-     * index
-     *
-     * @return void
-     */
+
     public function index()
     {
         $InputType = InputType::all();
@@ -33,22 +22,13 @@ class InputTypeController extends Controller
         return view('pages.admin.inputs.index', compact('InputType'));
     }
 
-    /**
-     * create
-     *
-     * @return void
-     */
+
     public function create()
     {
         return view('pages.admin.inputs.create');
     }
 
-    /**
-     * save
-     *
-     * @param  mixed $request
-     * @return void
-     */
+
     public function save(Request $request)
     {
         $request['slug'] = Str::slug($request->name);
@@ -58,25 +38,14 @@ class InputTypeController extends Controller
         }
     }
 
-    /**
-     * edit
-     *
-     * @param  mixed $request
-     * @param  mixed $InputType
-     * @return void
-     */
-    public function edit(Request $request, InputType $InputType)
+
+    public function edit(Request $request, string $InputType)
     {
+        $InputType = InputType::where('name', $InputType)->first();
         return view('pages.admin.inputs.edit', compact('InputType'));
     }
 
-    /**
-     * update
-     *
-     * @param  mixed $request
-     * @param  mixed $InputType
-     * @return void
-     */
+
     public function update(Request $request, InputType $InputType)
     {
         $request['slug'] = Str::slug($request->name);
@@ -86,17 +55,12 @@ class InputTypeController extends Controller
         }
     }
 
-    /**
-     * delete
-     *
-     * @param  mixed $InputType
-     * @return void
-     */
-    public function delete(InputType $InputType)
+
+    public function delete(string $InputType)
     {
+        $InputType =  InputType::where('id', $InputType)->first();
         if ($InputType->delete()) {
-            return redirect()->route('inputs.index');
+            return redirect()->route('inputs.index')->with(["type" => "success", "message" => "Input eliminado con éxito"]);
         }
     }
-
 }

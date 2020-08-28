@@ -62,7 +62,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($inputTypes as $input)
+                        @foreach ($InputType as $input)
                         <tr role="row" class="odd">
                           <td tabindex="0" class="sorting_1">
                             <font style="vertical-align: inherit;">

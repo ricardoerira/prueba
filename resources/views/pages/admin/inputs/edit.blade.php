@@ -30,7 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('inputs.edit', $inputTypes->slug) }}" method="POST" role="form">
+                        <form action="{{ route('inputs.update', $InputType->slug) }}" method="POST" role="form">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -41,7 +41,7 @@
                                                 <font style="vertical-align: inherit;">Nombre</font>
                                             </font>
                                         </label>
-                                        <input type="name" name="name" class="form-control" id="name" placeholder="Ingrese Nombre" value="{{ $inputTypes->name }}">
+                                        <input type="name" name="name" class="form-control" id="name" placeholder="Ingrese Nombre" value="{{ $InputType->name }}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
