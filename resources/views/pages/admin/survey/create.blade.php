@@ -86,12 +86,24 @@
                                 <div class="form-group col-6">
                                     <label>
                                         <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Encuestador</font>
+                                        </font>
+                                    </label>
+                                    <select name="pollster" class="form-control select2 select2-hidden-accessible"
+                                        style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="1">Usuarios</option>
+                                        <option value="2">Vigilante</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label>
+                                        <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;">Organización</font>
                                         </font>
                                     </label>
                                     <select name="organization_id" class="form-control select2 select2-hidden-accessible"
                                         style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="0">Seleccione...</option>
                                         @foreach ($organizations as $organization)
                                         <option value="{{ $organization->id }}">{{ $organization->name }}</option>
                                         @endforeach
