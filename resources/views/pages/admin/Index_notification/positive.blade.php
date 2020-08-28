@@ -41,14 +41,17 @@
 
                         @if (auth()->user())
                         @forelse ($notifications as $notification)
-                        <div class="alert alert-default-warning">
+                      <div class="alert alert-default-@if($txt == 'old'){{typeOfNotification('antiguo')}}@else{{typeOfNotification($notification->data['title'])}}@endif">
                           Nombre: {{ getUsername($notification->notifiable_id) }}<br>
                           Documento: {{ $notification->notifiable_id }} <br>
                           Reporte: {{ $notification->data['title'] }}
                           <p>{{ $notification->created_at->diffForHumans() }}</p>
-                          <button type="submit" class="btn btn-sm btn-dark" id="mark-as-read" data-id="{{ $notification->id }}">Marcar como leido</button>
+                          @if($txt == 'new'){
+                            <button type="submit" class="btn btn-sm btn-dark" id="mark-as-read" data-id="{{ $notification->id }}">Marcar como leido</button>
+                          @endif
+                         
                         </div>
-                        @if ($loop->last)
+                        @if ($loop->last || $txt == 'new')
                           <a href="#" id="mark-all">Marcar todos como leidos</a>
 
                         @endif
@@ -94,6 +97,7 @@
         id
       }
     });
+    location.reload();
   }
 
     
@@ -101,12 +105,14 @@
       let request = sendMarkRequest($(this).data('id'));
       request.done(() => {
         $(this).parents('div.alert').remove();
+        location.reload();
       });
     });
     $('#mark-all').click(function(){
       let request = sendMarkRequest();
       request.done(() => {
         $('div.alert').remove();
+        location.reload();
       })
     });
 

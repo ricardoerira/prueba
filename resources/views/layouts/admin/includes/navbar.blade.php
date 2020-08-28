@@ -158,7 +158,7 @@
                
                 </a>
                 <div class="dropdown-divider"></div>
-                @forelse(auth()->user()->readNotifications as $notification)
+                @forelse(auth()->user()->readNotifications->take(5) as $notification)
                     <a href="#" class="dropdown-item">
                         <i class="fas fa-envelope mr-2"></i>
                         <font style="vertical-align: inherit;">
@@ -174,9 +174,16 @@
                     <span class="dropdown-header">Sin notificaciones leidas</span>
                 @endforelse
                 <div class="dropdown-divider"></div>
-                <a href="{{ route('mark.index') }}" class="dropdown-item dropdown-footer">
+                <a href="{{ route('mark.index', 'new') }}" class="dropdown-item dropdown-footer">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Ver todas las notificaciones</font>
+                        <font style="vertical-align: inherit;">Ver todas las notificaciones nuevas</font>
+                    </font>
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('mark.index', 'old') }}" class="dropdown-item dropdown-footer">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Ver todas las notificaciones anteriores</font>
                     </font>
                 </a>
             </div>

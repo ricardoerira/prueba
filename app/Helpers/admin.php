@@ -6,6 +6,7 @@ use App\Models\Answer;
 use App\Models\Choice;
 use App\Models\Observation;
 use App\Models\Question;
+use App\Models\Survey;
 use App\Models\User;
 
 //detects status (positive or negative) of the first admission of the follow-up
@@ -82,11 +83,17 @@ if (!function_exists('initialDiagnostic')) {
         }
 
         //Record in observations table
-        $noti = Observation::create([
+        Observation::create([
             'user_id' => auth()->user()->id,
             'level_id' => $resultado[1],
             'observation' => $res,
         ]);
+
+        $noti =[
+            'user_id' => auth()->user()->id,
+            'level_id' => $resultado[1],
+            'observation' => $res,
+        ];
         return $noti;
     }
 }
@@ -144,17 +151,23 @@ if (!function_exists('continuityNotification')) {
             }
             if ($resultado[3] == 131){
                 $detail = "Continua "+$aux1+" tras prueba dia 14";
-            }elseif ($resultado[3] == 135){ 
+            }elseif ($resultado[3] == 135){
                 $detail = "Continua ".$aux1." tras prueba 48 o 72h";
             }
         }
 
         //Record in observations table
-        $noti = Observation::create([
+        Observation::create([
             'user_id' => auth()->user()->id,
             'level_id' => $resultado[1],
             'observation' => $detail,
         ]);
+
+        $noti = [
+            'user_id' => auth()->user()->id,
+            'level_id' => $resultado[1],
+            'observation' => $detail,
+        ];
         return $noti;
 
     }
@@ -199,19 +212,83 @@ if (!function_exists('getResult')) {
     }
 }
 
+
 if (!function_exists('checkPathology')) {
     function checkPathology(string $idSurvey)
     {
-        $pathology = "";
+        $pathology = false;
         for ($i = 44; $i<63; $i++){
 
                 $aux = Answer::where('survey_id', $idSurvey)->where('question_id', $i)->where('choice_id', 3)->get();
-                
 
             if($aux->count() > 0){
-                $pathology = $pathology." ,".Question::where('id', $i)->pluck('name')[0];
+                $pathology = true;
             }
         }
-        return substr($pathology, 2);
+        $aux = Answer::where('survey_id', $idSurvey)->where('question_id', 63)->where('text', '<>', null)->pluck('text');
+        if($aux->count() > 0){
+            $pathology = true;
+        }
+
+        return $pathology;
+    }
+}
+
+
+if (!function_exists('healthFilter')) {
+    function healthFilter(string $surveyId)
+    {
+                $mayor = (Answer::where('survey_id', $surveyId)->where('question_id', 19)->where('text', '>', 60))->get();
+                $pathology = checkPathology($surveyId);
+                $discapacidad = Answer::where('survey_id', $surveyId)->where('question_id', 23)->where('choice_id', 3)->get();
+                $cuidador = Answer::where('survey_id', $surveyId)->where('question_id', 43)->where('choice_id', 3)->get();
+                $infancia = Answer::where('survey_id', $surveyId)->where('question_id', 36)->where('text', '>' , 0)->where( function($query) {
+                    $query->orWhere('question_id', 37)->Where('text', '>' , 0);
+                })->get();
+                $lactante = Answer::where('survey_id', $surveyId)->where('question_id', 41)->where('text', '>' , 0)->get();
+                $adulto = Answer::where('survey_id', $surveyId)->where('question_id', 42)->where('text', '>' , 0)->get();
+
+                if($discapacidad->count() > 0 || $cuidador->count() > 0 || $infancia->count() > 0 || $lactante->count() > 0 || $adulto->count() > 0 || $mayor->count() > 0 || $pathology == true){
+                    $resp = true;
+                }else{
+                    $resp = false;
+                }
+
+            return $resp;
+    }
+}
+
+if (!function_exists('listHealthFilter')) {
+    function listHealthFilter(object $data)
+    {
+        $i = 0;
+        foreach($data as $index){
+           $user = User::where('id', Survey::where('id', $index->survey_id)->pluck('surveyed_id')[0])->where('highRisk', 1)->get();
+           if ($user->count() > 0){
+               $dataP[$i] = [
+                   'id' => $user[0]->id,
+                   'name' => $user[0]->name,
+                   'cargo' => Answer::where('survey_id', $index->survey_id)->where('question_id', 29)->pluck('text')[0],
+               ];
+               $i++;
+           }
+        }
+        return $dataP;
+    }
+}
+
+if (!function_exists('typeOfNotification')) {
+    function typeOfNotification(string $text)
+    {
+        $color = 'warning'; 
+        if($text == 'Caso positivo covid-19'){
+            $color = 'danger';
+        }elseif($text == 'Persona alto riesgo'){
+            $color = 'primary';
+        }elseif($text == 'antiguo'){
+            $color = 'secondary';
+        }
+
+        return $color;
     }
 }

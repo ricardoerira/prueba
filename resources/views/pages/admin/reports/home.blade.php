@@ -31,7 +31,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('report.data', 'prueba') }}" method="POST" role="form">
+                        <form action="{{ route('redirect.data') }}" method="POST" role="form">
                             @csrf 
                             <div class="card-body">
                                 <div class="mx-aut">

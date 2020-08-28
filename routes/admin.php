@@ -78,10 +78,11 @@ Route::get('markAsRead', function(){
     auth()->user()->unreadNotifications->markAsRead();
     return redirect()->back();
 })->name('markAsRead');
-Route::get('notification/index', 'Admin\notificationController@index')->name('mark.index');
+Route::get('notification/index/{type}', 'Admin\notificationController@index')->name('mark.index');
 Route::post('notification/mark-as-read','Admin\notificationController@markNotification')->name('markNotification');
 
 //Route reports
-Route::get('report', 'Admin\ReportController@index')->name('report.index');
-Route::post('reportes/{name}', 'Admin\ReportController@dataReport')->name('report.data');
-Route::get('export/pdf',  'Admin\ReportController@createPDF')->name('report.pdf');
+Route::get('reporte-estado-de-salud', 'Admin\ReportController@index')->name('report.index');
+Route::post('report', 'Admin\ReportController@redirect')->name('redirect.data');
+Route::get('reporte-estado-de-salud/{name}', 'Admin\ReportController@dataReport')->name('dataReport.data');
+Route::get('exportPdf/reporte-estado-de-salud/{name}',  'Admin\ReportController@createPDF')->name('report.pdf');

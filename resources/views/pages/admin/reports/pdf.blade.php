@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TABLA DE PRODUCTOS</title>
+    <title>{{$name}}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         @page {
@@ -44,25 +44,21 @@
     </header>
     <main>
         <div class="container">
-            <h5 style="text-align: center"><strong>Reporte de condiciones de salud</strong></h5>
+        <h5 style="text-align: center"><strong>Reporte de condiciones de salud {{$name}}</strong></h5>
               <table class="table table-striped text-center">
                 <thead>
                   <tr>
                     <th>Cedula</th>
                     <th>Nombre</th>
                     <th>Cargo</th>
-                    <th>Patologia</th>
-                    <TH>Trabaja</TH>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($data as $dat)
+                    @foreach ($dataP as $dat)
                     <tr>
                         <td scope="row">{{ $dat['id'] }}</td>
                         <td>{{ $dat['name'] }}</td>
                         <td>{{ $dat['cargo'] }}</td>
-                        <td>{{ $dat['pathology'] }}</td>
-                        <td>{{ $dat['work'] }}</td>
                     </tr>
                     @endforeach
                   </tbody>

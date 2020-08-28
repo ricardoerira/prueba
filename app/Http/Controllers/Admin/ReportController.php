@@ -16,40 +16,27 @@ class ReportController extends Controller
         return view('pages.admin.reports.home', compact('choices'));
     }
     
-    public function dataReport(Request $request){
-        $i = 0;
-        $data = Answer::where('choice_id', $request->choice)->get();
-        if($data->count() > 0){
-            foreach($data as $item){
-                $filtroUno = (Answer::where('survey_id', $item->survey_id)->where('question_id', 19)->where('text', '>', 60))->get();
-                if($filtroUno->count() > 0){
-                    if (($path = checkPathology($item->survey_id)) <> ""){
-                        $dataP[$i] = [
-                            'id' => Answer::where('survey_id', $item->survey_id)->where('question_id', 2)->pluck('text')[0],
-                            'name' => Answer::where('survey_id', $item->survey_id)->where('question_id', 17)->pluck('text')[0],
-                            'cargo' => Answer::where('survey_id', $item->survey_id)->where('question_id', 29)->pluck('text')[0],
-                            'pathology' => $path,
-                            'work' => "si",
-                        ];
-                        $i++;
-                    } 
-                }
-                
-            }
-        }
-        return view('pages.admin.reports.healthConditions', compact('dataP'));
+    public function redirect(Request $request){
+
+        $name = strtr(mb_strtolower(Choice::where('id', $request->choice)->pluck('name')[0]), " ", "-");
+        return redirect()->route('dataReport.data', $name);
+
+    }
+    public function dataReport(string $name){
+        $nameP = strtr($name ,"-", " ");
+        $id = Choice::where('name', $nameP)->pluck('id')[0];
+        $data = Answer::where('question_id', 30)->where('choice_id', $id)->get();
+        $dataP = listHealthFilter($data);
+        return view('pages.admin.reports.healthConditions', compact('dataP', 'name', 'nameP'));
     }
 
-    public function createPDF(){
-        $data[0] = [
-            'id' => '1010022902',
-            'name' => 'Natalia Erira',
-            'cargo' => 'Analista de sistemas',
-            'pathology' => 'fiebre',
-            'work' => "si",
-        ];
-        //view()->share('employee',$data);
-        $pdf = PDF::loadView('pages.admin.reports.pdf', compact('data'));
-        return $pdf->download('pdf_file.pdf');
+    public function createPDF(string $name){
+        $name = strtr($name ,"-", " ");
+        $id = Choice::where('name', $name)->pluck('id')[0];
+        $data = Answer::where('question_id', 30)->where('choice_id', $id)->get();
+        $dataP = listHealthFilter($data);
+        $pdf = PDF::loadView('pages.admin.reports.pdf', compact('dataP', 'name'));
+        $nameFile = "Condiciones de salud (".$name.").pdf";
+        return $pdf->download($nameFile);
     }
 }

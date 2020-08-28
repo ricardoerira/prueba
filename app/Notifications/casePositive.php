@@ -18,7 +18,7 @@ class casePositive extends Notification
      *
      * @return void
      */
-    public function __construct(Observation $obs)
+    public function __construct(array $obs)
     {
         $this->post = $obs;
     }
@@ -56,10 +56,9 @@ class casePositive extends Notification
      */
     public function toArray($notifiable)
     {
-  
         return [
-            'case' => $this->post->id,
-            'title' => $this->post->observation,
+            'case' => $this->post['user_id'],
+            'title' => $this->post['observation'],
             'time' => Carbon::now()->diffForHumans(),
         ];
     }
