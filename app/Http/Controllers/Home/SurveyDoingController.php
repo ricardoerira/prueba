@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SurveyDoingRequest;
 use App\Models\Answer;
 use App\Models\Header;
 use App\Models\Observation;
@@ -75,7 +76,7 @@ class SurveyDoingController extends Controller
      *
      * @return void
      */
-    public function store(Request $request, Header $header)
+    public function store(SurveyDoingRequest $request, Header $header)
     {
 
         $survey = Survey::create([
@@ -100,8 +101,7 @@ class SurveyDoingController extends Controller
                     'text'          => $answer
                 ]);
             }
-        }//Notification
-        //event(new PostEvent($survey));
+        }
 
         if ($header->pollster == 2) {
             //Check-in survey
@@ -181,15 +181,12 @@ class SurveyDoingController extends Controller
         }
         
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
-
-
     }
 
 
     //Update surveys
     public function add (Request $request, Header $header)
     {
-
         $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', $header->id)->OrderBy('created_at', 'desc')->first());
         $last = (Answer::where('survey_id', $survey->id)->OrderBy('question_id', 'desc')->first());
 
@@ -248,7 +245,6 @@ class SurveyDoingController extends Controller
 
         }
 
-
         //report identification of health conditions
         if ($header->id == 2){
 
@@ -297,7 +293,6 @@ class SurveyDoingController extends Controller
             }
         }
 
-
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
         }
@@ -305,7 +300,5 @@ class SurveyDoingController extends Controller
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta actualizada con éxito"]);
 
     }
-
-
 
 }
