@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SurveyDoingRequest;
 use App\Models\Answer;
 use App\Models\Header;
 use App\Models\Question;
@@ -74,7 +75,7 @@ class SurveyDoingController extends Controller
      *
      * @return void
      */
-    public function store(Request $request, Header $header)
+    public function store(SurveyDoingRequest $request, Header $header)
     {
         $survey = Survey::create([
             'surveyed_id'   => Auth::id(),
@@ -98,8 +99,7 @@ class SurveyDoingController extends Controller
                     'text'          => $answer
                 ]);
             }
-        }//Notification
-        //event(new PostEvent($survey));
+        }
 
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
@@ -114,13 +114,10 @@ class SurveyDoingController extends Controller
         }
 
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta realizada con éxito"]);
-
-
     }
 
     public function add (Request $request, Header $header)
     {
-
         $survey = (Survey::where('surveyed_id', auth()->user()->id)->where('header_id', $header->id)->OrderBy('created_at', 'desc')->first());
         $last = (Answer::where('survey_id', $survey->id)->OrderBy('question_id', 'desc')->first());
 
@@ -137,10 +134,10 @@ class SurveyDoingController extends Controller
                                 'question_id'   => $key,
                                 'choice_id'     => $answer,
                             ]);
-    
+
                             continue;
                         }
-    
+
                         Answer::create([
                             'survey_id'     => $survey->id,
                             'question_id'   => $key,
@@ -164,7 +161,7 @@ class SurveyDoingController extends Controller
                                 'question_id'   => $key,
                                 'choice_id'     => $answer,
                             ]);
-    
+
                             continue;
                         }
                         Answer::create([
@@ -176,7 +173,6 @@ class SurveyDoingController extends Controller
                 }
 
             }
-            
         }
         //method called in case of containing any of the answers involving the covid state
         if($header->id == 6){
@@ -187,8 +183,6 @@ class SurveyDoingController extends Controller
                 }
             }
         }
-        
-        
 
         if ($header->pollster == 2) {
             return redirect()->route('survey.doing.index');
@@ -197,7 +191,5 @@ class SurveyDoingController extends Controller
         return redirect()->route('home')->with(["type" => "success", "message" => "Encuesta actualizada con éxito"]);
 
     }
-
-
 
 }
