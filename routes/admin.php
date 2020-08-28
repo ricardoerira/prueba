@@ -78,7 +78,7 @@ Route::get('markAsRead', function(){
     auth()->user()->unreadNotifications->markAsRead();
     return redirect()->back();
 })->name('markAsRead');
-Route::get('notification/index', 'Admin\notificationController@index')->name('mark.index');
+Route::get('notification/index/{type}', 'Admin\notificationController@index')->name('mark.index');
 Route::post('notification/mark-as-read','Admin\notificationController@markNotification')->name('markNotification');
 
 //Route reports

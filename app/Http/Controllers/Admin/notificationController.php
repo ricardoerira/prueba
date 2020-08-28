@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class notificationController extends Controller
 {
-    public function index (request $request){
-        $notifications = auth()->user()->unreadNotifications;
-        return view('pages.admin.Index_notification.positive', compact('notifications'));
+    public function index (request $request,  string $txt){ 
+        if($txt == 'new'){
+            $notifications = auth()->user()->unreadNotifications;
+        }else{
+            $notifications = auth()->user()->readNotifications;
+        }
+        return view('pages.admin.Index_notification.positive', compact('notifications', 'txt'));
     }
 
     public function markNotification(Request $request){

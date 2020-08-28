@@ -276,3 +276,19 @@ if (!function_exists('listHealthFilter')) {
         return $dataP;
     }
 }
+
+if (!function_exists('typeOfNotification')) {
+    function typeOfNotification(string $text)
+    {
+        $color = 'warning'; 
+        if($text == 'Caso positivo covid-19'){
+            $color = 'danger';
+        }elseif($text == 'Persona alto riesgo'){
+            $color = 'primary';
+        }elseif($text == 'antiguo'){
+            $color = 'secondary';
+        }
+
+        return $color;
+    }
+}
