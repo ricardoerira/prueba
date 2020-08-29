@@ -28,13 +28,13 @@ Route::put('organizations/{organization:slug}/edit', 'Admin\OrganizationControll
 Route::delete('organizations/{organization:id}/delete', 'Admin\OrganizationController@delete')->name('organizations.delete');
 
 // Route Input Types
-Route::get('inputs/index', 'Admin\InputTypesController@index')->name('inputs.index');
-Route::get('inputs/create', 'Admin\InputTypesController@create')->name('inputs.create');
-Route::get('inputs/{inputTypes:slug}/edit', 'Admin\InputTypesController@edit')->name('inputs.edit');
+Route::get('inputs/index', 'Admin\InputController@index')->name('inputs.index');
+Route::get('inputs/create', 'Admin\InputController@create')->name('inputs.create');
+Route::get('inputs/{inputTypes:slug}/edit', 'Admin\InputController@edit')->name('inputs.edit');
 
-Route::post('inputs/create', 'Admin\InputTypesController@save')->name('inputs.create');
-Route::put('inputs/{inputTypes:slug}/edit', 'Admin\InputTypesController@update')->name('inputs.edit');
-Route::delete('inputs/{inputTypes:id}/delete', 'Admin\InputTypesController@delete')->name('inputs.delete');
+Route::post('inputs/create', 'Admin\InputController@save')->name('inputs.create');
+Route::put('inputs/{inputTypes:slug}/edit', 'Admin\InputController@update')->name('inputs.update');
+Route::delete('inputs/{inputTypes:id}/delete', 'Admin\InputController@delete')->name('inputs.delete');
 
 // Route Roles
 Route::get('roles/index', 'Admin\RoleController@index')->name('roles.index');

@@ -88,6 +88,7 @@
 @endsection
 
 @section('own-js')
+<script src="{{ asset('js/admin/plugins-datatables.js') }}"></script>
 <script>
   function sendMarkRequest(id = null){
     return $.ajax("{{ route('markNotification') }}", {

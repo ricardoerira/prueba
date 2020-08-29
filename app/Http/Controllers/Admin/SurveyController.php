@@ -43,6 +43,7 @@ class SurveyController extends Controller
      */
     public function create()
     {
+        
         $organizations = Organization::all();
 
         return view('pages.admin.survey.create', compact('organizations'));
@@ -56,12 +57,13 @@ class SurveyController extends Controller
      */
     public function save(SurveyRequest $request)
     {
+
         $request['slug'] = Str::slug($request->name);
 
         $header = Header::create($request->all());
 
         if ($header) {
-            return redirect()->route('survey.edit', $header->slug);
+            return redirect()->route('survey.index')->with(["type" => "success", "message" => "Encuesta creada con éxito"]);
         }
     }
 
@@ -71,7 +73,7 @@ class SurveyController extends Controller
      * @param  mixed $header
      * @return void
      */
-    public function edit(Header $header, SurveyRequest $request)
+    public function edit(Header $header)
     {
         $organizations = Organization::all();
 
@@ -92,6 +94,13 @@ class SurveyController extends Controller
         if ($header->update($request->all())) {
             return redirect()->route('survey.index');
         }
+    }
+
+    public function delete(int $idheader)
+    {
+        $header=Header::where('id', $idheader)->first();
+        $header->delete();
+        return redirect()->route('survey.index')->with(["type" => "success", "message" => "Encuesta eliminada con éxito"]);
     }
 
 }

@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="mt-3">
         <div class="bg-primary mx-auto w-75">
             <h3 class="text-center p-3">{{$header->name}}</h3>
