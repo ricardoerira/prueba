@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -12,7 +13,7 @@
   <link rel="stylesheet" href="{{ asset('css/stylus.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home/styles.css') }}">
   @yield('own-styles')
-  <link rel="shortcut icon" href="{{ asset('images/logo-idpac.ico') }}"> 
+  <link rel="shortcut icon" href="{{ asset('images/logo-idpac.ico') }}">
 </head>
 
 <body style="min-height: 512.391px;" id="body">
@@ -20,7 +21,8 @@
   @auth
   <nav class="navbar navbar-expand-lg navbar-light gris scrolling-navbar fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand " href="{{ route('home') }}"><img class="" src="{{ asset('images/home/logo-idpac.png') }}" alt="logo"></a>
+      <a class="navbar-brand " href="{{ route('home') }}"><img class="" src="{{ asset('images/home/logo-idpac.png') }}"
+          alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,12 +46,12 @@
 
               <div class="dropdown-divider"></div>
 
-            <a href="{{ route('home.profile') }}" class="dropdown-item">
+              <a href="{{ route('home.profile') }}" class="dropdown-item">
 
                 <i class="fas fa-users mr-2"></i>
                 <font style="vertical-align: inherit;">
                   <font style="vertical-align: inherit;">Perfil</font>
-                
+
                 </font>
 
               </a>

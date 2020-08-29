@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Formatos</b>Covid</a>
+        <a href="#">REPORTES EMERGENCIA SANITARIA COVID-19 – IDPAC</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
