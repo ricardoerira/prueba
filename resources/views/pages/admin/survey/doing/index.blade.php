@@ -34,17 +34,19 @@
                         <div class="card-body">
                             <div class="row">
                                 @foreach ($headers as $header)
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-info">
-                                            <div class="inner">
-                                                <p>{{ $header->name }}</p>
+                                    @if($header->hide == 0)
+                                        <div class="col-lg-3 col-6">
+                                            <div class="small-box bg-info">
+                                                <div class="inner">
+                                                    <p>{{ $header->name }}</p>
+                                                </div>
+                                                <a href="{{ route('survey.doing.create', $header->slug) }}" class="small-box-footer">
+                                                    Realizar
+                                                    <i class="fas fa-arrow-circle-right ml-1"></i>
+                                                </a>
                                             </div>
-                                            <a href="{{ route('survey.doing.create', $header->slug) }}" class="small-box-footer">
-                                                Realizar
-                                                <i class="fas fa-arrow-circle-right ml-1"></i>
-                                            </a>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

@@ -85,8 +85,8 @@
                             <form action="{{ route('survey.delete', $survey->id) }}" method="post">
                               @csrf
                               @method('DELETE')
-                              <button class="btn btn-danger mx-1">
-                                <i class="nav-icon fas fa-trash"></i>
+                              <button class="btn btn-secondary mx-1">
+                                <i class="fas @if($survey->hide == 0)fa-eye-slash @else fas fa-eye @endif"></i>
                               </button>
                             </form>
                           </td>
