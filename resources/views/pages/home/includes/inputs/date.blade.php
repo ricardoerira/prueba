@@ -6,7 +6,7 @@
         value = "{{getAnswerText($question->id, $ant)}}"
     @endif
     id="date_depended_{{$question->id}}"
-    class="form-control w-50"
+    class="form-control w-50 @error('answers.' . $question->id) is-invalid @enderror"
     @if ( $question->answer_required_yn  == 1)
         required
     @endif
@@ -16,3 +16,9 @@
         @endif
     @endif
 >
+
+@error('answers.' . $question->id)
+<div class="invalid-feedback">
+    {{ $message }}
+</div>
+@enderror

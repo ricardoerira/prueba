@@ -11,3 +11,9 @@
         @endif
     @endif
 ></textarea>
+
+@error('answers.' . $question->id)
+<div class="invalid-feedback">
+    {{ $message }}
+</div>
+@enderror

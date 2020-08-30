@@ -27,3 +27,9 @@
         @endforeach
     </div>
 </fieldset>
+
+@error('answers.' . $question->id)
+<div class="invalid-feedback">
+    {{ $message }}
+</div>
+@enderror

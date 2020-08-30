@@ -1,7 +1,7 @@
 <select
     name="answers[{{$question->id}}]"
     id = "select_depended_{{$question->id}}"
-    class="form-control w-50"
+    class="form-control w-50 @error('answers.' . $question->id) is-invalid @enderror"
     @if ( $question->answer_required_yn  == 1)
         required
     @endif
@@ -11,17 +11,23 @@
                 disabled
              @endif
         @endif
-
     @endif
 >
     <option value="">Seleccione...</option>
     @foreach ($question->choices as $choices)
-            <option value="{{ $choices->id }}" 
+        <option value="{{ $choices->id }}"
             @if(isset($ant))
             value="{{getAnswerChoice($question->id, $ant)}}"
                 @if(strval(getAnswerChoice($question->id, $ant)) == $choices->id)
                     selected
                 @endif
-            @endif>{{ $choices->name }}</option>
+            @endif>{{ $choices->name }}
+        </option>
     @endforeach
 </select>
+
+@error('answers.' . $question->id)
+<div class="invalid-feedback">
+    {{ $message }}
+</div>
+@enderror
