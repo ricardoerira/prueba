@@ -53,11 +53,11 @@
 @section('own-js')
     <script>
         if ( $("#depended").length > 0 ) {
-        
             let header = $("#header_id").val();
 
             if (header == 1) {
                 $('.seccion-4').addClass("d-none");
+                $('.question-161').addClass("d-none");
                 $('#radio_depended_160_0').change(() => {
                     $(".depend").each(function() {
                         $(this).addClass("d-none");
@@ -79,6 +79,42 @@
                     }).get();
                 });
 
+                $('#radio_depended_1_0').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    if($("#radio_depended_1_0").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_0").val(),
+                           // _token: {{ csrf_token()}},
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    result.forEach(element => {
+                                        console.log(element)
+                                    });
+                                }
+                            },
+                            fail: function(){
+                            },
+                            beforeSend: function(){
+                            }
+                        })
+                    }
+                });
+                $('#radio_depended_1_1').change(() => {
+                    if($("#radio_depended_1_1").is(':checked')){
+                        let area = $("#radio_depended_1_1").val();
+  	                    alert(area);
+                    }
+                });
+
             }
 
             if (header == 5) {
@@ -96,5 +132,7 @@
                 $("#radio_depended_14_1").prop("required", false);
             }
         }
+
+               
     </script>
 @endsection

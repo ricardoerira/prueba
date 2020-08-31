@@ -86,3 +86,7 @@ Route::get('reporte-estado-de-salud', 'Admin\ReportController@index')->name('rep
 Route::post('report', 'Admin\ReportController@redirect')->name('redirect.data');
 Route::get('reporte-estado-de-salud/{name}', 'Admin\ReportController@dataReport')->name('dataReport.data');
 Route::get('exportPdf/reporte-estado-de-salud/{name}',  'Admin\ReportController@createPDF')->name('report.pdf');
+
+//Route capacity seat's
+Route::post('checkCapacity', 'Admin\capacityController@check')->name('capacity.check');
+
