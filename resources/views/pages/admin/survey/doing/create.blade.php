@@ -81,10 +81,10 @@
 
                 $('#radio_depended_1_0').change(() => {
                     $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
                     if($("#radio_depended_1_0").is(':checked')){
                         let data = {
                             area :  $("#radio_depended_1_0").val(),
-                           // _token: {{ csrf_token()}},
                         }
                         $.ajax({
                             url: "{{ route ('capacity.check')}}",
@@ -96,23 +96,58 @@
                             {
                                 if (result)
                                 {
-                                    result.forEach(element => {
-                                        console.log(element)
-                                    });
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
                                 }
                             },
-                            fail: function(){
-                            },
-                            beforeSend: function(){
-                            }
                         })
                     }
                 });
                 $('#radio_depended_1_1').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
                     if($("#radio_depended_1_1").is(':checked')){
-                        let area = $("#radio_depended_1_1").val();
-  	                    alert(area);
+                        let data = {
+                            area :  $("#radio_depended_1_1").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                    
+                                }
+                            },
+                        })
                     }
+                });
+                $('#select_depended_161').change(() => {
+                    let data = {
+                            area :  $("#select_depended_161").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.controls')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if(result ==  true){
+                                }else{
+                                    alert("El area destino tiene su maximo aforo permitido");
+                                }
+                            },
+                        })
                 });
 
             }
@@ -122,6 +157,7 @@
                 $('.question-11').addClass("d-none");
                 $('.question-12').addClass("d-none");
                 $('.question-14').addClass("d-none");
+                $('.question-161').addClass("d-none");
                 $("#radio_depended_10_0").prop("required", false);
                 $("#radio_depended_10_1").prop("required", false);
                 $("#radio_depended_11_0").prop("required", false);
@@ -130,6 +166,57 @@
                 $("#radio_depended_12_1").prop("required", false);
                 $("#radio_depended_14_0").prop("required", false);
                 $("#radio_depended_14_1").prop("required", false);
+                $('#radio_depended_1_0').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
+                    if($("#radio_depended_1_0").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_0").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                }
+                            },
+                        })
+                    }
+                });
+                $('#radio_depended_1_1').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
+                    if($("#radio_depended_1_1").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_1").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                    
+                                }
+                            },
+                        })
+                    }
+                });
             }
         }
 

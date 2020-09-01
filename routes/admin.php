@@ -89,4 +89,4 @@ Route::get('exportPdf/reporte-estado-de-salud/{name}',  'Admin\ReportController@
 
 //Route capacity seat's
 Route::post('checkCapacity', 'Admin\capacityController@check')->name('capacity.check');
-
+Route::post('controlsCapacity', 'Admin\capacityController@controls')->name('capacity.controls');

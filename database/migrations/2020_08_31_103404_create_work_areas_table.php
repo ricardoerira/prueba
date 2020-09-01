@@ -18,8 +18,9 @@ class CreateWorkAreasTable extends Migration
             $table->name();
             $table->description();
             $table->seat();
-            $table->current_capacity();
             $table->max_capacity();
+            $table->permitted_capacity();
+            $table->current_capacity();
             $table->timestamps();
         });
     }

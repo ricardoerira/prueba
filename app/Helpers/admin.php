@@ -8,6 +8,8 @@ use App\Models\Observation;
 use App\Models\Question;
 use App\Models\Survey;
 use App\Models\User;
+use App\Models\workArea;
+use Illuminate\Support\Facades\DB;
 
 //detects status (positive or negative) of the first admission of the follow-up
 if (!function_exists('initialDiagnostic')) {
@@ -290,5 +292,32 @@ if (!function_exists('typeOfNotification')) {
         }
 
         return $color;
+    }
+}
+
+//verifies if another person can enter the area and in any case updates the current capacity
+if (!function_exists('checkCapacity')) {
+    function checkCapacity(int $area)
+    {
+        $resp = false;
+        $actual = workArea::where('id', $area)->pluck('current_capacity')[0];
+        $perm = workArea::where('id', $area)->pluck('permitted_capacity')[0];
+        if ($actual < $perm){
+            DB::table('work_areas')->where('id', $area)->increment('current_capacity');
+            $resp = true;
+        }
+        return $resp;
+    }
+}
+
+
+//Output capacity upgrade
+if (!function_exists('outputCapacity')) {
+    function outputCapacity(int $area)
+    {
+        $actual = workArea::where('id', $area)->pluck('current_capacity')[0];
+        if ($actual > 0){
+            DB::table('work_areas')->where('id', $area)->decrement('current_capacity');
+        }
     }
 }

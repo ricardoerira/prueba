@@ -21,13 +21,12 @@ class GuestionsSeeder extends Seeder
      */
     public function run()
     {
-        for ($j = 1; $j < 8; $j++) {
+        for ($j = 2; $j < 6; $j++) {
             $csvFileName = "form" . $j . ".csv";
             $csvFile = public_path('' . $csvFileName);
             $customerArr = $this->csvToArray($csvFile);
 
             for ($i = 0; $i < count($customerArr); $i++) {
-
                 if ($customerArr[$i]["Número de documento:"] == 0) {
                     continue;
                 }
@@ -144,6 +143,7 @@ class GuestionsSeeder extends Seeder
                 if (!$header)
                     $header = $row;
                 else
+
                     $data[] = array_combine($header, $row);
 
             }
