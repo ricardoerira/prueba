@@ -1,4 +1,4 @@
-ID,Start time,Completion time,Email,Name,Está de acuerdo:,Número de documento:,Describa la(s) actividad(es) realizada(s):,Punto de partida:,Punto de destino:,Relacione los nombres de los funcionarios(as)/contratistas con los que mantuvo contacto cercano (menor a 2 metros de distancia):,¿Cuál fue su medio de transporte?,"Por favor indique observaciones, novedades y/o situaciones de riesgo que considere importante(s) para la contención y prevención de contagio por COVID-19:"
+ID,Start time,Completion time,Email,Name,Está de acuerdo:,Número de documento:,Describa la(s) actividad(es) realizada(s):,Punto de partida:,Punto de destino:,"Relacione nombres de personas, funcionarios(as)/contratistas con los que mantuvo contacto cercano (menor a 2 metros de distancia):",¿Cuál fue su medio de transporte?,"Por favor indique observaciones, novedades y/o situaciones de riesgo que considere importante(s) para la contención y prevención de contagio por COVID-19:"
 1,5/20/20 12:13:42,5/20/20 12:16:11,anonymous,,SI,272175,Actualmente y desde que empezó la cuarentena trabajo desde mi casa,Trabajo en mi casa no me desplazo,Trabajo en mi casa no me desplazo,Trabajo en mi casa no me desplazo,Bicicleta,En este momento sigo arrojando positivo en las pruebas de la secretaría de Salud
 2,5/21/20 9:13:09,5/21/20 9:14:23,anonymous,,SI,1032383731,Trabajo en casa,No he salido,No he salido,Ninguno,Automóvil,Ninguna
 3,5/21/20 9:18:48,5/21/20 9:20:06,anonymous,,SI,1032442837,Acompañamiento apoyo entrega mercados ciudad bolívar,Colegio cundinamarca ,Tres reyes,0,Transporte público,
@@ -1575,3 +1575,186 @@ Javier Velasquez
 Maite Hurtado",Transporte público,El uso continuo de antibacterial y el lavado de manos constante y sobre todo el distanciamiento en los transportes públicos
 915,7/31/20 15:06:01,7/31/20 15:07:52,anonymous,,SI,1024481660,Reunión con la Mesa Local de Barras Futboleras de la localidad de Rafael Uribe Uribe,San Cristóbal,Barrio Marruecos-Rafael Uribe Uribe,ninguno,Motocicleta,
 916,7/31/20 15:25:32,7/31/20 15:26:29,anonymous,,SI,1030616550,Archivo,Gran britalia kennedy,Sede B,Nadie,Transporte público,
+917,8/3/20 5:15:36,8/3/20 5:23:57,anonymous,,SI,91398384,Evento lanzamiento votec e instalación mesas de votación consejos locales de la bicicleta en usaquen ,Casa,Alcaldía local usaquen,"Ana María Almario, Guillermo, Omaira, Alcadesa Mayor, Loren Castañeda, Harold Alba, Hugo, Daniel Rueda, Luis Ernesto Gómez, Mema Carrillo, ",Automóvil oficial,Estuvimos en un sitio donde había muchas personas dentro de la Alcaldía Local de Usaquén
+918,8/3/20 9:16:32,8/3/20 9:20:31,anonymous,,SI,1073687109,Logística en el traslado de carpa hacia la alcaldía de Santa Fe,Tintal - Kennedy,Sede B IDPAC ... Alcaldía local de Santa fe ,"Nicolay Ortiz 
+José fandiño
+",Automóvil oficial,
+919,8/3/20 9:23:46,8/3/20 9:24:59,anonymous,,SI,1032383731,Trabajo en casa,No he salido de casa,No he salido de casa,No he salido de casa,Automóvil,No he salido de casa
+920,8/3/20 12:09:53,8/3/20 12:18:18,anonymous,,SI,41792869,"Proceso de apoyo en Presupuestos Participativos:
+Proceso de votación de los Conceptos de gasto: punto de Encuentro: 8:00 AM Alcaldía Local de Chapinero. Desplazamiento al lugar del punto de votación 9:15 AM ""Canchas de Tejo de Villas del Cerro"" hasta las  2: 20 PM y de alli a apartamento donde vivo en el que stuve a las 2:40 PM.","Agosto 1: Punto de Encuentro: Alcaldía LOcal de Chapinero: 8:00 AM
+Desplazamiento a las  Cancha de Tejos de Villas de Cerros . 9:30 AM hasta las 2:20 PM
+Desplazamiento hasta apto donde resido- hora de llegada: 2:45 PM","Agosto 1 de 2020 
+Punto de Encuentro: Alcaldía LOcal de Chapinero: 8:00 AM
+Desplazamiento a las  Cancha de Tejos de Villas de Cerros . 9:30 AM hasta las 2:20 PM
+Desplazamiento hasta apto donde resido- hora de llegada: 2:45 PM","Ninguno todos tuvimos mas de dos metros de distancia. y se contaron con las medidas de desinfección.
+",Automóvil oficial,Ninguno
+921,8/3/20 16:46:01,8/3/20 16:48:50,anonymous,,SI,1032427980,Recibir documentos,el muelle engativa,Sede B IDPAC,wilson martinez,Transporte público,
+922,8/3/20 16:50:09,8/3/20 16:53:54,anonymous,,SI,1032478282,Apoyo en la sistematización de los votos fisicos de los encuentros ciudadanos en la localidad de Suba ,Ciudad Salitre,Alcaldía de Suba,"Daniel Movilizador de Suba, Jeferson Oficina de Participación Suba.",Transporte público,
+923,8/3/20 16:50:34,8/3/20 16:57:01,anonymous,,SI,1015473207,"El pasado viernes 31 de Agosto, me desplaze de mi lugar de residencia a la Casa de la Participación, frente a la Alcaldía Local de Suba para apoyar en el proceso de conteo y sistematización de votos de los encuentros ciudadanos. Ese dia llegue a las 8 de la mañana y me retiré del lugar a las 4:30pm. Tome un taxi y regresé a mi lugar de residencia. ",Transversal 76#130-48,"Casa de la Participación, frente a la Alcaldía Local de Suba. ",Daniel Rojas - Articulador de Suba,Transporte público,Mi medio de transporte fue en taxi
+924,8/3/20 18:39:31,8/3/20 18:42:25,anonymous,,SI,80224327,Organización Bodega y actualización de movimientos en sistema,"Casa, barrio Venecia",Planta sede B,"Edgar Villarraga, Freinan Rodriguez",Motocicleta,
+925,8/3/20 19:33:28,8/3/20 19:34:40,anonymous,,SI,1030586969,Trabajo en casa,No aplica,No aplica,No aplica,Caminando,Sin novedad
+926,8/3/20 20:02:32,8/3/20 20:07:22,anonymous,,SI,52716195,Recorrido San Cristobal entono Parque Entre Nubes,Las Aguas,"Alcladía Local San Cristóbal, Parque Mirador de los Nevados, JAC el Trinunfo","Juan Calor Londoño, MIchel Mosquera, Alexander Rubio Laura González",Transporte público,
+927,8/4/20 8:50:34,8/4/20 9:06:34,anonymous,,SI,74339642,actualización evidencias para evaluación de desempeño,Ciudadela Colsubsidio - Engativa - Bogotá,sede B (la planta),"German Duque , Johan chacon, Juan Ingnacio Rodriguez, Nicolay ortiz, Harold Alba, Edgar Parra, Julian Rivera, personal de vigilancia de turno ( 03/08/2020).",Transporte público,
+928,8/4/20 13:53:22,8/4/20 13:58:49,anonymous,,SI,79121744,Escrutinio de las mesas de votación en el proceso de presupuesto participativo en la localidad de Teusaquillo. Cierre del proceso en la casa de la participación de la localidad. ,"Barrio Tintal Central, Prados de Capellanía",Casa de la Participación de Teusaquillo ,"Alcaldesa Local, funcionarios de Alcaldía Local, Personería, Veeduría, CPL, presidenta de la JAL y operador logístico",Automóvil,Dada la naturaleza del ejercicio y el espacio se buscó guardar la distancia... es difícil hacerlo con estricto sentido dado que tocaba dictar información y habiendo varios grupos de trabajo era difícil que todos gritaran para registrar información. Se tomó temperatura y siempre se uso tapabocas. 
+929,8/4/20 14:00:14,8/4/20 14:03:24,anonymous,,SI,1019092870,"- Trabajo en casa
+",Localidad: Suba - Gratamira ,0,0,Automóvil,0
+930,8/4/20 16:00:42,8/4/20 16:05:16,anonymous,,SI,79530280,"Trabajar en casa, reuniones virtuales, eventualmente salir donde mis padres y citas medicas","Apartamento de vivienda, en suba, Imperial Reservado",Jose Joaquín Vargas en la localidad de Barrios unidos,N/A,Automóvil,Ninguna
+931,8/5/20 8:20:49,8/5/20 8:24:16,anonymous,,SI,80749781,Recorrido sede B sede A revisión planillas vehículos ,Tunal localidad de Tunjuelito ,Sede B sede A,Ninguna,Automóvil,
+932,8/5/20 14:49:51,8/5/20 14:52:36,anonymous,,SI,80224327,"Registros en sistema, actas de traslado.",Salida de mi casa ubicada en el barrio Venecia,"Sede B, Barrio montevideo","Edgar Villarraga, Freinan Rodriguez",Motocicleta,
+933,8/5/20 16:47:57,8/5/20 16:53:16,anonymous,,SI,1030601470,Entrega  de tapabocas y termometros a personas que trabajan en territorio,Bosa,Sede B- IDPAC,Edgar Villarraga,Motocicleta,
+934,8/5/20 16:53:34,8/5/20 16:56:07,anonymous,,SI,1030601470,Entrega de tapabocas,IDPAC- Sede B,Bosa,Edgar Villarraga,Motocicleta,
+935,8/5/20 20:57:22,8/5/20 21:00:05,anonymous,,SI,22494989,Apoyo en la votación de presupuestos participativos,Portal Norte,Plaza de mercado distrital de kenedy,"Rony Martinez, Katerine Julio",Transporte público,
+936,8/7/20 9:29:08,8/7/20 9:30:40,anonymous,,SI,1073687109,arreglo locativos - demarcación ramplas,tintal - Kennedy,sede B idpac - Fontibón,guardias de seguridad,Automóvil,
+937,8/7/20 20:58:46,8/7/20 21:03:17,anonymous,,SI,52849728,Apoyo en territorio a votación de presupuestos participativos en la Localidad de Santa Fe. Lugar: Alcaldía Local de Santa Fe ubicada en la calle 21 # 5-74,Localidad de Teusaquillo,Alcaldía Local de Santa Fe,ninguna,Transporte público,ninguna
+938,8/8/20 10:14:38,8/8/20 10:16:27,anonymous,,SI,1024481660,Acompañamiento votaciones presupuestos participativos,San Cristóbal,La Marqueza Rafael Uribe Uribe,"Nelson Martínez
+Augusto Forero
+Disney Sánchez",Motocicleta,
+939,8/8/20 10:16:58,8/8/20 10:18:07,anonymous,,SI,10244861660,Acompañamiento votaciones presupuestos participativos,San Cristóbal,Molinos 1,"Nelson Martínez
+Augusto Forero
+Disney Sánchez",Motocicleta,
+940,8/8/20 10:20:35,8/8/20 10:53:11,anonymous,,SI,1019119195,Apoyo en el escrutinio de las votaciones en la localidad de Santa Fe,Cra ,Cra 124 # 129 c 0o,Cindy Lorena Monroy ,Automóvil,Ninguno
+941,8/8/20 18:20:09,8/8/20 18:27:02,anonymous,,SI,80880892,"Acompamiento a la votación de los presupuestos participativos de la localidad de Santa Fe, salón comunal del barrio El Triunfo",Calle 21 # 5—74,Salón Comunal del barrio El Triunfo de la localidad de Santa Fe,Ninguno,Automóvil oficial,
+942,8/8/20 21:25:25,8/8/20 21:28:15,anonymous,,SI,52849728,Apoyo en punto de votación de presupuestos participativos en la Localidad de Santa Fe ,Teusaquillo ,"1. Alcaldía Local de Santa Fe
+2. Salón comunal El Triunfo ",No,Transporte público,N/A
+943,8/9/20 14:54:32,8/9/20 15:06:57,anonymous,,SI,1019115473,"Apoyar la votación presencial de los presupuestos participativos localidad de usaquen, salón comunal Soratama",Alcaldía local de usaquen ,Salón comunal Soratama ,"Fredy Gordillo, conductor
+",Automóvil oficial,"Suministrar tapabocas quirúrgico ya que para este tipo de actividades hay bastante contacto con otras personas, y el tapabocas de tela no garantiza la protección "
+944,8/10/20 9:32:21,8/10/20 9:34:55,anonymous,,SI,52175622,Apoyo en digitalización de votos presupuesto participativo fase 1 en la Alcaldía Local de Santa Fe los días 8 y 9 de agosto,Usaquén - Estación Alcalá (transmilenio),Alcaldía Local de Santa Fe,"Mónica Burgos, Cindy Lorena Monroy",Transporte público,"la distancia entre funcionarios fue menor a dos metros, el trabajo debía realizarse por parejas y el espacio para ello fue una sala de juntas pequeña"
+945,8/10/20 10:01:09,8/10/20 10:05:28,anonymous,,SI,2972137,Elección presupuestos participativos,Alcaldía Bosa,Conjuntos residencial porvenir manzana 52  65 y 52,Marcela Moreno  Oscar Aranguren y Richard Ramírez,Automóvil,Falta de elementos de EPP
+946,8/10/20 10:48:54,8/10/20 10:50:00,anonymous,,SI,80749781,Recorrido sede B ,Tunal localidad de Tunjuelito ,Sede B,Ninguna,Transporte público,
+947,8/10/20 11:34:03,8/10/20 11:35:36,anonymous,,SI,1019115473,"Apoyo a las votaciones presenciales de los presupuestos participativos localidad de usaquen, puesto del barrio Soratama",Alcaldía local usaquen,Salón comunal soratama,Ninguno,Automóvil oficial,
+948,8/10/20 15:12:56,8/10/20 15:15:26,anonymous,,SI,1019119195,"Apoyo en el escrutinio de la localidad de Santa Fé, en el marco de la votación de presupuestos participativos. El día 9 de Agosto de 2020",Cra 124 # 129 c 09,Alcaldía local de Santa Fé,No tuve contacto cercano ,Automóvil,
+949,8/10/20 15:53:10,8/10/20 15:57:32,anonymous,,SI,11186175,apoyo en la votación de presupuestos participativos en la localidad de fontibon,bochica 3 localidad engativa,punto digital de fontibon ,ninguna,Transporte público,mucha aglomeracion de gente en el parque principal de fontibon
+950,8/10/20 16:11:23,8/10/20 16:14:50,anonymous,,SI,1032427980,Apoyo a votaciones presupuestos participativos,el muelle - Engativa,Alcaldia local de fontibon,Jhonatan amezquita        Jorge Martinez,Transporte público,
+951,8/10/20 17:21:34,8/10/20 17:22:42,anonymous,,SI,1030586969,1030586969,Kennedy Casablanca conjunto residencial Casa blanca primera etapa,Sin desplazamiento,No aplica,Caminando,Sin novedad
+952,8/10/20 18:40:29,8/10/20 18:41:24,anonymous,,SI,1033701737,Trabajo en la sede b,Carvajal Kennedy ,Sede b Idpac,Juan Duarte ,Transporte público,
+953,8/11/20 8:29:40,8/11/20 8:36:57,anonymous,,SI,41792869,Conteo de votos de Presupuestos Participativos,Localidades: desde teusaquillo (donde resido Calle 56 # 16 - 75) a Chapinero: Alcaldía Local de Chapinero Carrera 13 # 54 - 74.,Chapinero: Alcaldía Local de Chapinero Carrera 13 # 54 - 74.,"Mauricio Rey Refrente de la Participación Alcaldía Local
+Diana Moreno - Profesional de Alcaldía Local ",Caminando,Ninguna
+954,8/11/20 14:24:55,8/11/20 14:28:31,anonymous,,SI,1016096423,Apoyo en la localidad de Kennedy en la dinámica de presupuestos participativos. Estuve en acompañamiento en el barrio el El Amparo y la alcaldía local de Kennedy ,"Barrio Modelia, localidad de Fontibón","Localidad de Kennedy, alcadía local y barrio El Amparo.","Ninguno, mantuvimos todos los controles de bioseguridad .",Automóvil,"Brindamos atención al ciudadano, sin embargo siempre mantuve el tapabocas y la distancia prudente con las personas."
+955,8/11/20 16:26:28,8/11/20 16:30:11,anonymous,,SI,11232307,Apoyo votación presupuestos participativos,Teusaquillo barrio Nicolás de Federmán,Centro Comercial Gran Plaza El Ensueño Localidad de Ciudad Bolívar,Jorge López,Automóvil,
+956,8/11/20 18:22:34,8/11/20 18:24:55,anonymous,,SI,80224327,"Cierre contable, organización activos para baja","Casa, Venecia ","Montevideo, Sede B","Edgar Villarraga, Freyan Rodriguez",Motocicleta,
+957,8/11/20 19:32:55,8/11/20 19:34:21,anonymous,,SI,1010211974,"Asistí a una reunión en Secertaría de gobierno con 4 personas más de Habitat, SDIS y SDG",Tintal,Edificio Lievano,Donka Atanassova,Transporte público,ninguna
+958,8/11/20 20:31:55,8/11/20 20:33:44,anonymous,,SI,1073687109,Lavado de carpas y sillas de logistica,Tinral Kennedy,Sede B - IDPAC,"Edgar Parra 
+Nicolás Ortiz ",Automóvil,
+959,8/11/20 20:48:32,8/11/20 20:50:31,anonymous,,SI,1030586969,Trabajo en casa,Kennedy Casablanca conjunto residencial Casa blanca etapa dos,Sin desplazamiento,No aplica,Caminando,Sin novedad
+960,8/11/20 23:14:17,8/11/20 23:18:10,anonymous,,SI,13015742,descargar mercados  en la casa de pensamiento indigena de la secretaria de Gobierno,calle 96# 4A-57 chapinero,calle 9#9-60,"paulina magin, hermes narvaez",Transporte público,"se utilizo tapabocas, guantes, alcohol de medidas de bioseguridad"
+961,8/12/20 16:38:01,8/12/20 16:47:47,anonymous,,SI,19493787,Búsqueda y escaneo de contratos para envío de certificaciones contractuales,carrera 82 17-95 hayuelos,avenida calle 22 68 c 51 sede B,"Edgar villarraga, Edgar Parra ",Automóvil,Ninguna
+962,8/12/20 22:12:48,8/12/20 22:18:32,anonymous,,SI,13015742,Articulación de información de Autoridades indígenas de avales de delegados para las mesas indígenas locales. Lugar: casa de pensamiento indígena Bogota.,calle 96 #4A-57 este Barrio san luis -Chapinero,calle 9#9-60 casa de pensamiento indígena.,Paulina magin,Transporte público,"cumpliendo con el cuidado de protección de bioseguridad como tapabocas, guantes y alcohol."
+963,8/13/20 2:34:12,8/13/20 2:36:09,anonymous,,SI,80880892,Actividades de archivo de la Subdirección,Calle 22 #8—93,Avenida calle 22 #68 C — 51,Angie Novoa,Bicicleta,
+964,8/13/20 7:39:27,8/13/20 7:43:04,anonymous,,SI,19263136,APOYO EN INFORMACION PARA AUDITORIA OAJ Y ESCANEO DE DOCUMENTOS,"Casa, Urbanización Amberes, Rincón de Suba",Sede B,EDGAR VILLARRAGA,Transporte público,LO ESTABLECIDO
+965,8/13/20 8:12:38,8/13/20 8:16:45,anonymous,,SI,52376330,Acompañamiento votaciones presupuestos participativos en la localidad de Rafael Uribe,"Alcaldia Local de Rafael Uribe, ","Salon Comunal de Playon playita, salon comunal, Quiroga central","Andres Moreno, disney articuladora de  la localidad, pilar luna y nelson  ",Transporte público,
+966,8/13/20 17:16:12,8/13/20 17:19:54,anonymous,,SI,1032427980,archivo,el muelle engativa,sede B IDPAC,Wilson Martinez,Transporte público,
+967,8/13/20 17:38:52,8/13/20 17:40:37,anonymous,,SI,79695393,VISITA A JAC CARVAJAL OSORIO Y HUERTA COMUNAL,SALON COMUNAL CARVAJAL OSORIO,SALON COMUNAL CARVAJAL OSORIO,EDISON KOBA,Transporte público,"NINGUNA
+"
+968,8/13/20 19:54:43,8/13/20 19:58:13,anonymous,,SI,1019119195,Acompañamiento en reunión de barras Futboleras en la localidad de Usaquen. ,Cra 124 # 129 c 09,Salón comunal Toberin,Ninguno,Automóvil,"Los integrantes de las barras Futboleras se retiraron el tapabocas en el transcurso de la reunión para hablar, en reiteradas veces les indiqué que se lo colocaran de nuevo, pero hicieron caso omiso. Adicional a ellos procure traer alcohol y desinfectante para ayudar con las medidas de bioseguridad. "
+969,8/13/20 20:35:46,8/13/20 20:37:09,anonymous,,SI,80880892,Actividades de archivo de la Subdirección,Calle 22 # 8—93,Avenida calle 22 # 68 C — 51,Ninguno,Bicicleta,
+970,8/14/20 19:57:51,8/14/20 19:59:22,anonymous,,SI,80880892,Actividades de archivo de la Subdirección,Calle 22 # 8 — 93,Avenida calle 22 # 68 C — 51,Angie Novoa,Transporte público,
+971,8/14/20 20:15:44,8/14/20 20:17:04,anonymous,,SI,1033701737,Trabajo en sede b,Carvajal Kennedy ,Sede b Idpac,Ninguno,Transporte público,
+972,8/18/20 8:27:05,8/18/20 8:28:40,anonymous,,SI,79843759,Cierre de votaciones consejos de la bicicleta,"Cedritos, Localidad Usaquén","Sede A, Localidad Santa fe",Omaira Morales,Automóvil,Muchas personas en espacios muy pequeños dentro de las sedes
+973,8/18/20 8:52:34,8/18/20 8:59:08,anonymous,,SI,79864815,Instalar y desinstalar avisos en el auditorio de la sede A del IDPAC,"Sede B, IDPAC","Sede A, IDPAC","Edgar villarraga, Edgar Parra",Automóvil oficial,Ningúna
+974,8/18/20 9:28:12,8/18/20 9:38:55,anonymous,,SI,1069730012,"Visita a la Junta de Acción Comunal Vereda Quiba Baja Sector Verbenal de la Localidad 19 Ciudad Bolívar, emitir concpto sobre la segregación que solicitan.",Madelena Urbano 2,Verbenal,"Alexander Obando y Cesar Leon
+",Automóvil oficial,
+975,8/18/20 12:30:42,8/18/20 12:34:35,anonymous,,SI,80037526,REUNIÓN PARA PRESENTAR DOCUMENTO ESTRATÉGICO LABORATORIO,BARRIO SUCRE,SEDE A IDPAC ,"ALEXANDER REINA, DONKA ANASTASOVA",Automóvil,
+976,8/18/20 12:46:32,8/18/20 12:53:29,anonymous,,SI,41792869,Recorrdio OSP en el Barrio Mariscal Sucre para identificar los posiblesproyectos a realizar eneste año.,"Traslado de Apartamento Calle 56 · 16 - 75 apto 601, hasta el Salón Comunal Barrio Mariscal Sucre.
+","En el Barrio Mariscal Sucre  Salòn Comunal Car 2 Calle 44 punto de encuentro.
+Posteriormente se realizo el recorrido dentro del mismo barrio en la zona de la cancha deportiva, posteriromente nos trasladamo a varios puntos de escaleras, y tramos para identificar posibles intervenciones.",Ninguno,Transporte público,Ninguna
+977,8/18/20 9:59:25,8/18/20 14:52:08,anonymous,,SI,52175622,Recolección de datos de vendedores informales en el contexto del Pacto de la Gaitana por el aprovechamiento del espacio público por parte de estas personas,Carrera 19 Calle 134,Carrera 126 a Calle 137 a,"Sofía Lozano Reina - IDPAC - Gerencia Instancias y Mecanismos
+Javier Palacios - IPES - Coordinador Zona Norte
+",Transporte público,Es necesario que haya algún mecanismo para garantizar que tengamos tapabocas de un solo uso en este tipo de tareas
+978,8/18/20 18:43:10,8/18/20 18:46:08,anonymous,,SI,80224327,Movimientos en el ERP del almacén y revisión de informes de sistema.  ,"Casa, Localidad de Tunjuelito, barrio: Venecia. ","Sede B del IDPAC, Barrio: Montevideo ","Edgar Villarraga, Freynan Gonzalez ",Motocicleta,
+979,8/18/20 19:37:24,8/18/20 19:38:46,anonymous,,SI,1030586969,Trabajo en casa,Kennedy Casablanca conjunto residencial Casa blanca segunda etapa,Trabajo en casa,Trabajo en casa,Caminando,Sin novedad
+980,8/19/20 10:56:47,8/19/20 11:01:20,anonymous,,SI,51991228,Cubrimiento Escrutinio de las votaciones de los consejos locales de la bicicleta,Chía (Cundinamarca) ,"IDPAC, sede A","Omaira Morales, Diana García, Héctor Prieto, Lorena Castañeda, Daniel (bici), Ana María Almario, Antonio OAC y equipo de streaming, Pablo Pacheco, Jairo Grajales",Automóvil,Medidas extremas de bioseguridad 
+981,8/19/20 14:25:57,8/19/20 14:28:26,anonymous,,SI,79886205,Formateo de equipo de Claudia Diaz de asuntos comunales,Cra 50 # 1-d41,Sede B,"Edgar Villarraga, Andres Munevar, Nubia Tarazona, German (Conductor)",Automóvil,"Tapabocas permanente, uso de guantes, distanciamiento social"
+982,8/19/20 18:03:12,8/19/20 18:04:16,anonymous,,SI,1030586969,Trabajo en casa,Sin desplazamiento,Sin desplazamiento,No aplica,Caminando,Sin novedad
+983,8/20/20 18:43:44,8/20/20 18:46:10,anonymous,,SI,14395460,Visita territorial ,Calle 8 sur con carrera 30,Localidad de Ciudad Bolívar ,Miller Fajardo,Automóvil oficial,Ninguna 
+984,8/21/20 9:36:30,8/21/20 9:39:17,anonymous,,SI,1019083211,Asisti a la sede A del IDPAC a la jornada de escrutinio de los consejos locales de la Bicicleta ,"Suba, gloria Lara etapa 2, casa ",Santa fe IDPAC sede A,"Ana María Almario 
+Daniel Rueda
+Astrid Lorena",Bicicleta,Ninguna
+985,8/21/20 9:59:56,8/21/20 10:27:46,anonymous,,SI,1030601470,"El trayecto lo realice ayer 20 de agosto. Entrega de tapabocas para la oficina asesora de comunicaciones, inspecciones de locativas, inspección de extintores e inspección de señalización en las 3 sedes.",Bosa,IDPAC- Sede B,Edgar Villarraga,Motocicleta,
+986,8/21/20 10:28:02,8/21/20 10:46:26,anonymous,,SI,1030601470,"
+Inspecciones locativas, inspección de extintores y señalización ",IDPAC - Sede B,IDPAC- Sede C,o,Motocicleta,
+987,8/21/20 10:46:35,8/21/20 10:56:50,anonymous,,SI,1030601470,"Inspecciones locativas, inspeccion de extintores y señalización",IDPAC- Sede C,IDPAC- Sede A,o,Motocicleta,
+988,8/21/20 11:34:53,8/21/20 11:39:16,anonymous,,SI,79910015,"Jornada de sensibilización en el sector de San Victorino en el marco de la estrategia A un Ala de Distancia
+Jornada de trabajo en sede B de IDPAC, en el marco del Plan Estratégico","Conjunto Portal de Molinos 1
+","Parque la Mariposa
+Sede B IDPAC","Jaqueline Leal
+Javier Montañez",Automóvil,
+989,8/21/20 17:13:45,8/21/20 17:17:46,anonymous,,SI,52164648,Recorrido territorial por el parque central Nueva Tibabuyes,"Barrio Palenque, localidad Kennedy","Parque Central Nueva Tibabuyes, localidad Suba.",Ninguno,Transporte público,Algunos usuarios del parque se encontraban sin tapabocas.
+990,8/21/20 18:44:43,8/21/20 18:45:52,anonymous,,SI,1030585969,Trabajo en casa,Localidad de Kennedy barrio Castilla conjunto Casablanca primera etapa,Sin desplazamiento,No aplica,Caminando,Sin novedad
+991,8/21/20 20:57:54,8/21/20 21:00:09,anonymous,,SI,1014288465,Reunión interinstitucional Parque piloto suba,Engativá ,"Villa María, Suba ",Blanca Nelly Rivera ,Automóvil,Faltan puntos para lavado de manos en espacios públicos 
+992,8/22/20 12:50:45,8/22/20 12:52:19,anonymous,,SI,80880892,Actividades de archivo de la Subdirección,Calle 22 # 8—93,Avenida calle 22 # 68 C—51,Ninguno,Transporte público,
+993,8/24/20 8:18:35,8/24/20 8:21:08,anonymous,,SI,91298384,Asistencia a control médico de mi esposa,Casa en Localidad de Teusaquillo.,Clínica de la mujer en Usaquén.,Harold Alba,Automóvil oficial,
+994,8/24/20 17:29:11,8/24/20 17:31:00,anonymous,,SI,1030596969,Trabajo en casa,"Kennedy, Casablanca, conjunto residencial Casa blanca segunda etapa",Sin desplazamiento,No aplica,Caminando,Sin novedad
+995,8/24/20 17:45:05,8/24/20 17:46:29,anonymous,,SI,1033701737,Trabajo sede B,Carvajal Kennedy ,Sede B Idpac ,Sandra Cifuentes,Transporte público,
+996,8/25/20 12:49:15,8/25/20 12:52:09,anonymous,,SI,1026277376,Acompañamiento a Organización para entrega de implementos para actividad artistica. ,"Carrera 2A No. 31-46 La Perseverancia, Localidad Santa Fe. ","Calle 95sur No. 14 - 29, Academia el Escenario, Monteblanco, Usme. ",Ninguno,Transporte público,Ninguna. El desplazamiento se hizo en horas no pico y con las medidas adecuadas. 
+997,8/25/20 19:51:54,8/25/20 19:58:41,anonymous,,SI,52849728,Recorridos a varios puntos identificados por la comunidad para ejecutar las Obras con Saldo Pedagógico en la localidad de Usaquen,Teusquillo,"Barrios: Santa Cecilia parte alta, Cerro Norte, El Codito, San Antonio Norte, Las Margaritas de La Localidad de Usaquen",Ninguno,Automóvil oficial,ninguna
+998,8/26/20 6:38:16,8/26/20 6:39:41,anonymous,,SI,1073687109,Arreglo locativo archivo principal sede B,Tintal kennedy,Sede B IDPAC - Fontibon ,"Nicolás Ortiz 
+Edgar villaraga
+Edgar parra",Bicicleta,
+999,8/26/20 8:07:33,8/26/20 8:09:36,anonymous,,SI,79864815,Se arregló un archivador del área de archivo en la sede B,Mi apto,Sede B IDPAC,"Edgar villarraga, Johan Chacón, Edgar Parra, julio Contreras",Transporte público,Ningúna
+1000,8/26/20 12:13:16,8/26/20 12:15:33,anonymous,,SI,1023927347,"No efectué ningún trayecto, dado que estoy trabajando desde la casa","No existe punto de partida, estoy laborando desde la casa","No existe punto de partida, estoy laborando desde la casa",Ninguno,Transporte público,no se indican observaciones
+1001,8/26/20 14:53:15,8/26/20 14:54:28,anonymous,,SI,80880892,Actividades de archivo de la Subdirección,Calle 22 # 8—93,Avenida calle 22 # 68 C—51,Ninguno,Transporte público,
+1002,8/26/20 16:57:30,8/26/20 17:11:00,anonymous,,SI,80410517,Archivo,Parque Berlin suba,IDEPAC sede B,Luisa Riaño,Transporte público,
+1003,8/26/20 17:31:59,8/26/20 17:33:22,anonymous,,SI,1032427980,actividades de archivo,Barrio el muelle Engativa,Sede B Idpac,Wilson Rodriguez,Transporte público,
+1004,8/26/20 19:25:23,8/26/20 19:29:57,anonymous,,SI,1014288465,"Recorrido territorial en el marco de la metodología Obras con Saldo Pedagógico, por la localidad de candelaria",Engativá,Candelaria,Juan Fajardo,Motocicleta,En los retenes de policía se solicitan documentos y no se evidencian protocolos o medidas de seguridad por parte de los uniformados
+1005,8/26/20 21:10:30,8/26/20 21:17:57,anonymous,,SI,52716195,Recorrido posibles OSP en la localidadde Bosa,Sede B," Bosa Recreo,  Bosa el Triunfo, Bosa Carbole 2 sector, Bosa Naranjos Y José Antonio Galán.","Juan Carlos Londoño, Michel Michel Gonzáles, Sandra Cifuentes, el conductor Mauricio, Articuladora de Bosa Yenny, equipo territorial gerencia de etnias y GIMP",Automóvil oficial,Nos trasportamos en la van de la gerencia hasta 7 personas en la parte de atrás.
+1006,8/27/20 6:03:31,8/27/20 6:06:45,anonymous,,SI,1014214391,Desplazamiento de mi casa a la sede b del IDEPAC en bicicleta ,Conjunto residencial terra grande IV ETAPA IV soacha,"IDEPAC sede b
+Cl. 22 ##68C - 51, Bogotá",Laura Vargas ,Bicicleta,
+1007,8/27/20 10:36:43,8/27/20 10:38:38,anonymous,,SI,79530280,No he tenido movilizaciones durante la semana para el cumplimiento de mis labores.,NA,N/A,N/A,Automóvil,N/A
+1008,8/27/20 17:54:21,8/27/20 17:56:31,anonymous,,SI,1014288465,"Recorrido territorial de priorizacion en el marco de la metodología Obras con Saldo Pedagógico, por la localidad de Suba",Engativá ,Suba,Mauricio Salazar ,Motocicleta,Necesidad de instalar sistemas para medidas de Bio seguridad en espacio público 
+1009,8/28/20 9:54:41,8/28/20 9:57:48,anonymous,,SI,19263136,Soporte administrativo en sede A,"Casa, Calle 128 F No. 92 - 16",Sede B,"Jhann A. Obando, Edson D Uscategui",Transporte público,Las propias del transporte público
+1010,8/28/20 9:55:42,8/28/20 9:58:49,anonymous,,SI,19263136,Soporte administrativo en sede A,"Casa, Calle 128 F No. 92 - 16",Sede B,"Jhann A. Obando, Edson D Uscategui",Transporte público,Las propias del transporte público
+1011,8/28/20 14:36:44,8/28/20 14:45:04,anonymous,,SI,51922776,Normas de autocuidado,calle 74 No 65-11,Plaza de mercado Fontibon,"Guardamos distancia
+",Automóvil,cumplir con las medidas decretadas por el gobierno de autocuidado
+1012,8/28/20 17:05:28,8/28/20 17:07:14,anonymous,,SI,80410517,Archivo,Parque Berlin suba,IDPAC,Luisa,Transporte público,
+1013,8/28/20 18:09:50,8/28/20 18:11:03,anonymous,,SI,80037526,reunión pacto con los niños,calle 43a#9-26,alcaldía mayor ,"alexander reina, donka anastasova",Transporte público,
+1014,8/28/20 18:54:09,8/28/20 18:55:20,anonymous,,SI,1030586969,Trabajo en casa,Kennedy Casablanca conjunto residencial Casa blanca,Sin desplazamiento,No aplica,Caminando,Sin novedad
+1015,8/28/20 18:54:05,8/28/20 18:56:46,anonymous,,SI,1014288465,"Recorrido territorial de priorizacion de territorios en el marco de la metodología Obras con Saldo Pedagógico, en la localidad de Engativá ",Engativá ,Engativá ,"María Fernanda Patiño
+Blanca Nelly Rivera ",Transporte público,Instalar sirenas de medidas de Bio seguridad en espacio público 
+1016,8/28/20 18:58:47,8/28/20 19:00:36,anonymous,,SI,1013633328,Recorrido localidad de la Candelaria y Mártires. ,Mártires ,Candelaria,"Juan Pablo Fajardo.
+Mauricio Murillo
+Dilan Gómez
+Leidy",Automóvil oficial,"Mucha cercanía entre personas
+"
+1017,8/28/20 19:01:06,8/28/20 19:03:32,anonymous,,SI,52164648,Recorrido terrritorial localidad Engativa,"Barrio Palenque, localidad Kennedy","Barrio Minuto de Dios, localidad Engativa","Gabriel Lozano, Maria Fernanda Patiño",Transporte público,Ninguna
+1018,8/30/20 16:19:28,8/30/20 16:22:11,anonymous,,SI,1012380839,"Campaña ALAS, realice la labor de regulador amable que consistía en dar a conocer la importancia de utilizar el tapabocas",Bosa,Parque el Tunal,Gestores y contratistas del IDPAC,Automóvil,Distanciamiento y el uso del tapabocas
+1019,8/30/20 18:02:46,8/30/20 18:07:00,anonymous,,SI,52217477,"Se realizó una jornada de sensibilización en cultura Ciudadana y  autocuidado en el Parque Timiza 
+",Villa del Río ,Timiza parque ,"Eduardo Naranjo, Natalia Parejo",Bicicleta,Hubo un poco de llovizna 
+1020,8/30/20 21:22:33,8/30/20 21:26:13,anonymous,,SI,43991689,"Apoyo a jornada ALAS en el parque del Tunal, líderada por S cultura ","Madelena ciudad Bolívar , vivienda ","Parque el tunal , localidad de tunjuelito , barrio ciudad tunal",5,Automóvil,"Apertura de parques presentó aglomeración, contratistas con riesgo 1 no deberíamos estar en estos lugares en contacto con tanta seguridad personas "
+1021,8/31/20 8:59:45,8/31/20 9:01:19,anonymous,,SI,1026277376,Acompañamiento a actividad de Cultura Ciudadana Domingo 30 de agosto. ,Barrio La Perseverancia,Parque Simón Bolivar,Ninguno. ,Automóvil,Ninguna 
+1022,8/31/20 8:50:05,8/31/20 9:01:35,anonymous,,SI,79638037,"Apoyo como ""Mediadores Alas""regreso a los parques. En el parque el tunal el domingo 30 de agosto de 2020 de 8:30 a.m. a 2:30 p.m.","Domicilio, barrio San Francisco. Localidad Ciudad Bolívar",Parque el Tunal. Localidad Tunjuelito,"Laura Alejandra Serna Galeano, Carol Mojica Gómez, Carlos javier Montañez Bravo, Lucia Reina",Transporte público,
+1023,8/31/20 9:04:15,8/31/20 9:08:49,anonymous,,SI,109083211,"Jornada pedagógica de apoyo en el piloto de apertura parques y ciclovía, asumiendo rol de observador ","Suba, gloria Lara etapa 2, casa","Parque metropolitano Simón Bolívar, Teusaquillo","Daniel Rueda
+William David Santiago Bello
+Florenia
+Luis Gonzalo
+Danna ",Bicicleta,Ninguna novedad
+1024,8/31/20 9:06:52,8/31/20 9:10:43,anonymous,,SI,1019092870,Se apoyó la apertura de parques en el parque Simón Bolívar,Parque Simón Bolivar,-,"Daniel Rueda
+Yeimi
+Luis Gonzalo Mendoz
+",Automóvil,0
+1025,8/31/20 8:59:02,8/31/20 9:15:06,anonymous,,SI,51999023,"EL DÍA 29 DE AGOSTO /2020, SE REALIZÓ VISITA A LAS JUNTAS DE LOS BARRIOS VILLA ANITA Y JUAN XXIII DE LA LOC. DE CHAPINERO, CON EL FIN DE REALIZAR RECORRIDO EN LOS BARRIOS PARA IDENTIFICAR POSIBLES OBRAS A DESARROLLAR A TRAVÉS DEL PROYECTO OBRAS CON PARTICIPACIÓN CIUDADANA PARA EL CUIDADO Y LA PARTICIPACIÓN.","SALÍ DE MI CASA UBICADA EN LA CRA. 81 B No. 6 B 40 CASA 82 -CONJUNTO TERRAZAS DE CASTILLA I, LOC. KENNEDY, COGÍ  EL TRANSMILENIO PARA DIRIGIRME A LA ALCALDÍA LOCAL DE CHAPINERO (PUNTO DE ENCUENTRO PARA INICIAR EL RECORRIDO)","NOS ENCONTRAMOS EN LA ALCALDÍA DE CHAPINERO (CRA. 13 No. 74-54), PARA DESPUÉS DESPLAZARNOS A LOS BARRIOS VILLA ANITA Y JUAN XIII, EN VEHICULO PRESTADO POR LA ALCALDÍA LOCAL","DOLLY LARROTA, MAURICIO MURILLO, FERNANDA SALINAS Y EDUARDO SILVA (PRESIDENTE ASOJUNTAS CHAPINERO) ",Automóvil oficial,
+1026,8/31/20 11:01:17,8/31/20 11:02:15,anonymous,,SI,1032383731,Trabajo en casa,No he salido de casa,No he salido de casa,No he salido de casa,Automóvil,No he salido de casa
+1027,8/31/20 11:10:38,8/31/20 11:12:44,anonymous,,SI,79864815,"Tomar registro fílmico de los hidrosanitarios de la sede C, para actualizar el inventario, para la ING ambiental Silvia Patiño.",Mi apto,Sede C,Ninguno,Transporte público,Ningúna
+1028,8/31/20 11:13:33,8/31/20 11:18:38,anonymous,,SI,1019119195,Apoyo como regulador amable en re apertura del parque Simón Bolívar el día 30 de agosto de 2020. En el desarrollo del día se hizo pedagogía del correcto uso del tapabocas.,Cra 124 # 129 c 09,Parque metropolitano Simón Bolívar,Ninguno,Automóvil,"Las personas que asistieron al parque el día de ayer se aglomeraron en el parque de arena, algunos niños sin tapabocas y adultos también. Por lo que se intervino con pedagogía,"
+1029,8/31/20 10:49:37,8/31/20 12:00:39,anonymous,,SI,1022325195,"Recorrido Territorio Barrio Llano Grande, estrategia RETO Kennedy.
+Instalación.
+Fase 1 - Reunión con SDIS y Organizaciones sociales y comunales del sector, principalmente juveniles, con el fin de socializar la estrategia (Salón Comunal)
+Fase 2 - Recorrido de reconocimiento territorio barrio Llano grande",Salon Comunal Llano Grande - Localidad Kennedy,Salon Comunal Llano Grande - Localidad Kennedy,"Natalia Pareja - Movilizadora IDPAC
+Gestoras SDIS - Subdireccion para la Juventud",Transporte público,"El salon comunal es pequeño, estuvimos mas de 20 personas en la sala por mas de 1 hora.
+El recorrido fue corto, se trato de mantener el distanciamiento, sin embargo huvo cuadras en las que el grupo tuvo que juntarse un poco por el espacio."
+1030,8/31/20 14:02:38,8/31/20 14:07:32,anonymous,,SI,52376330,Acompañamiento a la actividad pedagógica en parques de la ciudad junto con la secretaria de cultura,Mi casa Localidad Cuarta San Cristobal,Parque el Tunal Localidad Tunjuelito,"María Fernanda López
+Erika Joana Vélez Saldaña
+Velia Magnolia Cáceres Henao
+Erika Piragauta
+Luis Armando Gonzalez Gutierrez",Transporte público,"Ninguno
+"
+1031,8/31/20 12:00:42,8/31/20 14:33:35,anonymous,,SI,1022325195,DOMINGO 30: APOYO ACTIVIDAD DISTRITAL EN PARQUE TIMIZA - ROL OBSERVADORA (Secretaria Cultura e IDRD),"Lugar de vivienda Barrio Hipotecho, Localidad Kennedy","Parque Timiza, Localidad Kennedy","Jonathan Amézquita Uribe - IDPAC
+Alejandra Poveda - IDPAC
+Lucy Beltran - IDPAC
+Rafael Hurtado - DCC
+Natalia Pareja - IDPAC",Automóvil,"Falto el suministro de alcohol o antibacterial para cada equipo en el parque, para desinfectar las fichas, pues las personas no las recibían precisamente por el riesgo de contagio."
+1032,8/31/20 17:47:06,8/31/20 17:50:40,anonymous,,SI,1030545942,"Apoyo en pedagogía en el parque le tunal el día 30 de agosto del 2020, porgramada por la secretaria de cultura.",usme,Parque el tunal,"Nicolas Cruz_ Gerencia de juventud 
+Maria Esther Sinisterra- Gerencia de etnias
+",Transporte público,"falta de medidas de bioseguridad- alcohol y gel.
+
+solo se entrego tapabocas"
+1033,8/31/20 18:03:33,8/31/20 18:19:35,anonymous,,SI,51735493,"Participación en actividad dentro del Parque Timiza de la localidad de kennedy, en el que se apoyo estrategia de la Secretaría de Cultura, Recreación y Deporte por apertura del Parque el domingo 30 de agosto de 2020 entre las 8.30 am a 2.15 pm aprox.",Desde mi casa en Barrio Carimagua hacia el Parque Timiza localidad de Kennedy dentro y alrededores se realizó recorrido por el parque ,Parque Timiza localidad de Kennedy dentro y alrededores,"Se trato de mantener el protocolo necesario de los 2 metros de distancia, tapabocas y alcohol que yo lleve para mi uso ",Caminando,"Fuera del Parque Timiza al rededor, si habían muchos jóvenes sobe todo, jugando y sentados que no tenían ningún protocolo de seguridad, cuando algunos compañeros se acercaron no hicieron caso. "

@@ -12,4 +12,16 @@ class capacityController extends Controller
         $area = workArea::where('seat', $request->area)->pluck('name', 'id');
         return response()->json($area);
     }
+
+    public function controls (Request $request){
+        $area = false;
+        $actual = workArea::where('id', $request->area)->pluck('current_capacity')[0];
+        $perm = workArea::where('id', $request->area)->pluck('permitted_capacity')[0];
+        if($actual < $perm){
+            $area = true;
+        }
+
+            
+        return response()->json($area);
+    }
 }

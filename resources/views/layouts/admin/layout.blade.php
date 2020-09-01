@@ -21,9 +21,11 @@
 
     <!-- Main Sidebar Container -->
     @include('layouts.admin.includes.sidebar')
+   
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="min-height: 1589.56px;">
+      
       @yield('content')
     </div>
     <!-- /.content-wrapper -->
