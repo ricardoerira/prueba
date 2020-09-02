@@ -307,19 +307,22 @@ if (!function_exists('listHealthFilter')) {
         $i = 0;
         $t = 0;
         $dataP = null;
-        foreach($data as $index){
-           $user = User::where('id', Survey::where('id', $index)->pluck('surveyed_id')[0])->get();
-           $aux = healthFilter($index);
-               $dataP[$i] = [
-                   'id' => $user[0]->id,
-                   'name' => Answer::where('survey_id', $index)->where('question_id', 17)->pluck('text')[0],
-                   'cargo' => Answer::where('survey_id', $index)->where('question_id', 29)->pluck('text')[0],
-                   'vinculacion' => Choice::where('id', Answer::where('survey_id', $index)->where('question_id', 28)->pluck('choice_id')[0])->pluck('name')[0],
-                   'observacion' => correctText($aux['texto']),
-                   'trabaja' => $aux['resp'],
-               ];
-               $i++;
+        if($data[0] != null){
+            foreach($data as $index){
+                $user = User::where('id', Survey::where('id', $index)->pluck('surveyed_id')[0])->get();
+                $aux = healthFilter($index);
+                    $dataP[$i] = [
+                        'id' => $user[0]->id,
+                        'name' => Answer::where('survey_id', $index)->where('question_id', 17)->pluck('text')[0],
+                        'cargo' => Answer::where('survey_id', $index)->where('question_id', 29)->pluck('text')[0],
+                        'vinculacion' => Choice::where('id', Answer::where('survey_id', $index)->where('question_id', 28)->pluck('choice_id')[0])->pluck('name')[0],
+                        'observacion' => correctText($aux['texto']),
+                        'trabaja' => $aux['resp'],
+                    ];
+                    $i++;
+             }
         }
+        
         return $dataP;
     }
 }

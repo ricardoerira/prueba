@@ -34,7 +34,7 @@ class ReportController extends Controller
     public function dataReport(string $name){
         $pp = Survey::where('header_id', 2)->get()->unique('surveyed_id')->pluck('id');
         $nameP = strtr($name ,"_", " ");
-        
+        $data[0]  = null;
             $j = 0;
             for ($i = 0; $i < count($pp); $i++){
                 if ($name != "todas"){
@@ -47,9 +47,9 @@ class ReportController extends Controller
                     $j++;
                 }
             }
+            $dataP = listHealthFilter($data);
         
-        $dataP = listHealthFilter($data);
-        if($dataP == null){
+        if($dataP == null || $data == null){
             return Redirect::back()->with('message', 'La dependencia '.$nameP." no tiene registros de personas alto riesgo");
         }
         return view('pages.admin.reports.healthConditions', compact('dataP', 'name', 'nameP'));

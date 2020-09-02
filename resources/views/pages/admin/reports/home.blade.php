@@ -1,12 +1,18 @@
-@extends('layouts.admin.layout')
 
+@extends('layouts.admin.layout')
 @section('plugins-css')
 <link rel="stylesheet" href="{{ asset('css/plugins-forms.css') }}">
 @endsection
 
 @section('content')
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
+    @if (session()->has('message'))
+    <div id="toast-container" class="alert alert-default-warning" role="alert">
+        <div class="toast-message">{{session('message')}}</div>
+    </div>
+    @endif
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -108,5 +114,10 @@
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
   })
+
+    setTimeout(function(){
+      $('#toast-container').remove();
+    }, 4000);
+
 </script>
 @endsection
