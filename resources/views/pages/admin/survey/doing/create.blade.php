@@ -5,8 +5,12 @@
 @endsection
 
 @section('content')
-
     <div class="mt-3">
+        @if (session()->has('message'))
+        <div id="toast-container" class="alert alert-default-danger" role="alert">
+            <div class="toast-message">{{session('message')}}</div>
+        </div>
+    @endif
         <div class="bg-primary mx-auto w-75">
             <h3 class="text-center p-3">{{$header->name}}</h3>
         </div>
@@ -96,6 +100,7 @@
                             {
                                 if (result)
                                 {
+                                    document.getElementById("select_depended_161").innerHTML += "<option value= 0>Seleccione...</option>";
                                     for (var key in result) {
                                         document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
                                     }
@@ -219,6 +224,9 @@
             }
         }
 
-               
+        setTimeout(function(){
+      $('#toast-container').remove();
+    }, 4000);
+
     </script>
 @endsection

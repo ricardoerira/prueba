@@ -76,13 +76,13 @@ class SurveyDoingController extends Controller
      *
      * @return void
      */
-    public function store(SurveyDoingRequest $request, Header $header)
+    public function store(Request $request, Header $header)
     {
 
         //Capacity control
         if ($header->id == 1){
             if (checkCapacity($request->answers["161"]) == false){
-                return redirect()->back()->with(["type" => "danger", "message" => "El area destino ya tiene la capacidad maxima permitida"]);
+                return redirect()->back()->with('message', 'El area destino ya tiene la capacidad maxima permitida');
             }
         }
         if($header->id == 5){

@@ -3,7 +3,6 @@
 @section('plugins-css')
 <link rel="stylesheet" href="{{ asset('css/admin/plugins-datatables.css') }}">
 @endsection
-
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -17,6 +16,11 @@
         </h1>
       </div>
     </div>
+    @if (session()->has('message'))
+      <div id="toast-container" class="alert alert-default-success" role="alert">
+        <div class="toast-message">{{session('message')}}</div>
+      </div>
+    @endif
     <section class="content">
       <div class="row">
         <div class="col-12">
@@ -125,5 +129,11 @@
 @endsection
 
 @section('own-js')
-<script src="{{ asset('js/admin/tables/users.js') }}"></script>
+<script src="{{ asset('js/admin/tables/users.js') }}">
+</script>
+<script>
+setTimeout (function(){
+    $('#toast-container').remove();
+      }, 4000);
+</script>
 @endsection

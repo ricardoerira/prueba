@@ -100,10 +100,12 @@ class SurveyController extends Controller
     {
         if(Header::where('id', $idheader)->pluck('hide')[0] == 0){
             Header::where('id', $idheader)->update(['hide'=> 1]);
+            $txt = " ocultada";
         }else{
             Header::where('id', $idheader)->update(['hide'=> 0]);
+            $txt = " visualizada";
         }
-        return redirect()->route('survey.index')->with(["type" => "success", "message" => "Encuesta eliminada con éxito"]);
+        return redirect()->route('survey.index')->with("message", "La encuesta ha sido ".$txt);
     }
 
 }
