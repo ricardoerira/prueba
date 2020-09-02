@@ -14,6 +14,7 @@
           <font style="vertical-align: inherit;">
             <font style="vertical-align: inherit;"></font>
           </font>
+          
         </h1>
       </div>
     </div>
@@ -23,6 +24,9 @@
           <div class="card">
             <div class="card-header d-flex justify-content-between">
               <h3>Datos de usuariós</h3>
+              <div>
+              <a href="{{ route ('positives.excel') }}" class="btn btn-primary">Exportar positivos excel</a>
+              </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

@@ -85,7 +85,8 @@ Route::post('notification/mark-as-read','Admin\notificationController@markNotifi
 Route::get('reporte-estado-de-salud', 'Admin\ReportController@index')->name('report.index');
 Route::post('report', 'Admin\ReportController@redirect')->name('redirect.data');
 Route::get('reporte-estado-de-salud/{name}', 'Admin\ReportController@dataReport')->name('dataReport.data');
-Route::get('exportPdf/reporte-estado-de-salud/{name}',  'Admin\ReportController@createPDF')->name('report.pdf');
+Route::get('export/reporte-estado-de-salud/{name}',  'Admin\ReportController@createPDF')->name('report.pdf');
+Route::get('exportPositives',  'Admin\ReportController@createPositives')->name('positives.excel');
 
 //Route capacity seat's
 Route::post('checkCapacity', 'Admin\capacityController@check')->name('capacity.check');

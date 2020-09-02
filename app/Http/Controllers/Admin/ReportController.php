@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ReportHigh;
+use App\Exports\UsersPositivesExport;
 
 class ReportController extends Controller
 {
@@ -58,5 +59,9 @@ class ReportController extends Controller
     public function createPDF(string $name){
         
         return Excel::download(new ReportHigh($name), 'Condiciones de salud ('.$name.').xlsx');
+    }
+
+    public function createPositives(){
+        return Excel::download(new UsersPositivesExport(), 'Positivos-covid19.xlsx');
     }
 }
