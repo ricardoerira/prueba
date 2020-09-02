@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ChangePassword
@@ -16,8 +17,8 @@ class ChangePassword
      */
     public function handle($request, Closure $next)
     {
-        if (!auth()->user()->change_password) {
-            dd("debes cambiar tu contraseña");
+        if (!auth()->user()->change_password and $request->url() != route('change_password')) {
+            return redirect()->route('change_password');
         }
 
         return $next($request);
