@@ -227,10 +227,11 @@ if (!function_exists('checkPathology')) {
                 $pathology = true;
             }
         }
-        $aux = Answer::where('survey_id', $idSurvey)->where('question_id', 63)->where('text', '<>', null)->pluck('text');
-        if($aux->count() > 0){
+       /* $aux = Answer::where('survey_id', $idSurvey)->where('question_id', 63)->where('text', '<>', null)->pluck('text')[0];
+        dd($aux);
+        if($aux <> 'No' || $aux <> 'no' || $aux <> 'N0'|| $aux <> 'ninguna' || $aux <> 'Ninguna' || $aux <> 'NINGUNA' || $aux <> 'N/A' || $aux <> 'n/a' ){
             $pathology = true;
-        }
+        }*/
 
         return $pathology;
     }
@@ -240,40 +241,84 @@ if (!function_exists('checkPathology')) {
 if (!function_exists('healthFilter')) {
     function healthFilter(string $surveyId)
     {
-                $mayor = (Answer::where('survey_id', $surveyId)->where('question_id', 19)->where('text', '>', 60))->get();
+                $text = "";
+                $resp = "Si";
+                $mayor = (Answer::where('survey_id', $surveyId)->where('question_id', 19)->where('text', '>', 60))->first();
                 $pathology = checkPathology($surveyId);
-                $discapacidad = Answer::where('survey_id', $surveyId)->where('question_id', 23)->where('choice_id', 3)->get();
-                $cuidador = Answer::where('survey_id', $surveyId)->where('question_id', 43)->where('choice_id', 3)->get();
-                $infancia = Answer::where('survey_id', $surveyId)->where('question_id', 36)->where('text', '>' , 0)->where( function($query) {
+                $discapacidad = Answer::where('survey_id', $surveyId)->where('question_id', 23)->where('choice_id', 3)->OrderBy('created_at', 'desc')->first();
+                $cuidador = Answer::where('survey_id', $surveyId)->where('question_id', 43)->where('choice_id', 3)->OrderBy('created_at', 'desc')->first();
+                $infancia = Answer::where('survey_id', $surveyId)->where('question_id', 36)->where('text', '>' , 0)->OrderBy('created_at', 'desc')->where( function($query) {
                     $query->orWhere('question_id', 37)->Where('text', '>' , 0);
-                })->get();
-                $lactante = Answer::where('survey_id', $surveyId)->where('question_id', 41)->where('text', '>' , 0)->get();
-                $adulto = Answer::where('survey_id', $surveyId)->where('question_id', 42)->where('text', '>' , 0)->get();
+                })->first();
+                $lactante = Answer::where('survey_id', $surveyId)->where('question_id', 41)->where('text', '>' , 0)->OrderBy('created_at', 'desc')->first();
+                $adulto = Answer::where('survey_id', $surveyId)->where('question_id', 42)->where('text', '>' , 0)->OrderBy('created_at', 'desc')->first();  
+                
+                    if($discapacidad != null){
+                        $text = "Discapacidad";
+                        $resp = "No";
+                    }
+                    if($mayor != null){
+                        $text = $text.", adulto mayor";
+                        $resp = "No";
+                    }
+                    if($pathology){
+                        $text = $text.", enfermedad inmunologica";
+                        $resp = "No";
+                    }
+                    if($cuidador != null){
+                        $text = $text.", cuidador";
+                        $resp = "No";
+                    }
+                    if($infancia != null){
+                        $text = $text.", niños en edad de escolarizacion";
+                        $resp = "No";
+                    }
+                    if($lactante != null){
+                        $text = $text.", persona lactante";
+                        $resp = "No";
+                    }
+                    if($adulto != null){
+                        $text = $text.", convive adulto mayor";
+                        $resp = "No";
+                    }
+                $array = array(
+                    "resp" => $resp,
+                    "texto" => $text,
+                );
+            return $array;
+    }
+}
 
-                if($discapacidad->count() > 0 || $cuidador->count() > 0 || $infancia->count() > 0 || $lactante->count() > 0 || $adulto->count() > 0 || $mayor->count() > 0 || $pathology == true){
-                    $resp = true;
-                }else{
-                    $resp = false;
-                }
-
-            return $resp;
+if (!function_exists('correctText')) {
+    function correctText(string $txt)
+    {
+        if ($txt <> ""){
+            if($txt[0] == ','){
+                $txt = substr($txt, 2);
+            }
+        }
+        return ucfirst($txt);
     }
 }
 
 if (!function_exists('listHealthFilter')) {
-    function listHealthFilter(object $data)
+    function listHealthFilter(array $data)
     {
         $i = 0;
+        $t = 0;
+        $dataP = null;
         foreach($data as $index){
-           $user = User::where('id', Survey::where('id', $index->survey_id)->pluck('surveyed_id')[0])->where('highRisk', 1)->get();
-           if ($user->count() > 0){
+           $user = User::where('id', Survey::where('id', $index)->pluck('surveyed_id')[0])->get();
+           $aux = healthFilter($index);
                $dataP[$i] = [
                    'id' => $user[0]->id,
-                   'name' => $user[0]->name,
-                   'cargo' => Answer::where('survey_id', $index->survey_id)->where('question_id', 29)->pluck('text')[0],
+                   'name' => Answer::where('survey_id', $index)->where('question_id', 17)->pluck('text')[0],
+                   'cargo' => Answer::where('survey_id', $index)->where('question_id', 29)->pluck('text')[0],
+                   'vinculacion' => Choice::where('id', Answer::where('survey_id', $index)->where('question_id', 28)->pluck('choice_id')[0])->pluck('name')[0],
+                   'observacion' => correctText($aux['texto']),
+                   'trabaja' => $aux['resp'],
                ];
                $i++;
-           }
         }
         return $dataP;
     }
@@ -321,3 +366,5 @@ if (!function_exists('outputCapacity')) {
         }
     }
 }
+
+

@@ -124,7 +124,6 @@
                                     for (var key in result) {
                                         document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
                                     }
-                                    
                                 }
                             },
                         })

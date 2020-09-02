@@ -60,6 +60,21 @@
                               <font style="vertical-align: inherit;">Cargo</font>
                             </font>
                           </th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
+                            <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">Tipo de vinculacion</font>
+                            </font>
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
+                            <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">Observacion</font>
+                            </font>
+                          </th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">
+                            <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">Puede trabajar</font>
+                            </font>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -84,7 +99,23 @@
                               <font style="vertical-align: inherit;">{{$item['cargo']}}</font>
                             </font>
                           </td>
+                          <td>
+                            <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">{{$item['vinculacion']}}</font>
+                            </font>
+                          </td>
+                          <td>
+                            <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">{{$item['observacion']}}</font>
+                            </font>
+                          </td>
+                          <td>
+                            <font style="vertical-align: inherit;">
+                              <font style="vertical-align: inherit;">{{$item['trabaja']}}</font>
+                            </font>
+                          </td>
                         </tr>
+                        
                         @endforeach
                         </tfoot>
                     </table>
