@@ -98,8 +98,11 @@ class SurveyController extends Controller
 
     public function delete(int $idheader)
     {
-        $header=Header::where('id', $idheader)->first();
-        $header->delete();
+        if(Header::where('id', $idheader)->pluck('hide')[0] == 0){
+            Header::where('id', $idheader)->update(['hide'=> 1]);
+        }else{
+            Header::where('id', $idheader)->update(['hide'=> 0]);
+        }
         return redirect()->route('survey.index')->with(["type" => "success", "message" => "Encuesta eliminada con éxito"]);
     }
 

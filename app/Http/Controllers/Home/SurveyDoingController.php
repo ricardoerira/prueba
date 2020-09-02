@@ -79,6 +79,16 @@ class SurveyDoingController extends Controller
     public function store(SurveyDoingRequest $request, Header $header)
     {
 
+        //Capacity control
+        if ($header->id == 1){
+            if (checkCapacity($request->answers["161"]) == false){
+                return redirect()->back()->with(["type" => "danger", "message" => "El area destino ya tiene la capacidad maxima permitida"]);
+            }
+        }
+        if($header->id == 5){
+            outputCapacity($request->answers["161"]);
+        }
+
         $survey = Survey::create([
             'surveyed_id'   => Auth::id(),
             'header_id'     => $header->id,
@@ -112,7 +122,6 @@ class SurveyDoingController extends Controller
                         'user_id' => $request->answers[2],
                         'observation' => 'Temperatura de '.$request->answers[16].'º en ingreso',
                     ];
-                    
                     event(new PostEvent($post));
                 }
             }

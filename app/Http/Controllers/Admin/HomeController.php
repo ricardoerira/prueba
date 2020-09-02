@@ -44,6 +44,7 @@ class HomeController extends Controller
         $totalcasesRecovered = User::where("status", 2)->get()->count();
 
         return view('pages.admin.home', compact('daySurveyCount', 'totalSurveyCount', 'totalTestCount', 'totalcasesPositive', 'totalcasesNegative', 'totalcasesRecovered'));
+        //return response()->json($varianle);
     }
 
 }

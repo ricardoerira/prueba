@@ -53,11 +53,11 @@
 @section('own-js')
     <script>
         if ( $("#depended").length > 0 ) {
-        
             let header = $("#header_id").val();
 
             if (header == 1) {
                 $('.seccion-4').addClass("d-none");
+                $('.question-161').addClass("d-none");
                 $('#radio_depended_160_0').change(() => {
                     $(".depend").each(function() {
                         $(this).addClass("d-none");
@@ -79,6 +79,76 @@
                     }).get();
                 });
 
+                $('#radio_depended_1_0').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
+                    if($("#radio_depended_1_0").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_0").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                }
+                            },
+                        })
+                    }
+                });
+                $('#radio_depended_1_1').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
+                    if($("#radio_depended_1_1").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_1").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                }
+                            },
+                        })
+                    }
+                });
+                $('#select_depended_161').change(() => {
+                    let data = {
+                            area :  $("#select_depended_161").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.controls')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if(result ==  true){
+                                }else{
+                                    alert("El area destino tiene su maximo aforo permitido");
+                                }
+                            },
+                        })
+                });
+
             }
 
             if (header == 5) {
@@ -86,6 +156,7 @@
                 $('.question-11').addClass("d-none");
                 $('.question-12').addClass("d-none");
                 $('.question-14').addClass("d-none");
+                $('.question-161').addClass("d-none");
                 $("#radio_depended_10_0").prop("required", false);
                 $("#radio_depended_10_1").prop("required", false);
                 $("#radio_depended_11_0").prop("required", false);
@@ -94,7 +165,60 @@
                 $("#radio_depended_12_1").prop("required", false);
                 $("#radio_depended_14_0").prop("required", false);
                 $("#radio_depended_14_1").prop("required", false);
+                $('#radio_depended_1_0').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
+                    if($("#radio_depended_1_0").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_0").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                }
+                            },
+                        })
+                    }
+                });
+                $('#radio_depended_1_1').change(() => {
+                    $('.question-161').removeClass("d-none");
+                    document.getElementById ("select_depended_161") .options.length = 0
+                    if($("#radio_depended_1_1").is(':checked')){
+                        let data = {
+                            area :  $("#radio_depended_1_1").val(),
+                        }
+                        $.ajax({
+                            url: "{{ route ('capacity.check')}}",
+                            data: data,
+                            headers: {'X-CSRF-TOKEN': "{{csrf_token()}}"},
+                            dataType: "json",
+                            method: "POST",
+                            success: function(result)
+                            {
+                                if (result)
+                                {
+                                    for (var key in result) {
+                                        document.getElementById("select_depended_161").innerHTML += "<option value='"+key+"'>"+result[key]+"</option>";
+                                    }
+                                    
+                                }
+                            },
+                        })
+                    }
+                });
             }
         }
+
+               
     </script>
 @endsection

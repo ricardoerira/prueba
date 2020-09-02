@@ -88,13 +88,25 @@
                                 <div class="form-group col-6">
                                     <label>
                                         <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Encuestador</font>
+                                        </font>
+                                    </label>
+                                    <select name="pollster" class="form-control select2 select2-hidden-accessible"
+                                        style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="1" @if (1 == $header->pollster) selected @endif>Usuarios</option>
+                                        <option value="2" @if (2 == $header->pollster) selected @endif>Vigilante</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label>
+                                        <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;">Organización</font>
                                         </font>
                                     </label>
                                     <select name="organization_id"
                                         class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="0">Seleccione...</option>
                                         @foreach ($organizations as $organization)
                                         <option value="{{ $organization->id }}" @if ( $organization->id ==
                                             $header->organization_id ) selected @endif
@@ -134,7 +146,7 @@
 
                                 <div class="card-footer d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">
-                                        <font style="vertical-align: inherit;">
+                                        <font style="ve srtical-align: inherit;">
                                             <font style="vertical-align: inherit;">Guardar</font>
                                         </font>
                                     </button>

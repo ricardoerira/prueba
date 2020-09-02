@@ -14,60 +14,61 @@
         <div class="card-body">
             <div class="row">
                 @foreach ($headers as $header)
-
-                    <div
-                        class="col-lg-3 col-6
-                        @if ($formIni > 0)
-                            @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
-                                d-none
-                            @endif
-                        @endif
-                        "
-                    >
+                    @if($header->hide == 0)
                         <div
-                            class="small-box
+                            class="col-lg-3 col-6
                             @if ($formIni > 0)
                                 @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
                                     d-none
-                                @else
-                                    bg-success
-                                @endif
-                            @else
-                                @if ($header->id == 2)
-                                    bg-success
-                                @else
-                                    bg-secondary
                                 @endif
                             @endif
                             "
                         >
+                            <div
+                                class="small-box
+                                @if ($formIni > 0)
+                                    @if ($header->id == 2 || ($fecha == now()->format('d/m/Y') && $header->id == 3))
+                                        d-none
+                                    @else
+                                        bg-success
+                                    @endif
+                                @else
+                                    @if ($header->id == 2)
+                                        bg-success
+                                    @else
+                                        bg-secondary
+                                    @endif
+                                @endif
+                                "
+                            >
 
 
-                            <div class="inner">
-                                <p>{{ $header->name }}</p>
+                                <div class="inner">
+                                    <p>{{ $header->name }}</p>
+                                </div>
+                                @if ($formIni > 0)
+                                    @if (!($header->id == 2 || ($header->id == 3 && ($fecha == now()->format('d/m/Y')))))
+                                        <a
+                                        href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
+                                        >
+                                            Realizar
+                                            <i class="fas fa-arrow-circle-right ml-1"></i>
+                                        </a>
+                                    @endif
+                                @else
+                                    @if (($header->id == 2))
+                                        <a
+                                        href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
+                                        >
+                                            Realizar
+                                            <i class="fas fa-arrow-circle-right ml-1"></i>
+                                        </a>
+                                    @endif
+                                @endif
+
                             </div>
-                            @if ($formIni > 0)
-                                @if (!($header->id == 2 || ($header->id == 3 && ($fecha == now()->format('d/m/Y')))))
-                                        <a
-                                        href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
-                                    >
-                                        Realizar
-                                        <i class="fas fa-arrow-circle-right ml-1"></i>
-                                    </a>
-                                @endif
-                            @else
-                                @if (($header->id == 2))
-                                        <a
-                                        href="{{ route('surveys.info', $header->slug) }}" class="small-box-footer"
-                                    >
-                                        Realizar
-                                        <i class="fas fa-arrow-circle-right ml-1"></i>
-                                    </a>
-                                @endif
-                            @endif
-
                         </div>
-                    </div>
+                    @endif
                 @endforeach
             </div>
         </div>

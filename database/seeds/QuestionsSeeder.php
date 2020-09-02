@@ -7,7 +7,7 @@ use App\Models\Section;
 use App\Models\Question;
 use App\Models\Organization;
 use App\Models\Answer;
-
+use App\Models\Choice;
 use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Str;
@@ -21,13 +21,12 @@ class GuestionsSeeder extends Seeder
      */
     public function run()
     {
-        for ($j = 1; $j < 6; $j++) {
+        for ($j = 2; $j < 6; $j++) {
             $csvFileName = "form" . $j . ".csv";
             $csvFile = public_path('' . $csvFileName);
             $customerArr = $this->csvToArray($csvFile);
 
             for ($i = 0; $i < count($customerArr); $i++) {
-
                 if ($customerArr[$i]["Número de documento:"] == 0) {
                     continue;
                 }
@@ -87,12 +86,26 @@ class GuestionsSeeder extends Seeder
 
     function createAnswer($survey_id, $question_id, $text)
     {
-
-        Answer::create([
-            'survey_id' => $survey_id,
-            'question_id' => $question_id,
-            'text' => $text
-        ]);
+        $type = Question::where ('id', $question_id)->pluck('input_type_id')[0];
+        if ($type == 5 || $type == 9){
+            Answer::create([
+                'survey_id' => $survey_id,
+                'question_id' => $question_id,
+                'text' => $text
+            ]);
+        }else{
+            if(trim($text) <> ""){
+                $text = Choice::where('name', trim($text))->pluck('id')[0];
+            }else{
+                $text = null;
+            }
+            Answer::create([
+                'survey_id' => $survey_id,
+                'question_id' => $question_id,
+                'choice_id' => $text
+            ]);
+        }
+        
 
 
     }
@@ -106,6 +119,8 @@ class GuestionsSeeder extends Seeder
             User::create([
                 'id' => $value,
                 'name' => 'test',
+                'status' => 3,
+                'highRisk' => 0,
                 'email' => Str::random(10) . 'admin@admin.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -128,6 +143,7 @@ class GuestionsSeeder extends Seeder
                 if (!$header)
                     $header = $row;
                 else
+
                     $data[] = array_combine($header, $row);
 
             }
