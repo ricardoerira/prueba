@@ -14,7 +14,6 @@ class UserRequest extends FormRequest
     public function authorize()
     {
         return true;
-        //return $this ->user()->isAdmin();
     }
 
     /**
@@ -26,8 +25,8 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            // 'password' => 'required',
+            'email' => 'required|email',
+            'id' => 'required|integer|digits_between:7,15',
         ];
     }
 }

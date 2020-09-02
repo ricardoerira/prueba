@@ -20,7 +20,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-primary w-75 mx-auto">
+                    <div class="card card-primary w-100 mx-auto">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <font style="vertical-align: inherit;">
@@ -104,15 +104,32 @@
                                 </div>
                                 <!-- /.card-body -->
 
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="">Pregunta</label>
+                                        <input type="text" name="name" class="form-control" id="">
+                                    </div>
+
+                                    <div class="form-group col-6">
+                                        <label for="">Tipo de entrada</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Seleccione...</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <hr>
 
                                 <div id="content-sessions" class="card">
                                 </div>
 
                                 <div class="d-flex align-items-end justify-content-end my-5">
-                                    <button type="button" class="btn btn-secondary mx-1">Seleccionar Session</button>
-                                    <button type="button" class="btn btn-warning mx-1" id="btn-new-session">Nueva
-                                        Session</button>
+                                    <button type="button" class="btn btn-secondary mx-1">
+                                        Seleccionar Session
+                                    </button>
+                                    <button type="button" class="btn btn-warning mx-1" id="btn-new-session">
+                                        Nueva Session
+                                    </button>
                                 </div>
 
                                 <div class="card-footer d-flex justify-content-end">
@@ -271,6 +288,15 @@
                                 </option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="d-flex align-items-end justify-content-end my-5">
+                        <button type="button" class="btn btn-secondary mx-1">
+                            Seleccionar Pregunta
+                        </button>
+                        <button type="button" class="btn btn-warning mx-1" id="btn-new-question">
+                            Nueva Pregunta
+                        </button>
                     </div>
                 </div>
             </div>

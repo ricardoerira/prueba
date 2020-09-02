@@ -70,30 +70,16 @@
                   <div class="form-group col-6">
                     <label for="password">
                       <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Contraseña</font>
+                        <font style="vertical-align: inherit;">Documento</font>
                       </font>
                     </label>
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                      placeholder="Ingrese Contraseña">
-                      @error('password')
+                    <input type="number" name="id" class="form-control @error('id') is-invalid @enderror" id="password"
+                      placeholder="Ingrese Documento">
+                      @error('id')
                         <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>
                         </span>
                       @enderror
-                  </div>
-
-                  <div class="form-group col-6">
-                    <label>
-                      <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Rol</font>
-                      </font>
-                    </label>
-                    <select name="role" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                      <option value="0">Seleccione...</option>
-                      @foreach ($roles as $role)
-                          <option value="{{ $role->name }}">{{ $role->name }}</option>
-                      @endforeach
-                    </select>
                   </div>
                 </div>
               </div>

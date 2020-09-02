@@ -66,12 +66,17 @@ class UserController extends Controller
      */
     public function save(UserRequest $request)
     {
-        $request['password'] = bcrypt($request->password);
-        $request->remember_token = Str::random(10);
+        $password = Str::random(8);
+
+        $request['password'] = bcrypt($password);
+
+        $request['remember_token'] = Str::random(40);
 
         $user = User::create($request->all());
+
+
         if ($user) {
-            $user->assignRole($request->role);
+            $user->assignRole("common-user");
             return redirect()->route('users.index');
         }
 
