@@ -23,7 +23,7 @@
           <div class="card">
             <div class="card-header d-flex justify-content-between">
             <h3>Personas de alto riesgo en {{ $nameP }}</h3>
-              <a href="{{ route('report.pdf', $name)}}" class="btn btn-primary">Exportar pdf</a>
+              <a href="{{ route('report.pdf', $name)}}" class="btn btn-primary">Exportar excel</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
