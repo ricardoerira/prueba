@@ -1,12 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <div class="d-block">
         <a href="{{ route('home') }}" class="brand-link mx-auto">
             <img src="{{ asset('images/admin/logo/logo-idpac.png') }}" alt="Logotipo de idpac"
                 class="brand-image  elevation-3" style="opacity: .8">
             <br>
         </a>
-    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
