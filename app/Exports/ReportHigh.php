@@ -21,7 +21,7 @@ class ReportHigh implements FromView
     {
         $pp = Survey::where('header_id', 2)->get()->unique('surveyed_id')->pluck('id');
         $nameP = strtr($this->name ,"_", " ");
-        
+
             $j = 0;
             for ($i = 0; $i < count($pp); $i++){
                 if ($this->name != "todas"){
